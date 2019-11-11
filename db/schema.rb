@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_171418) do
+ActiveRecord::Schema.define(version: 2019_11_11_175352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_171418) do
 
   create_table "images", force: :cascade do |t|
     t.string "photo"
-    t.boolean "main"
+    t.boolean "main", default: false
     t.string "imageable_type"
     t.bigint "imageable_id"
     t.datetime "created_at", null: false
@@ -108,10 +108,10 @@ ActiveRecord::Schema.define(version: 2019_11_11_171418) do
     t.string "price_indication"
     t.string "booking_link"
     t.string "deliveroo_link"
-    t.boolean "brunch"
-    t.boolean "terrace"
-    t.boolean "monday_night"
-    t.boolean "sunday_night"
+    t.boolean "brunch", default: false
+    t.boolean "terrace", default: false
+    t.boolean "monday_night", default: false
+    t.boolean "sunday_night", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,7 +1,9 @@
 class Order < ApplicationRecord
-  STATES = ["open", "pending", "confirmed", "delivered"]
+  ORDER_STATES = ["open", "pending", "confirmed", "delivered"]
 
-  validates :state, inclusion: { in: STATES }, presence: true
+  has_many :order_lines, dependent: :destroy
+
+  validates :state, inclusion: { in: ORDER_STATES }, presence: true
   validates :total_price, presence: true
   validates :user, presence: true
 end
