@@ -12,7 +12,11 @@
     object-fit: cover;
   }
 }
-
+.recent {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}
 .events {
   background-color: white;
   text-align: center;
@@ -35,3 +39,4 @@
     background-color: transparent;
     border-bottom: solid 2px gray;
   }
+

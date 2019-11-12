@@ -12,9 +12,10 @@
 
 #navbar-title {
   padding: 2px 5px;
+  font-family: "Bebas Neue";
   font-weight: lighter;
   &:hover {
-  color: black;
+    color: black;
   }
 }
 .navbar-element {
@@ -33,4 +34,3 @@
   border: 1px solid gray;
   padding: 2px 5px;
 }
-

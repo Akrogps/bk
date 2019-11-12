@@ -1,0 +1,56 @@
+.card-resto {
+  overflow: hidden;
+  background: white;
+  margin: 10px 0;
+
+  a {
+    text-decoration: none;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+
+
+  .card-resto-content {
+    padding: 0px 80px 30px 80px;
+    text-align: center;
+  }
+
+  .card-resto-infos {
+    color: black;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .card-resto-subtitle {
+    text-align: center;
+    font-weight: bolder;
+    padding-bottom: 20px;
+  }
+}
+
+.card-resto > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-gap: 32px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
