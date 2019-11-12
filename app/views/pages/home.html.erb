@@ -1,8 +1,50 @@
+<div class="banner">
+  <div class="header">
+    <div class="search-container">
+        <div class="form-search-large">
+          <p>All address</p>
+        </div>
+        <div class="form-search-large">
+          <p>Near</p>
+        </div>
+        <div class="form-search-medium">
+          <p>Go</p>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="container text-align-center">
+    <div class="recent">
+      <h3> Recent locations</h3>
+    </div>
+  <div class="card-grid justify-content-center" >
+    <% @places.each do |place| %>
+      <div class="card-resto">
+        <%= image_tag"restoimg.jpg", width:'320' %>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><%= link_to place.title, place_path(place), class: "text-dark" %></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p><%= place.subtitle %></p>
+        </div>
+        <div class="card-resto-content">
+          <p><%= truncate(place.address, :length => 120) %></p>
+        </div>
+        <div class="card-resto-subtitle">
+          <p><%= place.subtitle %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="button">
+    <a><%= link_to "See more", places_path %></a>
+  </div>
+</div>
 <div class="brunch-club">
   <h2>The Brunch Club</h2>
   <img class="brunch-club-img" src="#">
   <button type="btn-brunch-club">See more</button>
 </div>
 <!-- NEWSLETTER COMPONENT -->
-<div class="">
+<%= render 'shared/newsletter' %>
 
