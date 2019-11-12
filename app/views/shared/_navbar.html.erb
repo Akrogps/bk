@@ -1,0 +1,31 @@
+<nav class="navbar-expand-lg fixed-top">
+  <div class="custom-navbar">
+    <div class="col-4">
+    </div>
+    <div class="col-4">
+      <div id="navbar-title">
+        <h1><%= link_to "Brussels' Kitchen", root_path %></h1>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between col-4">
+      <div class="navbar-element">
+        <%= link_to_unless_current "All restaurants", root_path %>
+      </div>
+      <div class="navbar-element">
+        <%= link_to_unless_current "Events", events_path %>
+      </div>
+      <div class="navbar-element">
+       <%= link_to_unless_current "Books", books_path %>
+      </div>
+      <div class="d-flex justify-content-around ">
+        <div class="navbar-element_FR">
+         <%= link_to "FR", root_path %>
+        </div>
+        <div class="navbar-element_EN">
+         <%= link_to "EN", root_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+

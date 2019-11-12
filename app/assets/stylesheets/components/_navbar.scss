@@ -7,6 +7,29 @@
   float: none;
   vertical-align: top;
   border-bottom: 1px solid #EBEBEB;
+  font-color: gray;
 }
 
+#navbar-title {
+  padding: 2px 5px;
+  &:hover {
+  color: black;
+  }
+}
+.navbar-element {
+  padding: 2px 5px;
+  color: blue;
+}
+
+.navbar-element_FR {
+  margin-right: 10px;
+  padding: 2px 5px;
+
+}
+
+.navbar-element_EN {
+  margin-left: 0px;
+  border: 1px solid gray;
+  padding: 2px 5px;
+}
 
