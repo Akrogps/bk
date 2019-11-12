@@ -390,5 +390,3 @@ from friday to saturday, from 6pm to 2am",
     sunday_night: false,
   }
 ]
-
-attributes.each { |place_attributes| Place.create(place_attributes) }
