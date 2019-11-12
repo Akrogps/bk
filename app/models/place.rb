@@ -1,6 +1,10 @@
 class Place < ApplicationRecord
   BOOLEAN = [true, false]
+
   include Imageable
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   has_many :categories, through: :categories_places
   has_many :tags, through: :places_tags
