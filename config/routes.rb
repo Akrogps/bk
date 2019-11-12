@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :places
   resources :events
   resources :books
-  resources :orders, only: [:show]
-  resources :order_lines, only: [:create]
+  resources :orders, only: :show
+  resources :order_lines, only: :create
 end
