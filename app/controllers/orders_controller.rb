@@ -3,9 +3,4 @@ class OrdersController < ApplicationController
 
   def show
   end
-
-  private
-
-  def set_order
-  end
 end
