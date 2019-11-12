@@ -1,6 +1,7 @@
 class Tag < ApplicationRecord
-  TAGS = ["Restaurant", "Cantine", "Néo-cantine", "Bar", "Café"]
+  TAGS = ["Restaurant", "Cantine", "Néo-cantine", "Bar", "Café", "Wine Bar"]
 
+  has_many :places_tags, dependent: :destroy
   has_many :places, through: :places_tags
 
   validates :name, presence: true, inclusion: { in: TAGS }
