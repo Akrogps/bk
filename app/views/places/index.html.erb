@@ -2,7 +2,20 @@
 <div class="search-form">
   <%= form_for(:query, url: places_path, method: :get) do |f| %>
     <div class="form-group">
-      <%= f.select :tags, Tag::TAGS %>
+      <%= f.fields_for :tags do |ff| %>
+        <% Tag::TAGS.each do |tag| %>
+          <%= ff.label tag %>
+          <%= ff.check_box tag, value: tag %>
+          <% end %>
+        <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.fields_for :categories do |ff| %>
+        <% Category::CATEGORIES.each do |category| %>
+          <%= ff.label category %>
+          <%= ff.check_box category, value: category %>
+          <% end %>
+        <% end %>
     </div>
     <%= f.submit "Go", value: "submit" %>
   <% end %>
