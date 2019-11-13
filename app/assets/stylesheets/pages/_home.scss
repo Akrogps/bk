@@ -12,6 +12,7 @@
     object-fit: cover;
   }
 }
+
 .recent {
   display: flex;
   justify-content: center;
@@ -32,11 +33,21 @@
   }
 }
 
- .button a {
-    font-weight: bold;
-    padding-bottom: 8px;
-    color: gray;
-    background-color: transparent;
-    border-bottom: solid 2px gray;
+
+.button a {
+  justify-content: center;
+  font-weight: bold;
+  padding-bottom: 8px;
+  color: gray;
+  background-color: transparent;
+  border-bottom: solid 2px gray;
+}
+
+.container {
+  text-align: center;
+
+  .button {
+    margin: 24px;
   }
+}
 
