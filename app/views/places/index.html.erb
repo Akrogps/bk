@@ -1,16 +1,37 @@
 <!-- Searchbar -->
 <div></div>
 <!-- Resto cards -->
-<div>
-  <% @places.each do |place| %>
-    <%= place.title %>
-  <% end %>
+<div class="search-map">
+  <div class="card-grid justify-content-center col-7" >
+    <% @places.each do |place| %>
+      <div class="card-resto">
+        <%= cl_image_tag(place.images.where(main: true).first.photo, crop: :fit) %>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><%= link_to place.title, place_path(place), class: "text-dark" %></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p><%= place.subtitle %></p>
+        </div>
+        <div class="card-resto-content">
+          <p><%= truncate(place.address, :length => 120) %></p>
+          <% place.tags.each_with_index do |tag, index| %>
+            <% if index == place.tags.count - 1 %>
+              <span><%= tag.name %></span>
+            <% else %>
+              <span><%= tag.name %>,</span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <!-- Map -->
+  <div class="col-5"
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
-<!-- Map -->
-<div class="col-5"
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+

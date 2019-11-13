@@ -1,2 +1,17 @@
 // Import page-specific CSS files here.
 @import "home";
+
+
+.search-map {
+  display: flex;
+}
+
+#map {
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  grid-template-columns: 1fr;
+  margin-bottom: 25px;
+}
+
