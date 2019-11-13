@@ -1,6 +1,40 @@
 <!-- Searchbar -->
-<div></div>
+<div class="search-form">
+  <%= form_for(:query, url: places_path, method: :get) do |f| %>
+    <div class="form-group">
+      <%= f.fields_for :tags do |ff| %>
+        <% Tag::TAGS.each do |tag| %>
+          <%= ff.label tag %>
+          <%= ff.check_box tag, value: tag %>
+          <% end %>
+        <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.fields_for :categories do |ff| %>
+        <% Category::CATEGORIES.each do |category| %>
+          <%= ff.label category %>
+          <%= ff.check_box category, value: category %>
+          <% end %>
+        <% end %>
+    </div>
+    <%= f.submit "Go", value: "submit" %>
+  <% end %>
+</div>
 <!-- Resto cards -->
+
+<div>
+  <% @places_list.each do |place| %>
+    <h2> <%= place.title %> </h2>
+  <% end %>
+</div>
+<!-- Map -->
+<div class="col-5"
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  
 <div class="search-map">
   <div class="card-grid justify-content-center col-7" >
     <% @places.each do |place| %>
