@@ -1,5 +1,6 @@
 .places{
   background-color: white;
+  padding-bottom: 20px;
 
   .flex-main-img img {
     width: 100%;
@@ -50,13 +51,26 @@
       margin-top: 8px;
       margin-bottom: 8px;
       width: 100%;
-      color: black;
+      color: #04cfbb;
       text-decoration: none;
-      border-color: #5FB5AD;
+      border-color: #04cfbb;
 
       &:hover {
         color: white;
-        background-color: #5FB5AD;
+        background-color: #04cfbb;
+      }
+    }
+    #booking-btn {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      width: 100%;
+      color: blue;
+      text-decoration: none;
+      border-color: blue;
+
+      &:hover {
+        color: white;
+        background-color: blue;
       }
     }
   }
@@ -74,5 +88,13 @@
       color: #5FB5AD;
      }
     }
+  }
+}
+
+.brunch-club-show {
+  margin-top: 30px;
+
+  img {
+  width: 320px;
   }
 }
