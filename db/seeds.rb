@@ -433,14 +433,12 @@ Category::CATEGORIES.each { |category| Category.create(name: category) }
 Tag::TAGS.each { |tag| Tag.create(name: tag) }
 
 # Assign categories and tags to places
-places = Place.all
-places.each do |place|
+Place.all.each do |place|
   random1 = [1, 2].sample
   random2 = [1, 2, 3].sample
 
   random1.times do
     random_category = Category.all.sample
-
     if CategoriesPlace.where(category_id: random_category.id, place_id: place.id).empty?
       CategoriesPlace.create(category_id: random_category.id, place_id: place.id)
     end
@@ -448,7 +446,6 @@ places.each do |place|
 
   random2.times do
     random_tag = Tag.all.sample
-
     if PlacesTag.where(place_id: place.id, tag_id: random_tag.id).empty?
       PlacesTag.create(place_id: place.id, tag_id: random_tag.id)
     end
