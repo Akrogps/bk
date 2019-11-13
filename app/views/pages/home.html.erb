@@ -10,17 +10,17 @@
       </select>
     </div>
     <input class="close-to" type="address" placeholder="Close to ..." >
-    <button type="submit" class="button">Go</button>
+    <button type="submit" class="button-go">Go</button>
   </form>
 </div>
 <div class="container">
-  <div class="recent">
+  <div class="recent neutral-text">
     <h3> Recent locations</h3>
   </div>
   <div class="card-grid justify-content-center" >
     <% @places.each do |place| %>
       <div class="card-resto">
-        <%= image_tag"restoimg.jpg", width:'320' %>
+        <%= cl_image_tag(place.images.where(main: true).first.photo, crop: :fit) %>
         <div class="card-resto-infos" style="text-decoration: none;">
           <h2><%= link_to place.title, place_path(place), class: "text-dark" %></h2>
         </div>
@@ -29,24 +29,28 @@
         </div>
         <div class="card-resto-content">
           <p><%= truncate(place.address, :length => 120) %></p>
-        </div>
-        <div class="card-resto-subtitle">
-          <p><%= place.subtitle %></p>
+          <% place.tags.each_with_index do |tag, index| %>
+            <% if index == place.tags.count - 1 %>
+              <span><%= tag.name %></span>
+            <% else %>
+              <span><%= tag.name %>,</span>
+            <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>
   </div>
-  <div class="button">
-    <a><%= link_to "See more", places_path %></a>
+  <div class="button mb-5">
+    <h5><%= link_to "See more", places_path %></h5>
   </div>
 </div>
 <div class="brunch-club">
-  <h3>The Brunch Club</h3>
+  <h3>Le Brunch Club</h3>
   <div class="brunch-club-img">
-    <%= image_tag "images.jpeg" %>
+    <%= image_tag "brunchclub_home.jpg" %>
   </div>
   <div class="button">
-    <a href="#">See more</a>
+    <h5><%= link_to "More info", events_path %></h5>
   </div>
 </div>
 <%= render 'shared/newsletter' %>
@@ -61,7 +65,7 @@
     </div>
   </div>
   <div class="button">
-    <a href="#">See more</a>
+    <h5><%= link_to "More info", events_path %></h5>
   </div>
 </div>
 
