@@ -3,7 +3,13 @@ class PlacesController < ApplicationController
   before_action :set_place, only: :show
 
   def index
-    @places = Place.geocoded.all
+    if params[:query] && params[:query][:tags].present?
+      @places_list = Tag.where(name: params[:query][:tags]).map { |tag| tag.places }.flatten.uniq
+    else
+      @places_list = Place.all
+    end
+
+    @places = @places_list.reject { |place| place.latitude.nil? }
 
     @markers = @places.map do |place|
       {

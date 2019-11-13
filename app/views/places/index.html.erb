@@ -1,9 +1,16 @@
 <!-- Searchbar -->
-<div></div>
+<div class="search-form">
+  <%= form_for(:query, url: places_path, method: :get) do |f| %>
+    <div class="form-group">
+      <%= f.select :tags, Tag::TAGS %>
+    </div>
+    <%= f.submit "Go", value: "submit" %>
+  <% end %>
+</div>
 <!-- Resto cards -->
 <div>
-  <% @places.each do |place| %>
-    <%= place.title %>
+  <% @places_list.each do |place| %>
+    <h2> <%= place.title %> </h2>
   <% end %>
 </div>
 <!-- Map -->
