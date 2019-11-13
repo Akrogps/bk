@@ -1,17 +1,17 @@
 <div class="banner">
-  <div class="header">
-    <div class="search-container">
-        <div class="form-search-large">
-          <p>All addresses</p>
-        </div>
-        <div class="form-search-large">
-          <p>Near</p>
-        </div>
-        <div class="form-search-medium">
-          <p>Go</p>
-        </div>
+  <form action="/action_page.php" >
+    <div class="custom-select" placeholder="All locations" >
+      <select>
+        <option value="Restaurant">Restaurant</option>
+        <option value="Cantine">Cantine</option>
+        <option value="Bar">Bar</option>
+        <option value="Brunch">Brunch</option>
+        <option value="Café">Café</option>
+      </select>
     </div>
-  </div>
+    <input class="close-to" type="address" placeholder="Close to ..." >
+    <button type="submit" class="button">Go</button>
+  </form>
 </div>
 <div class="container">
   <div class="recent">
