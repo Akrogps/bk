@@ -1,0 +1,78 @@
+.places{
+  background-color: white;
+
+  .flex-main-img img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    padding-right: 102px;
+    padding-left: 102px;
+    padding-top: 20px;
+  }
+
+  .flex-title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    .title h4 {
+      font-size: 26px;
+    }
+    .subtitle p {
+      font-size: 18px;
+      font-weight: lighter;
+    }
+  }
+
+  .content-info{
+    padding-left: 102px;
+    padding-right: 102px;
+    background-color: transparent;
+
+    .flex-content {
+      text-align: justify;
+      text-indent: 24px;
+      padding-bottom: 8px;
+      font-size: 18px;
+      line-height: 32px;
+    }
+
+    .flex-info-place {
+      border-radius: 2px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: lighter;
+      background-color: rgba( 5, 5, 5, 0.05);
+
+      .info {
+        padding: 20px;
+      }
+    }
+    #deliveroo-btn {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      width: 100%;
+      color: black;
+      text-decoration: none;
+      border-color: #5FB5AD;
+
+      &:hover {
+        color: white;
+        background-color: #5FB5AD;
+      }
+    }
+  }
+  .icons {
+    font-size: 22px;
+    padding-left: 120px;
+
+    .first {
+      margin-right: 2px;
+    }
+
+    a {
+     color: rgb(100, 100, 100);
+     &:hover {
+      color: #5FB5AD;
+     }
+    }
+  }
+}

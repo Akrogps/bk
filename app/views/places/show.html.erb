@@ -1,2 +1,36 @@
-<h1>Places#show</h1>
-<p>Find me in app/views/places/show.html.erb</p>
+<div class="places" style="background-color: white;">
+  <div class="page-setup">
+    <div class="flex-main-img">
+      <%= cl_image_tag(@place.images.where(main: true).first.photo, crop: :fit) %>
+    </div>
+    <div class="flex-title text-center col-12">
+      <div class="justify-content-between">
+        <!-- <div class="col-2"></div> -->
+        <div class="title">
+          <h4><strong><%=@place.title%></strong></h4>
+        </div>
+        <!-- <div class="col-2"></div> -->
+      </div>
+      <div class="subtitle">
+        <p><light><%=@place.subtitle%></light></p>
+      </div>
+    </div>
+    <div class="row content-info">
+      <div class="flex-content col-8" style="background-color: transparent;">
+          <p><%=@place.content%></p>
+      </div>
+      <div class="flex-sidebar-place col-4">
+        <div class="flex-info-place">
+          <div class="info">
+            <p id="info"><%=@place.address%></p>
+            <p><%= link_to "Website", @place.website, target: :_blank %></p>
+            <p id="info"><%=@place.phone_number%></p>
+            <p id="info"><%=@place.opening_hours%></p>
+            <p id="info"><%=@place.price_indication%></p>
+          </div>
+        </div>
+        <a href="https://deliveroo.be/fr" class="btn btn-link btn-outline-success" id="deliveroo-btn" target="_blank">Deliveroo</a>
+      </div>
+    </div>
+  </div>
+</div>
