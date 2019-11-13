@@ -1,3 +1,8 @@
-<h3><%= place.title %></h3>
-<h5><%= place.subtitle %></h5>
-<p><%= place.address %></p>
+<div class="map-pic">
+  <%= cl_image_tag(place.images.where(main: true).first.photo, crop: :fit) %>
+</div>
+<div class="map-txt">
+  <h2><%= place.title %></h2>
+  <p><%= place.subtitle %></p>
+  <p><%= place.address %></p>
+</div>

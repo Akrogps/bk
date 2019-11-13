@@ -21,23 +21,9 @@
   <% end %>
 </div>
 <!-- Resto cards -->
-
-<div>
-  <% @places_list.each do |place| %>
-    <h2> <%= place.title %> </h2>
-  <% end %>
-</div>
-<!-- Map -->
-<div class="col-5"
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  
 <div class="search-map">
   <div class="card-grid justify-content-center col-7" >
-    <% @places.each do |place| %>
+    <% @places_list.each do |place| %>
       <div class="card-resto">
         <%= cl_image_tag(place.images.where(main: true).first.photo, crop: :fit) %>
         <div class="card-resto-infos" style="text-decoration: none;">
