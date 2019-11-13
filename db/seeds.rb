@@ -1,15 +1,14 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
+# Clear the DB
 Place.destroy_all
 Event.destroy_all
 Book.destroy_all
+Category.destroy_all
+Tag.destroy_all
 
+# All places attributes
 attributes = [
   {
     title: "Komo",
@@ -391,4 +390,64 @@ from friday to saturday, from 6pm to 2am",
   }
 ]
 
-attributes.each { |place_attributes| Place.create(place_attributes) }
+# All places pictures URLs
+photo_url_list = [
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576418/Brussels%20Kitchen/Komo/komo_main_z3urjs.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576418/Brussels%20Kitchen/Komo/komo1_clppxh.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576418/Brussels%20Kitchen/Komo/komo2_rdui0g.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576483/Brussels%20Kitchen/Tulipant/tulipant_main_pcemmv.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576483/Brussels%20Kitchen/Tulipant/tulipant1_gugb4l.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576483/Brussels%20Kitchen/Tulipant/tulipant2_amy4o1.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576427/Brussels%20Kitchen/Luka/luka_main_w4yuit.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576427/Brussels%20Kitchen/Luka/luka1_n4bmwc.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576427/Brussels%20Kitchen/Luka/luka2_z8yust.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576350/Brussels%20Kitchen/Comptoir_Rodin/comptoir_rodin_main_ovxmja.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576350/Brussels%20Kitchen/Comptoir_Rodin/comptoir_rodin1_wlk3c6.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576350/Brussels%20Kitchen/Comptoir_Rodin/comptoir_rodin2_anrl8l.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576407/Brussels%20Kitchen/Flora/flora_main_i7md8p.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576408/Brussels%20Kitchen/Flora/flora1_bfy0di.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576408/Brussels%20Kitchen/Flora/flora2_namasz.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576474/Brussels%20Kitchen/Tero/tero_main_ew6wx9.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576474/Brussels%20Kitchen/Tero/tero1_ehxfl2.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576474/Brussels%20Kitchen/Tero/tero2_r5041a.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576447/Brussels%20Kitchen/Minimes/minimes_main_gj4vtk.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576446/Brussels%20Kitchen/Minimes/minimes1_smefrr.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576447/Brussels%20Kitchen/Minimes/minimes2_ehibyv.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576397/Brussels%20Kitchen/Fernand_Obb/fernand_obb_main_tsmkze.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576397/Brussels%20Kitchen/Fernand_Obb/fernand_obb1_az8zil.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576397/Brussels%20Kitchen/Fernand_Obb/fernand_obb2_k42nt9.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576436/Brussels%20Kitchen/La_Meute/meute_main_c89ujw.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576436/Brussels%20Kitchen/La_Meute/meute1_etx2o8.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576435/Brussels%20Kitchen/La_Meute/meute2_xygw1n.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576465/Brussels%20Kitchen/Nuovo_Rosso/nuovo_rosso_main_vlk0in.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576465/Brussels%20Kitchen/Nuovo_Rosso/nuovo_rosso1_amwwyj.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576465/Brussels%20Kitchen/Nuovo_Rosso/nuovo_rosso2_cgcjil.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576386/Brussels%20Kitchen/My_tannour/my_tannour_main_hojsv7.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576386/Brussels%20Kitchen/My_tannour/my_tannour_1_vkopoc.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576386/Brussels%20Kitchen/My_tannour/my_tannour_2_vvfmmj.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576348/Brussels%20Kitchen/Bar_du_canal/barducanal_main_yaihny.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576348/Brussels%20Kitchen/Bar_du_canal/barducanal_1_huvk0z.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576348/Brussels%20Kitchen/Bar_du_canal/barducanal_2_rb8pof.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576401/Brussels%20Kitchen/Cafe_caberdouche/cafe_caberdouche_main_r7ahmu.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576400/Brussels%20Kitchen/Cafe_caberdouche/cafe_caberdouche_1_sk2nga.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576400/Brussels%20Kitchen/Cafe_caberdouche/cafe_caberdouche_2_gwvi2h.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576428/Brussels%20Kitchen/Phare_kanaal/phare_kanaal_main_ohfjht.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576428/Brussels%20Kitchen/Phare_kanaal/phare_kanaal_1_cq19ex.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576428/Brussels%20Kitchen/Phare_kanaal/phare_kanaal_2_kms1s0.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576415/Brussels%20Kitchen/Vini_divini/vini_divini_main_kaoetl.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576415/Brussels%20Kitchen/Vini_divini/vini_divini_1_rkrxqx.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576415/Brussels%20Kitchen/Vini_divini/vini_divini_2_y6k1v9.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576445/Brussels%20Kitchen/Petit_mercado/petit_mercado_main_ukzd56.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576445/Brussels%20Kitchen/Petit_mercado/petit_mercado_1_mpuqnq.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576445/Brussels%20Kitchen/Petit_mercado/petit_mercado_2_qvuzhl.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576457/Brussels%20Kitchen/Fabiola/fabiola_main_di3ug0.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576457/Brussels%20Kitchen/Fabiola/fabiola_1_z6y9t5.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576457/Brussels%20Kitchen/Fabiola/fabiola_2_al151r.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576469/Brussels%20Kitchen/Titulus/titulus_main_nrot4f.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576469/Brussels%20Kitchen/Titulus/titulus_1_dkkv4i.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576469/Brussels%20Kitchen/Titulus/titulus_2_xlbkub.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576456/Brussels%20Kitchen/Monk/monk_main_thod9s.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576456/Brussels%20Kitchen/Monk/monk1_xtna9v.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576457/Brussels%20Kitchen/Monk/monk2_usvowl.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576386/Brussels%20Kitchen/Ethylo/ethylo_main_pihy7m.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576386/Brussels%20Kitchen/Ethylo/ethylo1_ngwys4.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576386/Brussels%20Kitchen/Ethylo/ethylo2_wlddaf.jpg"],
+]
+
+# Create places and their images
+attributes.each_with_index do |place_attributes, index|
+  new_place = Place.create(place_attributes)
+  photo_url_list[index].each_with_index do |url, index|
+    if index == 0
+      new_image = new_place.images.new(main: true)
+    else
+      new_image = new_place.images.new
+    end
+    new_image.remote_photo_url = url
+    new_image.save
+  end
+end
+
+# Create categories and tags
+Category::CATEGORIES.each { |category| Category.create(name: category) }
+Tag::TAGS.each { |tag| Tag.create(name: tag) }
+
+# Assign categories and tags to places
+Place.all.each do |place|
+  random1 = [1, 2].sample
+  random2 = [1, 2, 3].sample
+
+  random1.times do
+    random_category = Category.all.sample
+    if CategoriesPlace.where(category_id: random_category.id, place_id: place.id).empty?
+      CategoriesPlace.create(category_id: random_category.id, place_id: place.id)
+    end
+  end
+
+  random2.times do
+    random_tag = Tag.all.sample
+    if PlacesTag.where(place_id: place.id, tag_id: random_tag.id).empty?
+      PlacesTag.create(place_id: place.id, tag_id: random_tag.id)
+    end
+  end
+end

@@ -1,3 +1,6 @@
 class PlacesTag < ApplicationRecord
-  validates :place, uniqueness: { scope: :tag }
+  belongs_to :place
+  belongs_to :tag
+
+  validates :place_id, uniqueness: { scope: :tag_id }
 end

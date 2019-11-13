@@ -1,3 +1,6 @@
 class CategoriesPlace < ApplicationRecord
-  validates :category, uniqueness: { scope: :place }
+  belongs_to :category
+  belongs_to :place
+
+  validates :category_id, uniqueness: { scope: :place_id }
 end
