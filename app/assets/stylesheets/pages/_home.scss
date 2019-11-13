@@ -1,22 +1,26 @@
-  // Specific CSS for your home-page
+  // Brunch Club
 .brunch-club {
   background-color: white;
   padding: 36px;
   justify-content: center;
   text-align: center;
 
-  .brunch-club-img {
+  .brunch-club-img img {
     padding: 20px;
     width: 100%;
     height: 100%;
     object-fit: cover;
+
   }
 }
+
+// PLaces Grid
 
 .recent {
   display: flex;
   justify-content: center;
-  margin: 30px auto;
+  margin: 50px 0 0px 0;
+  color: black;
 }
 .events {
   background-color: white;
@@ -32,7 +36,6 @@
     object-fit: cover;
   }
 }
-
 
 .button a {
   justify-content: center;
@@ -51,12 +54,32 @@
   }
 }
 
+// banner & search bar
+
 .banner {
   height: 60vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), image-url("background");
+  background-image: -webkit-linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), image-url("background-home-tulipant.jpg");
   background-size: cover;
   background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-select, input {
+  width: 200px;
+  height: 40px;
+  padding-left: 12px;
+  border-style: none;
+
+  select {
+  display: none;
+  }
+}
+
+.button-go {
+  height: 40px;
+  width: 50px;
+  border-style: none;
+  color: blue;
 }

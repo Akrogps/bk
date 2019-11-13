@@ -27,9 +27,18 @@
 }
 
 .flex-description {
+  font-size: 30px;
+  font-family: "Bebas Neue";
+  letter-spacing: 0.07em;
   text-align: left;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin: 30px 102px;
+
+  p {
+    padding-top: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    letter-spacing: normal;
+  }
 }
 
 .flex-bluebox {
