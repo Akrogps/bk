@@ -33,7 +33,7 @@
           <p><%= place.subtitle %></p>
         </div>
         <div class="card-resto-content">
-          <p><%= truncate(place.address, :length => 120) %></p>
+          <p><%= truncate(place.address.gsub(",", "<br/>").html_safe, :length => 120) %></p>
           <% place.tags.each_with_index do |tag, index| %>
             <% if index == place.tags.count - 1 %>
               <span><%= tag.name %></span>
