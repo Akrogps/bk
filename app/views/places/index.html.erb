@@ -1,7 +1,7 @@
 <!-- Searchbar -->
 <div>
   <%= form_for(:query, url: places_path, method: :get) do |f| %>
-    <div >
+    <div>
       <%= f.fields_for :tags do |ff| %>
         <% Tag::TAGS.each do |tag| %>
           <%= ff.label tag %>
@@ -9,7 +9,7 @@
           <% end %>
         <% end %>
     </div>
-    <div >
+    <div>
       <%= f.fields_for :categories do |ff| %>
         <% Category::CATEGORIES.each do |category| %>
           <%= ff.label category %>
