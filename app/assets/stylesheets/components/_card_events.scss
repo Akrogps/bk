@@ -1,7 +1,11 @@
 .card-event {
   overflow: hidden;
   background: white;
-  margin: 10px 0;
+  margin: 10px 0 0 0;
+
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
 
   a {
     text-decoration: none;
@@ -51,6 +55,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, 270px);
   grid-gap: 24px;
-  margin-top: 40px;
+  margin-top: 90px;
   margin-bottom: 40px;
 }

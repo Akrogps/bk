@@ -1,7 +1,7 @@
 <div class="card-grid justify-content-center" >
     <% @events.each do |event| %>
       <div class="card-event">
-          <%= image_tag"brunchclub_carre.jpg" %>
+          <%= link_to image_tag("brunchclub_carre.jpg"), event_path(event), class: "card-event" %>
         <div class="card-event-infos" style="text-decoration: none;">
           <h2><%= link_to event.title, event_path(event), class: "text-dark" %></h2>
         </div>
