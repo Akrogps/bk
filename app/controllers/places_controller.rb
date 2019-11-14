@@ -19,10 +19,15 @@ class PlacesController < ApplicationController
         end
         @places_list.flatten!
       elsif @places_list_tag.empty? && @places_list_category.empty?
-        @places_list ||= Place.all
+        @places_list = Place.all if @places_list.empty?
       else
-        @places_list = @places_list & @places_list_tag unless @places_list_tag.empty?
-        @places_list = @places_list & @places_list_category unless @places_list_category.empty?
+        if @places_list.empty?
+          @places_list = @places_list_tag unless @places_list_tag.empty?
+          @places_list = @places_list_category unless @places_list_category.empty?
+        else
+          @places_list = @places_list & @places_list_tag unless @places_list_tag.empty?
+          @places_list = @places_list & @places_list_category unless @places_list_category.empty?
+        end
       end
       check_if_filled("brunch")
       check_if_filled("terrace")
