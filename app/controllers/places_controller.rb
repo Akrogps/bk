@@ -5,12 +5,10 @@ class PlacesController < ApplicationController
   def index
     if check_if_filter
       @places_list = []
-      if !params[:query]["address"].empty?
-        @address = params[:query]["address"]
-        @places_list = Place.near(@address, 1).to_a
-      end
+      list_if_geocoded
       @places_list_tag = filter_by(Tag, "tags")
       @places_list_category = filter_by(Category, "categories")
+
       if !@places_list_tag.empty? && !@places_list_category.empty?
         if @places_list.empty?
           @places_list = @places_list_category & @places_list_tag
@@ -19,11 +17,17 @@ class PlacesController < ApplicationController
         end
         @places_list.flatten!
       elsif @places_list_tag.empty? && @places_list_category.empty?
-        @places_list ||= Place.all
+        @places_list = Place.all if @places_list.empty?
       else
-        @places_list = @places_list & @places_list_tag unless @places_list_tag.empty?
-        @places_list = @places_list & @places_list_category unless @places_list_category.empty?
+        if @places_list.empty?
+          @places_list = @places_list_tag unless @places_list_tag.empty?
+          @places_list = @places_list_category unless @places_list_category.empty?
+        else
+          @places_list = @places_list & @places_list_tag unless @places_list_tag.empty?
+          @places_list = @places_list & @places_list_category unless @places_list_category.empty?
+        end
       end
+
       check_if_filled("brunch")
       check_if_filled("terrace")
       check_if_filled("monday_night")
@@ -50,6 +54,13 @@ class PlacesController < ApplicationController
 
   def set_place
     @place = Place.find(params[:id])
+  end
+
+  def list_if_geocoded
+    if !params[:query]["address"].empty?
+      @address = params[:query]["address"]
+      @places_list = Place.near(@address, 1).to_a
+    end
   end
 
   def check_if_filter
