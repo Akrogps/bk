@@ -29,14 +29,8 @@
           </div>
         </div>
         <a href="https://deliveroo.be/fr" class="btn btn-link btn-outline-success" id="booking-btn" target="_blank">Get tickets</a>
-        <div class="brunch-club-show">
-          <h4>Le Brunch Club</h4>
-          <%= image_tag"brunchclub_carre.jpg" %>
-        </div>
-        <div class="brunch-club-show">
-          <h4>Brussels' Kitchen's Books</h4>
-          <%= image_tag"books_carre.jpg" %>
-        </div>
+        <%= render 'shared/brunch_club' %>
+        <%= render 'shared/bk_books' %>
       </div>
     </div>
   </div>

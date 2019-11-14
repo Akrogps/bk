@@ -3,13 +3,13 @@
   <!-- Searchbar -->
   <div class="search-form col-7">
     <%= form_for(:query, url: places_path, method: :get) do |f| %>
-        <div class="search-tags">
-          <%= f.fields_for :tags do |ff| %>
-            <% Tag::TAGS.each do |tag| %>
+      <div class="search-tags">
+         <%= f.fields_for :tags do |ff| %>
+           <% Tag::TAGS.each do |tag| %>
               <%= ff.check_box tag, value: tag %>
               <%= ff.label tag %>
               <% end %>
-            <% end %>
+           <% end %>
         </div>
       <div class="search-categories">
         <%= f.fields_for :categories do |ff| %>
@@ -19,7 +19,10 @@
             <% end %>
           <% end %>
       </div>
-      <!-- CONFLICT!!!!! -->
+      <div class="location-searchbar">
+        <%= f.text_field "address", placeholder: "Type a location here" %>
+        <%= f.label "address" %>
+      </div>
       <div class="search-attribute">
         <div>
           <%= f.check_box "brunch", value: "brunch" %>
@@ -42,7 +45,6 @@
     <% end %>
   </div>
 
-
   <!-- Map -->
   <div class="col-5"
       id="map"
@@ -57,7 +59,7 @@
     <div class="card-grid justify-content-center" >
       <% @places_list.each do |place| %>
         <div class="card-resto">
-          <%= cl_image_tag(place.images.where(main: true).first.photo, crop: :fit) %>
+          <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "card-resto" %>
           <div class="card-resto-infos" style="text-decoration: none;">
             <h2><%= link_to place.title, place_path(place), class: "text-dark" %></h2>
           </div>
