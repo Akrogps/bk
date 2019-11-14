@@ -1,5 +1,5 @@
 <div class="map-pic">
-  <%= cl_image_tag(place.images.where(main: true).first.photo, crop: :fit) %>
+  <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "map-pic" %>
 </div>
 <div class="map-txt">
   <h2><%= place.title %></h2>
