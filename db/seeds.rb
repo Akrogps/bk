@@ -10,7 +10,7 @@ Category.destroy_all
 Tag.destroy_all
 
 # All places attributes
-attributes = [
+place_attributes = [
   {
     title: "Komo",
     subtitle: "poke & smoothie bowls",
@@ -415,8 +415,8 @@ photo_url_list = [
 ]
 
 # Create places and their images
-attributes.each_with_index do |place_attributes, index|
-  new_place = Place.create(place_attributes)
+place_attributes.each_with_index do |attributes, index|
+  new_place = Place.create(attributes)
   photo_url_list[index].each_with_index do |url, index|
     if index == 0
       new_image = new_place.images.new(main: true)
@@ -450,4 +450,232 @@ Place.all.each do |place|
       PlacesTag.create(place_id: place.id, tag_id: random_tag.id)
     end
   end
+end
+
+# All events attributes
+event_attributes = [
+  {
+    title: "Eatcolor 2017",
+    subtitle: "monochrome dinner experience",
+    content: "Beginning of november 2017, we held our pop-up restaurant EATCOLOR at MAD, right in the heart of Brussels.<br/>
+    Already launched once in 2013, EATCOLOR is a pop-up restaurant welcoming 4 extremely talented chefs, within a surprising and custom-made decor. But it’s mostly a restaurant where guests have the rare opportunity to try a single-colored 7 course menu, from amuse-bouche to dessert.<br/><br/>
+    For this 2017 edition, we were lucky to welcome each night the amazing El Camion food-truck and his chef, Joël Geismar, matching the colours of his super creative appetizers with the color of each menu. The genius Maarten Van Essche, who blew our mind from beginning to end with an extraordinary black menu, the extremely talented Toshiro Fujii, whose orange menu was as delicate and elegant as can be, the crazy duo of Nicolas Scheidt and Luis Alonso, and their colourless menu which was anything but tasteless, and the creative Kenzo Nakata, recently named best young chef 2018 by Gault & Millau, with a green menu that kept us holding our breath from the first till the very last course.<br/><br/>
+    Intrigued? Put on your headphones, turn the sound up, put the video on HD and hit play!<br/><br/>But none of this would’ve been the same without the precious help and welcome of the MAD, where we were able to create 4 magical days of pure gastronomy. Without Vivien and Baptiste, the talented wine makers and founders of Titulus and their wine pairings without which none of the menus would have matched such excellence. Without the presence and work of Joana and François, from Fika and Café Capitale, and their origin filtered coffee which delicately ended each dinner. And without the priceless help of Asa Selection, Maes Inox, Marcolini and the talented Eprod team behind this video!",
+    event_date: DateTime.parse("2017-11-21 19:00:00"),
+    address: "10 Place du Nouveau Marché aux Grains, 1000 Bruxelles",
+    details: "No details",
+    price_indication: "No price indication",
+    state: "happened",
+    tickets_link: ""
+  },
+  {
+    title: "Brussels’ Kitchen Book Launch",
+    subtitle: "book launch party",
+    content: "Our Book launch was a week ago already! Here is a sneak peak into the party we threw to celebrate.<br/><br/>
+    We hope you had the opportunity to feast on the delicious kimchi pork buns and gyozas from Umamido, the flowery ravioli from Humphrey, the amazing choux from Chouconut, and the marvellous pasteis de nata from Forcado, all of it served to you by the wonderful Deliveroo team! That you took a million selfies thanks to SharingBox, and that you had the chance to discover (or rediscover) the great organic beers from Ginette, and the no-less organic and sexy soft drinks from Lovibond – Fritz Kola, Vigo Kombucha, Club Mate, and their latest drink and also our favorite : Yoko Matcha.<br/><br/>
+    Lovibond who also took of making sure you listened to the best sound all night long. Thanks guys ! <3<br/><br/>
+    But most of all we hope you enjoyed the night and are currently folding the pages of our book to plan your future nights out!<br/><br/>
+    If you haven’t got your own copy already and want to get it home delivered, it’s right this way.
+To be informed of our future events and get invited to our next parties, it’s right here.
+The dishes you have tried during the launch – the pork buns from Umamido, the pasteis from Forcado, the choux from Chouconut – are available for delivery here.
+(You can’t seem to find Chouconut on our website, it’s normal. They’re part of the 15 places which you can read about exclusively in our book 😉)
+",
+    event_date: DateTime.parse("2017-09-10 19:00:00"),
+    address: "18 Rue Duquesnoy, 1000 Bruxelles",
+    details: "No details",
+    price_indication: "No price indication",
+    state: "happened",
+    tickets_link: ""
+  },
+  {
+    title: "BK’s Table",
+    subtitle: "guest table",
+    content: "The BK’s Tables are now over, BUT, we continue to welcome you into our homes! It will be slightly different as this time, we will invite a chef as well, to cook a gastronomic 4-course tasting menu for you. All info on this new dinner series called “Viens chez moi, j’invite un chef”, here.<br/><br/>
+    The concept : a dinner for 16 people, at Chloe’s place, in a laid-back and friendly atmosphere. A four course menu, mainly centered around seasonal vegetables, local and organic, along with wine pairings.The tables take place twice a month, on a Thursday and the Friday right after that. Want to join us and be our guest in our own home?<br/><br/>
+    The next tables are :<br/>
+– Friday 15th of December<br/><br/>
+See you soon?<br/><br/>
+All the photos of our previous tables right here.<br/>
+Thanks to Our Daily Bottle for the wine pairing, to Delhaize for the organic products and to The Little Green Shop for making this table as green as it could be.<br/>
+Also a big thanks to Hailing Wang for the great video.",
+    event_date: DateTime.parse("2017-03-16 19:30:00"),
+    address: "Place Sainte-Croix, 1050 Bruxelles",
+    details: "No details",
+    price_indication: "50€ pp",
+    state: "upcoming",
+    tickets_link: "info@brusselskitchen.com"
+  },
+  {
+    title: "Wild Plants & Flowers Gathering",
+    subtitle: "Sunday Brunch",
+    content: "We’d had the idea for a while already. Then finally, last tuesday, the first Brussel’s Kitchen roof top terrace drink happened at Henri & Agnes. After picking out flowers and plants in the forest this weekend, a couple or research in various books and a few tests, we prepared tons of delicious treats with wild plants.<br/>
+Our guest had the occasion to try bear garlic pesto, hazelnut puree, sorrel dip, nettle butter (my favorite), fresh goat cheese with ground ivy, rose meringue, vervain fruit salad, elderberry syrup…All of this happened with a beautiful view of Brussels, with a beautiful changing light as the sun was slowly starting to disappear behind the clouds. It was also the occasion to learn how to make deliciously flower flavored salt.<br/>
+<br/>
+A big thanks to Dille & Kamille for their pretty aprons offered to our guests, and which Christelle and I wore the entire evening, to Dandoy for their delicious cookies, and to San Pellegrino for their forever presence.<br/>
+<br/>
+And a particular thanks to Hailing Wang, our very talented photographer of the night, for her oh so amazing work. Here is her facebook page and her website.",
+    event_date: DateTime.parse("2014-05-26 11:00:00"),
+    address: "48 Rue Véronèse, 1000 Bruxelles",
+    details: "From 11am to 7pm",
+    price_indication: "No price indication",
+    state: "happened",
+    tickets_link: ""
+  },
+  {
+    title: "Eatcolor 2013",
+    subtitle: "monochrome dinner experience",
+    content: "Beginning of november 2013, we held our pop-up restaurant EATCOLOR at MAD, right in the heart of Brussels.<br/>
+Already launched once in 2010, EATCOLOR is a pop-up restaurant welcoming 4 extremely talented chefs, within a surprising and custom-made decor. But it’s mostly a restaurant where guests have the rare opportunity to try a single-colored 7 course menu, from amuse-bouche to dessert.<br/>
+<br/>
+For this 2013 edition, we were lucky to welcome each night the amazing El Camion food-truck and his chef, Joël Geismar, matching the colours of his super creative appetizers with the color of each menu. The genius Maarten Van Essche, who blew our mind from beginning to end with an extraordinary black menu, the extremely talented Toshiro Fujii, whose orange menu was as delicate and elegant as can be, the crazy duo of Nicolas Scheidt and Luis Alonso, and their colourless menu which was anything but tasteless, and the creative Kenzo Nakata, recently named best young chef 2018 by Gault & Millau, with a green menu that kept us holding our breath from the first till the very last course.<br/>
+<br/>
+Intrigued? Put on your headphones, turn the sound up, put the video on HD and hit play!<br/>
+<br/>
+But none of this would’ve been the same without the precious help and welcome of the MAD, where we were able to create 4 magical days of pure gastronomy. Without Vivien and Baptiste, the talented wine makers and founders of Titulus and their wine pairings without which none of the menus would have matched such excellence. Without the presence and work of Joana and François, from Fika and Café Capitale, and their origin filtered coffee which delicately ended each dinner. And without the priceless help of Asa Selection, Maes Inox, Marcolini and the talented Eprod team behind this video!",
+    event_date: DateTime.parse("2013-10-22 19:00:00"),
+    address: "10 Place du Nouveau Marché aux Grains, 1000 Bruxelles",
+    details: "No details",
+    price_indication: "No price indication",
+    state: "happened",
+    tickets_link: ""
+  },
+  {
+    title: "BRUSSELS’ KITCHEN 1 Year Party",
+    subtitle: "let's celebrate our first anniversary",
+    content: "We threw a party to celebrate Brussel’s Kitchen’s first anniversary!<br/>
+Thursday, you guys were almost 200 celebrating this event with us, and nothing could have made us happier. Once again, if we’re here today, it’s because of you! <3<br/>
+<br/>
+We worked our asses off to prepare that party, and we really hope you enjoyed it! Between the chili popcorns, madeleines, hundreds of stamps to stamp and the whole organization, we spent a huge time on it. But after this thursday evening, it was just really worth it!<br/>
+<br/>
+So great to meet you guys for real and to hear all your compliments…We’re still all touched and so surprised that everything went so well! This already puts some pressure on us for next year…hehe.<br/>
+<br/>
+This night wouldn’t have been possible without our precious partners. So we want to thank Blue Pepper, Michel & Augustin, Kombucha Wonderdrink, San Pellegrino, Kusmi Tea, Vedett, Take Eat Easy and Delhaize but also Le Petit Canon, La Maison Renardy, La Cuisine de Flore, Pimpinelle, Unico, L’hotel du Berger, Vini Divini and Ici who made those gifts possible.<br/>
+<br/>
+But especially a HUGE thanks to Joel, chef at El Camion, who made amazing local and organic foods that evening. Organic hot dog with black radish, asparagus, arugula and boletus mayonnaise, that was just amazing, and a great parmesan cheese, potato and arugula soup. Thank you Arthur and Diego, Colonel Up and Mister Down, for the great sound and atmosphere, thank you Geraldine Calbert and Hopop Studio for the exposed and intensely used furniture, and finally, a huge thanks to 354 photographers who kindly lent us their photo studio!<br/>
+I know it sounds a lot like an award ceremony but I really did have to thank all those great people who made that night possible!<br/>
+<br/>
+And to finish, here is a 20% off discount on all purchase on www.kusmitea.com with the code KUSMIBK (valid until the 30.04.2013, may not be combined with any other offers or promotions).",
+    event_date: DateTime.parse("2013-03-31 19:00:00"),
+    address: "22 Rue du Marché Aux Herbes, 1000 Bruxelles",
+    details: "No details",
+    price_indication: "No price indication",
+    state: "happened",
+    tickets_link: ""
+  },
+  {
+    title: "Pizza Waffle",
+    subtitle: "new food concept",
+    content: "Friday, Max and Kevin celebrated their photo studio’s first anniversary, 354 photographers. They had asked some artist friends to create an exhibition for the occasion.<br/>
+<br/>
+Sarah and I were in charge of the food, and we decided to try a recipe we’d found here. This blog is just gorgeous. We’re not such big fans of the fashion articles, but all the recipes are usually amazing and pushed to the extreme luxury and refinement, without being too hard to realize. Meet Luxirare.<br/>
+<br/>
+We were inspired by her article on the waffle machine to make “pizza waffles” which had a crazy success.<br/>
+We simply didn’t move from behind the bar for five hours straight, and we even ended up with a huge waiting list. (our second machine broke down after only an hour, you can only imagine the rush.)<br/>
+<br/>
+Anyways, it was really easy, apparently really good (we only had a small piece to try), and super fast. You’ll just need a waffle machine, pizza dough (I highly recommend the one from Lidle, they’re already square shaped, much easier), and your favorite pizza ingredients to fill in. Here, besides the mozzarella and tomato sauce, we used parma ham, grilled zucchini and peppers, mushrooms, basil and arugula. And to drink, some raspberries in a cava glass, so easy.",
+    event_date: DateTime.parse("2012-06-03 19:00:00"),
+    address: "455 Chaussée de Boondael, 1050 Ixelles",
+    details: "No details",
+    price_indication: "No price indication",
+    state: "happened",
+    tickets_link: ""
+  },
+  {
+    title: "Brussels' Kitchen's 2nd book launch",
+    subtitle: "brussels’ kitchen’s second book launch event",
+    content: "On Sunday September 29th, we celebrated the launch of Brussels’ Kitchen’s second book, the second book that I wrote, at MAD Brussels.<br/>
+<br/>
+It was simply incredible having so many of you there – and on a rainy Sunday night that is! The queue to get the book signed simply never seemed to empty, and I ended up finding out most about what actually happened during the night when discovering the beautiful photos taken by Vivi. It was a rare moment of joy and magic, the kind that happens only a few times in a lifetime, and for that THANK YOU.<br/>
+<br/>
+Thank you for coming, thank you for all of your kind words when announcing the release of this second book, thank you for everything. And a huge thank you to the MAD, for letting us use their amazing MAD Café, and its huge terrace, which was simply perfect, even under the rain. This night couldn’t have been possible without them so again, THANK YOU.",
+    event_date: DateTime.parse("2019-10-07 19:00:00"),
+    address: "10 Place du Nouveau Marché aux Grains, 1000 Bruxelles",
+    details: "Delivery to belgium only",
+    price_indication: "19.95€ + 4€ delivery fees",
+    state: "happened",
+    tickets_link: "https://www.brusselskitchen.com/produit/les-nouvelles-adresses-food-style-2019-fr-en?lang=en"
+  },
+  {
+    title: "Viens Chez Moi",
+    subtitle: "october 27th & 28th 2019",
+    content: "The dinners “Viens chez moi, j’invite un chef” are back! 🥂<br/>
+<br/>
+The concept: Every month, I will welcome you into my very own apartment for a unique type of dinner. One chef, an open kitchen, a perfectly sun-exposed terrace for drinks, an amazing 4-course gastronomic tasting menu and a table for 16 people! Atmosphere? Cosy, intimate and chill! What better to ask for?<br/>
+<br/>
+This October, I’m inviting two different sets of chefs and hosting two dinners in my apartment!<br/>
+<br/>
+• On the 27th of October, I’m inviting Ben & Alice, from one of our favorite restaurants, Brut. Opened less than a year ago by the couple and Alice’s brother, the restaurant soon made a reputation for itself and it is now extremely hard to get a table! Book for their very special dinner at mine, right here.<br/>
+<br/>
+• On the 28th of October,  I’m inviting Stefan Jacobs, from the newly opened restaurant Hors-Champs. We had already had the occasion to try his amazing cuisine a couple of times, first at Bertinchamps, then at the pop up restaurant Chez Marie in Flagey. For only a few days now, Stefan has been welcoming customers in his very own place, Hors-Champs, in Gembloux.  Book for his dinner in my apartment, right here.<br/>
+<br/>
+<br/>
+On October 27th and 28th, both chefs will prepare a 4-course tasting menu for 16 people, served along with sparkling wines and wine pairings, in an exclusive setting.<br/>
+<br/>
+It’s in Flagey, Sunday 17th and Monday 28th of October.<br/>
+<br/>
+Are you coming?<br/>
+<br/>
+• Bookings for the 27th with Alice & Ben from Brut<br/>
+<br/>
+• Bookings for the 28th with Stefan from Hors-Champs<br/>
+<br/>
+• What and How much: 4-course tasting menu + apetizer with a glass of sparkling wine + wine pairings from Titulus, bread by Mama, water and origin coffee from Belga & Co, all for 75€.<br/>
+<br/>
+• Where: near Flagey, the exact address will be given to you once you have made the reservation.<br/>
+<br/>
+See you very soon!<br/>
+<br/>
+To Titulus for this long-lasting and strong partnership, and for their great wine pairings, to Mama for the excellent bread, to Vivi Pham Photography for the gorgeous pictures, to Belga & Co for the delicious Colombian filter coffee, to Heetch for allowing our guests to go home safely and to the Brussels’ Kitchen team, making sure everything goes smoothly, always <3",
+    event_date: DateTime.parse("2019-10-28 19:00:00"),
+    address: "Place Sainte-Croix, 1050 Bruxelles",
+    details: "Shared table of 16 people",
+    price_indication: "4 course tasting menu + apetizer + sparkling wine & + wine pairings: 75€",
+    state: "happened" ,
+    tickets_link: "https://www.eventbrite.com/e/viens-chez-moi-jinvite-benoit-stas-alice-pollet-tickets-76872486677"
+  },
+  {
+    title: "Le Brunch Club",
+    subtitle: "Once a month, experience an amazing brunch in Brussels",
+    content: "The Brunch Club is back with new dates for 2019!💫<br/>
+<br/>
+<br/>
+Each month, Brussels’ Kitchen gathers 7 chefs from Brussels around a unique vegetarian tasting menu in 7 courses, paired with natural wines from Titulus Pictus, organic cold pressed juices from Misuko and coffee from Belga & Co.<br/>
+Two shifts of 40 guests, at 11am and 2pm, in a laid-back and warm atmosphere, at Humphrey.<br/>
+<br/>
+Next Brunch Clubs for 2019 below. Find also each brunch on facebook under tab “events” of our facebook page right here.<br/>
+<br/>
+– February 17th 2019 – watch the story here<br/>
+– March 24th 2019 – watch the story here<br/>
+– April 21st 2019 – watch the story here<br/>
+– May 12th 2019 – watch the story here<br/>
+– June 16th 2019 – watch the story here<br/>
+– July 14th 2019 – watch the story here<br/>
+– August 25th 2019 – watch the story here<br/>
+– October 6th 2019 – watch the story here<br/>
+– November 3rd 2019 – book here<br/>
+– December 8th 2019 – book here<br/>
+– January 19th 2020 – book here<br/>
+– February 16th 2020 – book here<br/>
+– March 8th 2020 – book here<br/>
+– April 12th 2020 – book here<br/>
+– May 10th 2020 – book here<br/>
+<br/>
+Bookings for August 25th here 💫 Want to offer a Brunch Club experience to your loved ones? Ask for our gift cards 🎁<br/>
+<br/>
+Practical info :<br/>
+• Where : at Humphrey restaurant, rue Saint-Laurent 36-38, 1000 Bruxelles<br/>
+• What : a vegetarian tasting menu in 7 courses, drinks included (juice, natural wines, coffee)<br/>
+• How much : 45€ pp",
+    event_date: DateTime.parse("2019-12-08 11:00:00"),
+    address: "38 Rue Saint-Laurent, 1000 Bruxelles",
+    details: "No details",
+    price_indication: "45€ pp drinks included",
+    state: "upcoming",
+    tickets_link: "https://www.eventbrite.com/e/le-brunch-club-8-decembre-tickets-65642355051"
+  }
+]
+
+# Create events
+event_attributes.each do |attributes|
+  Event.create(attributes)
 end
