@@ -5,16 +5,24 @@ class PlacesController < ApplicationController
   def index
     if check_if_filter
       @places_list = []
+      if !params[:query]["address"].empty?
+        @address = params[:query]["address"]
+        @places_list = Place.near(@address, 1).to_a
+      end
       @places_list_tag = filter_by(Tag, "tags")
       @places_list_category = filter_by(Category, "categories")
       if !@places_list_tag.empty? && !@places_list_category.empty?
-        @places_list = @places_list_category & @places_list_tag
+        if @places_list.empty?
+          @places_list = @places_list_category & @places_list_tag
+        else
+          @places_list = @places_list_category & @places_list_tag & @places_list
+        end
         @places_list.flatten!
       elsif @places_list_tag.empty? && @places_list_category.empty?
-        @places_list = Place.all
+        @places_list ||= Place.all
       else
-        @places_list_tag.map { |place| @places_list << place }
-        @places_list_category.map { |place| @places_list << place }
+        @places_list = @places_list & @places_list_tag unless @places_list_tag.empty?
+        @places_list = @places_list & @places_list_category unless @places_list_category.empty?
       end
       check_if_filled("brunch")
       check_if_filled("terrace")

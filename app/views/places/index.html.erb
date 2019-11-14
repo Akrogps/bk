@@ -19,6 +19,10 @@
             <% end %>
           <% end %>
       </div>
+      <div class="location-searchbar">
+        <%= f.text_field "address", placeholder: "Type a location here" %>
+        <%= f.label "address" %>
+      </div>
       <div>
         <div>
           <%= f.check_box "brunch", value: "brunch" %>
@@ -40,7 +44,7 @@
       <%= f.submit "Go", value: "submit" %>
     <% end %>
   </div>
-  
+
   <!-- Map -->
   <div class="col-5"
       id="map"
