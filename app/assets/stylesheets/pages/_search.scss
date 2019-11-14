@@ -11,10 +11,22 @@
   }
 
   .search-cards {
-  }
-
-  .search-form {
-    background-color: white;
-    max-height: 300px;
+    padding: 0;
   }
 }
+  .search-tags {
+    background-color: white;
+    justify-content: left;
+    padding: 10px;
+  }
+  .search-categories {
+    background-color: white;
+    justify-content: left;
+    padding: 10px;
+  }
+  .search-attribute {
+    background-color: white;
+    justify-content: left;
+    padding: 10px;
+  }
+

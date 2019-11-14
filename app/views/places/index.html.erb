@@ -3,15 +3,15 @@
   <!-- Searchbar -->
   <div class="search-form col-7">
     <%= form_for(:query, url: places_path, method: :get) do |f| %>
-      <div>
-        <%= f.fields_for :tags do |ff| %>
-          <% Tag::TAGS.each do |tag| %>
-            <%= ff.check_box tag, value: tag %>
-            <%= ff.label tag %>
+        <div class="search-tags">
+          <%= f.fields_for :tags do |ff| %>
+            <% Tag::TAGS.each do |tag| %>
+              <%= ff.check_box tag, value: tag %>
+              <%= ff.label tag %>
+              <% end %>
             <% end %>
-          <% end %>
-      </div>
-      <div>
+        </div>
+      <div class="search-categories">
         <%= f.fields_for :categories do |ff| %>
           <% Category::CATEGORIES.each do |category| %>
             <%= ff.check_box category, value: category %>
@@ -19,7 +19,8 @@
             <% end %>
           <% end %>
       </div>
-      <div>
+      <!-- CONFLICT!!!!! -->
+      <div class="search-attribute">
         <div>
           <%= f.check_box "brunch", value: "brunch" %>
           <%= f.label "brunch" %>
@@ -37,10 +38,11 @@
           <%= f.label "sunday_night" %>
         </div>
       </div>
-      <%= f.submit "Go", value: "submit" %>
+      <%= f.submit "Go", value: "Find" %>
     <% end %>
   </div>
-  
+
+
   <!-- Map -->
   <div class="col-5"
       id="map"
