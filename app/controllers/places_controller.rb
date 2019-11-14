@@ -62,8 +62,4 @@ class PlacesController < ApplicationController
       @places_list = @places_list.select { |place| place[element_string] == @element_boolean }
     end
   end
-
-  def check_boolean(element)
-    params[:query][element] == "1"
-  end
 end
