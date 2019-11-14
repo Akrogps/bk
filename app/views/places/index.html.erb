@@ -40,7 +40,7 @@
       <%= f.submit "Go", value: "submit" %>
     <% end %>
   </div>
-  
+
   <!-- Map -->
   <div class="col-5"
       id="map"
@@ -55,7 +55,7 @@
     <div class="card-grid justify-content-center" >
       <% @places_list.each do |place| %>
         <div class="card-resto">
-          <%= cl_image_tag(place.images.where(main: true).first.photo, crop: :fit) %>
+          <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "card-resto" %>
           <div class="card-resto-infos" style="text-decoration: none;">
             <h2><%= link_to place.title, place_path(place), class: "text-dark" %></h2>
           </div>
