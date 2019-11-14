@@ -47,7 +47,7 @@
         padding: 20px;
       }
     }
-    
+
     #deliveroo-btn {
       margin-top: 8px;
       margin-bottom: 8px;
@@ -61,7 +61,7 @@
         background-color: #04cfbb;
       }
     }
-    
+
     #booking-btn {
       margin-top: 8px;
       margin-bottom: 8px;
@@ -76,7 +76,7 @@
       }
     }
   }
-  
+
   .icons {
     font-size: 22px;
     padding-left: 120px;
@@ -99,5 +99,16 @@
 
   img {
   width: 320px;
+  }
+}
+
+.event-img {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 85%;
+    height: 85%;
+    object-fit: cover;
   }
 }
