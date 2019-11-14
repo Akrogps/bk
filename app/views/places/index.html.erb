@@ -1,6 +1,6 @@
-  <!-- Searchbar -->
 <div class="row search-page">
 
+  <!-- Searchbar -->
   <div class="search-form col-7">
     <%= form_for(:query, url: places_path, method: :get) do |f| %>
       <div>
@@ -40,7 +40,8 @@
       <%= f.submit "Go", value: "submit" %>
     <% end %>
   </div>
-
+  
+  <!-- Map -->
   <div class="col-5"
       id="map"
       style="width: 100%;
@@ -48,7 +49,6 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-
 
   <!-- Resto cards -->
   <div class="search-cards justify-content-left col-7">
@@ -77,5 +77,3 @@
     </div>
   </div>
 </div>
-
-
