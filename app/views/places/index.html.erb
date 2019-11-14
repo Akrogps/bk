@@ -4,18 +4,36 @@
     <div>
       <%= f.fields_for :tags do |ff| %>
         <% Tag::TAGS.each do |tag| %>
-          <%= ff.label tag %>
           <%= ff.check_box tag, value: tag %>
+          <%= ff.label tag %>
           <% end %>
         <% end %>
     </div>
     <div>
       <%= f.fields_for :categories do |ff| %>
         <% Category::CATEGORIES.each do |category| %>
-          <%= ff.label category %>
           <%= ff.check_box category, value: category %>
+          <%= ff.label category %>
           <% end %>
         <% end %>
+    </div>
+    <div>
+      <div>
+        <%= f.check_box "brunch", value: "brunch" %>
+        <%= f.label "brunch" %>
+      </div>
+      <div>
+        <%= f.check_box "terrace", value: "terrace" %>
+        <%= f.label "terrace" %>
+      </div>
+      <div>
+        <%= f.check_box "monday_night", value: "monday_night" %>
+        <%= f.label "monday_night" %>
+      </div>
+      <div>
+        <%= f.check_box "sunday_night", value: "sunday_night" %>
+        <%= f.label "sunday_night" %>
+      </div>
     </div>
     <%= f.submit "Go", value: "submit" %>
   <% end %>
