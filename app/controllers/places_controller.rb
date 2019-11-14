@@ -16,11 +16,10 @@ class PlacesController < ApplicationController
         @places_list_tag.map { |place| @places_list << place }
         @places_list_category.map { |place| @places_list << place }
       end
-      @brunch_boolean = check_boolean("brunch")
-      @terrace_boolean = check_boolean("terrace")
-      @monday_night_boolean = check_boolean("monday_night")
-      @sunday_night_boolean = check_boolean("sunday_night")
-      @places_list = @places_list.select { |place| ((place.brunch == @brunch_boolean) && (place.terrace == @terrace_boolean) && (place.monday_night == @monday_night_boolean) && (place.sunday_night == @sunday_night_boolean)) }
+      check_if_filled("brunch")
+      check_if_filled("terrace")
+      check_if_filled("monday_night")
+      check_if_filled("sunday_night")
     else
       @places_list = Place.all
     end
@@ -41,6 +40,10 @@ class PlacesController < ApplicationController
 
   private
 
+  def set_place
+    @place = Place.find(params[:id])
+  end
+
   def check_if_filter
     params[:query] && params[:query][:tags].present? && params[:query][:categories].present?
   end
@@ -49,15 +52,18 @@ class PlacesController < ApplicationController
     class_title.where(name: query_params.to_h[plural_name].to_a.map { |element| element[0] if element[1] == "1" }.compact).map { |element| element.places }.flatten.uniq
   end
 
-  def check_boolean(element)
-    params[:query][element] == "1"
-  end
-
   def query_params
     params.require(:query).permit(tags: {}, categories: {})
   end
 
-  def set_place
-    @place = Place.find(params[:id])
+  def check_if_filled(element_string)
+    if params[:query][element_string] == "1"
+      @element_boolean = true
+      @places_list = @places_list.select { |place| place[element_string] == @element_boolean }
+    end
+  end
+
+  def check_boolean(element)
+    params[:query][element] == "1"
   end
 end
