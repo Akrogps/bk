@@ -56,16 +56,26 @@
 <%= render 'shared/newsletter' %>
 <div class="events">
   <h3>Brussels' Kitchen's Events</h3>
-  <div class="row images-events" id="images-events">
-    <div class="flex-events-img1 col-7">
-      <%= image_tag "images.jpeg" %>
+    <div class="flex-events">
+      <% @events.each do |event| %>
+        <div>
+          <%= link_to event.title, event_path(event) %>
+          <%= image_tag "brunchclub_carre.jpg" %>
+        </div>
+        <% end %>
     </div>
-    <div class="flex-events-img2 col-5">
-      <%= image_tag "images.jpeg" %>
-    </div>
-  </div>
   <div class="button">
-    <h5><%= link_to "More info", events_path %></h5>
+    <h5><%= link_to "See all", events_path %></h5>
+  </div>
+  <div class="events">
+  <h3>New hotspots to eat out with style</h3>
+    <div class="flex-books">
+        <div>
+          <%= image_tag "books.jpg" %>
+        </div>
+    </div>
+  <div class="button">
+    <h5><%= link_to "Discover our books", books_path %></h5>
   </div>
 </div>
 

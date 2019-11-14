@@ -1,2 +1,16 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<div class="card-grid justify-content-center" >
+    <% @events.each do |event| %>
+      <div class="card-event">
+          <%= image_tag"brunchclub_carre.jpg" %>
+        <div class="card-event-infos" style="text-decoration: none;">
+          <h2><%= link_to event.title, event_path(event), class: "text-dark" %></h2>
+        </div>
+        <div class="card-event-content">
+          <p><%= truncate(event.content.html_safe, :length => 140) %></p>
+          <div class="button-event">
+            <a href="">Get tickets</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>

@@ -2,6 +2,7 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 # Clear the DB
+Place.reindex
 Place.destroy_all
 Event.destroy_all
 Book.destroy_all

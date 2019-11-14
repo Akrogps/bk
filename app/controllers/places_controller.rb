@@ -10,10 +10,16 @@ class PlacesController < ApplicationController
       if !@places_list_tag.empty? && !@places_list_category.empty?
         @places_list = @places_list_category & @places_list_tag
         @places_list.flatten!
+      elsif @places_list_tag.empty? && @places_list_category.empty?
+        @places_list = Place.all
       else
         @places_list_tag.map { |place| @places_list << place }
         @places_list_category.map { |place| @places_list << place }
       end
+      check_if_filled("brunch")
+      check_if_filled("terrace")
+      check_if_filled("monday_night")
+      check_if_filled("sunday_night")
     else
       @places_list = Place.all
     end
@@ -34,6 +40,10 @@ class PlacesController < ApplicationController
 
   private
 
+  def set_place
+    @place = Place.find(params[:id])
+  end
+
   def check_if_filter
     params[:query] && params[:query][:tags].present? && params[:query][:categories].present?
   end
@@ -46,7 +56,10 @@ class PlacesController < ApplicationController
     params.require(:query).permit(tags: {}, categories: {})
   end
 
-  def set_place
-    @place = Place.find(params[:id])
+  def check_if_filled(element_string)
+    if params[:query][element_string] == "1"
+      @element_boolean = true
+      @places_list = @places_list.select { |place| place[element_string] == @element_boolean }
+    end
   end
 end
