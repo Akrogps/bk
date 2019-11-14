@@ -1,2 +1,43 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="places" style="background-color: white;">
+  <div class="page-setup">
+    <div class="event-img">
+      <%= image_tag "brunchclub_home.jpg" %>
+    </div>
+    <div class="flex-title text-center col-12">
+      <div class="justify-content-between">
+        <!-- <div class="col-2"></div> -->
+        <div class="title">
+          <h4><strong><%=@event.title%></strong></h4>
+        </div>
+        <!-- <div class="col-2"></div> -->
+      </div>
+      <div class="subtitle">
+        <p><light><%=@event.subtitle%></light></p>
+      </div>
+    </div>
+    <div class="row content-info">
+      <div class="flex-content col-8" style="background-color: transparent;">
+          <p><%=@event.content.html_safe%></p>
+      </div>
+      <div class="flex-sidebar-place col-4">
+        <div class="flex-info-place">
+          <div class="info">
+            <p id="info"><%=@event.subtitle%></p>
+            <p id="info"><%=@event.address%></p>
+            <p id="info"><%=@event.details%></p>
+            <p id="info"><%=@event.price_indication%></p>
+          </div>
+        </div>
+        <a href="https://deliveroo.be/fr" class="btn btn-link btn-outline-success" id="booking-btn" target="_blank">Get tickets</a>
+        <div class="brunch-club-show">
+          <h4>Le Brunch Club</h4>
+          <%= image_tag"brunchclub_carre.jpg" %>
+        </div>
+        <div class="brunch-club-show">
+          <h4>Brussels' Kitchen's Books</h4>
+          <%= image_tag"books_carre.jpg" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

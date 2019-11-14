@@ -1,4 +1,4 @@
-.card-resto {
+.card-event {
   overflow: hidden;
   background: white;
   margin: 10px 0;
@@ -18,14 +18,14 @@
     margin: 0;
   }
 
-  .card-resto-content {
+  .card-event-content {
     padding: 10px 30px 30px 30px;
     text-align: center;
     justify-content: center;
 
   }
 
-  .card-resto-infos {
+  .card-event-infos {
     color: black;
     padding-top: 20px;
     display: flex;
@@ -42,7 +42,7 @@
   }
 }
 
-.card-resto > img {
+.card-event > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
@@ -50,8 +50,8 @@
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 320px);
-  grid-gap: 32px;
+  grid-template-columns: repeat(auto-fill, 270px);
+  grid-gap: 24px;
   margin-top: 40px;
   margin-bottom: 40px;
 }
