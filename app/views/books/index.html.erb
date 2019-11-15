@@ -1,16 +1,14 @@
 <div class="books-grid">
-    <% @books.each do |book| %>
+  <% @books.each do |book| %>
     <div class="card-book">
-    <%= link_to cl_image_tag(book.images.where(main: true).first.photo, crop: :fit), book_path(book), class: "card-book" %>
+      <%= link_to cl_image_tag(book.images.where(main: true).first.photo, crop: :fit), book_path(book), class: "card-book" %>
       <div class="card-book-content">
         <h6><%=link_to book.title, book_path(book) %></h6>
         <h6 ><%= book.unit_price %>€</h6>
-        <p class="button-event"> Order now </p>
+        <p class="button-event">Order now</p>
       </div>
     </div>
-      <% end %>
-
-  </div>
+  <% end %>
 </div>
 
 
