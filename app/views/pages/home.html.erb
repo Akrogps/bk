@@ -46,33 +46,31 @@
 </div>
 <div class="brunch-club">
   <h3>Le Brunch Club</h3>
-  <div class="brunch-club-img">
-    <%= image_tag "brunchclub_home.jpg" %>
+  <div>
+    <%= link_to image_tag("brunchclub_home.jpg"), event_path(10), class: "brunch-club-img"  %>
   </div>
   <div class="button">
-    <h5><%= link_to "More info", events_path %></h5>
+    <h5><%= link_to "More info", event_path(10) %></h5>
   </div>
 </div>
 <%= render 'shared/newsletter' %>
 <div class="events">
   <h3>Brussels' Kitchen's Events</h3>
-    <div class="flex-events">
-      <% @events.each do |event| %>
-        <div>
-          <%= link_to event.title, event_path(event) %>
-          <%= image_tag "brunchclub_carre.jpg" %>
-        </div>
-        <% end %>
-    </div>
+  <div class="flex-events">
+    <% @events.each do |event| %>
+      <div>
+        <%= link_to event.title, event_path(event) %>
+        <%= link_to image_tag("brunchclub_carre.jpg"), event_path(event) %>
+      </div>
+      <% end %>
+  </div>
   <div class="button">
     <h5><%= link_to "See all", events_path %></h5>
   </div>
   <div class="events">
-  <h3>New hotspots to eat out with style</h3>
-    <div class="flex-books">
-        <div>
-          <%= image_tag "books.jpg" %>
-        </div>
+    <h3>New hotspots to eat out with style</h3>
+    <div>
+      <%= link_to image_tag("books.jpg"), books_path, class: "flex-books"  %>
     </div>
   <div class="button">
     <h5><%= link_to "Discover our books", books_path %></h5>

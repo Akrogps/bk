@@ -1,0 +1,32 @@
+<div class="places" style="background-color: white;">
+  <div class="page-setup">
+    <div class="event-img">
+      <%= image_tag "book1.jpg" %>
+    </div>
+    <div class="flex-title text-center col-12">
+      <div class="justify-content-between">
+        <!-- <div class="col-2"></div> -->
+        <div class="title">
+          <h4><strong><%=@book.title%></strong></h4>
+        </div>
+        <!-- <div class="col-2"></div> -->
+      </div>
+    </div>
+    <div class="row content-info">
+      <% if @book.description %>
+        <div class="flex-content col-8" style="background-color: transparent;">
+            <p><%=@book.description.html_safe%></p>
+        </div>
+      <% end %>
+      <div class="flex-sidebar-place col-4">
+        <div class="flex-info-place">
+          <div class="info">
+            <p id="info"><%=@book.unit_price%>€</p>
+          </div>
+        </div>
+        <%= render 'shared/brunch_club' %>
+        <%= render 'shared/bk_books' %>
+      </div>
+    </div>
+  </div>
+</div>
