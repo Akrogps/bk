@@ -686,3 +686,26 @@ events_photo_url_list = [
 
 # Create events and their images
 create_objects_with_images(event_attributes, Event, events_photo_url_list)
+
+# All books attributes
+book_attributes = [
+  {
+    title: "The best places to eat out in style (2017)",
+    unit_price: 23.95,
+    product_sku: 1
+  },
+  {
+    title: "New hotspots to eat out in style (2019)",
+    unit_price: 23.95,
+    product_sku: 2
+  }
+]
+
+# All books pictures URLs
+books_photo_url_list = [
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820547/Brussels%20Kitchen/BOOKS/book_1/book1_main_yw59sm.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820549/Brussels%20Kitchen/BOOKS/book_1/book1_1_acho49.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820547/Brussels%20Kitchen/BOOKS/book_1/book1_2_mq8hzc.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820552/Brussels%20Kitchen/BOOKS/book_1/book1_3_kuecmk.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820548/Brussels%20Kitchen/BOOKS/book_1/book1_4_t3cwhe.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820564/Brussels%20Kitchen/BOOKS/book_2/book2_main_mv9khl.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820565/Brussels%20Kitchen/BOOKS/book_2/book2_1_qzva8w.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820564/Brussels%20Kitchen/BOOKS/book_2/book2_2_e4ubxz.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820564/Brussels%20Kitchen/BOOKS/book_2/book2_3_mbw0wh.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820565/Brussels%20Kitchen/BOOKS/book_2/book2_4_mrbsik.jpg"]
+]
+
+# Create books and their images
+create_objects_with_images(book_attributes, Book, books_photo_url_list)
