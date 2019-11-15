@@ -1,6 +1,22 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+# Function: object creation with images
+def create_objects_with_images(object_attributes, object_title, images_list)
+  object_attributes.each_with_index do |attributes, index|
+    new_object = object_title.create(attributes)
+    images_list[index].each_with_index do |url, index|
+      if index == 0
+        new_image = new_object.images.new(main: true)
+      else
+        new_image = new_object.images.new
+      end
+      new_image.remote_photo_url = url
+      new_image.save
+    end
+  end
+end
+
 # Clear the DB
 Place.reindex
 Place.destroy_all
@@ -315,7 +331,7 @@ Wine by the glass: 4€ – 7€",
     brunch: false,
     terrace: true,
     monday_night: false,
-    sunday_night: false,
+    sunday_night: false
   },
   {
     title: "Le Fabiola",
@@ -333,7 +349,7 @@ Tapas: 3€ – 25€",
     brunch: false,
     terrace: false,
     monday_night: true,
-    sunday_night: false,
+    sunday_night: false
   },
   {
     title: "Titulus",
@@ -352,7 +368,7 @@ To eat: 3.50€ – 17€",
     brunch: false,
     terrace: true,
     monday_night: true,
-    sunday_night: false,
+    sunday_night: false
   },
   {
     title: "Monk",
@@ -371,7 +387,7 @@ Mixed platter: 12€",
     brunch: false,
     terrace: true,
     monday_night: false,
-    sunday_night: true,
+    sunday_night: true
   },
   {
     title: "Ethylo",
@@ -389,12 +405,12 @@ From Friday to Saturday, from 6pm to 2am",
     brunch: false,
     terrace: false,
     monday_night: false,
-    sunday_night: false,
+    sunday_night: false
   }
 ]
 
 # All places pictures URLs
-photo_url_list = [
+places_photo_url_list = [
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576418/Brussels%20Kitchen/Komo/komo_main_z3urjs.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576418/Brussels%20Kitchen/Komo/komo1_clppxh.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576418/Brussels%20Kitchen/Komo/komo2_rdui0g.jpg"],
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576483/Brussels%20Kitchen/Tulipant/tulipant_main_pcemmv.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576483/Brussels%20Kitchen/Tulipant/tulipant1_gugb4l.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576483/Brussels%20Kitchen/Tulipant/tulipant2_amy4o1.jpg"],
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576427/Brussels%20Kitchen/Luka/luka_main_w4yuit.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576427/Brussels%20Kitchen/Luka/luka1_n4bmwc.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576427/Brussels%20Kitchen/Luka/luka2_z8yust.jpg"],
@@ -418,18 +434,7 @@ photo_url_list = [
 ]
 
 # Create places and their images
-place_attributes.each_with_index do |attributes, index|
-  new_place = Place.create(attributes)
-  photo_url_list[index].each_with_index do |url, index|
-    if index == 0
-      new_image = new_place.images.new(main: true)
-    else
-      new_image = new_place.images.new
-    end
-    new_image.remote_photo_url = url
-    new_image.save
-  end
-end
+create_objects_with_images(place_attributes, Place, places_photo_url_list)
 
 # Create categories and tags
 Category::CATEGORIES.each { |category| Category.create(name: category) }
@@ -665,7 +670,19 @@ Practical info :<br/>
   }
 ]
 
-# Create events
-event_attributes.each do |attributes|
-  Event.create(attributes)
-end
+# All events pictures URLs
+events_photo_url_list = [
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816657/Brussels%20Kitchen/EVENTS/Eatcolor_2017/Eatcolor_2017_main_sjdx9j.png", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816660/Brussels%20Kitchen/EVENTS/Eatcolor_2017/Eatcolor_2017_1_vrn1vl.png", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816645/Brussels%20Kitchen/EVENTS/Eatcolor_2017/Eatcolor_2017_2_mnp6jh.png"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816431/Brussels%20Kitchen/EVENTS/1st_book_launch/1st_book_main_z9gmtq.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816433/Brussels%20Kitchen/EVENTS/1st_book_launch/1st_book_1_a8udid.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816430/Brussels%20Kitchen/EVENTS/1st_book_launch/1st_book_2_p6nxic.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816523/Brussels%20Kitchen/EVENTS/BKs_table/BK_table_main_yokmkh.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816525/Brussels%20Kitchen/EVENTS/BKs_table/BK_table_1_h3nx6w.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816522/Brussels%20Kitchen/EVENTS/BKs_table/BK_table_2_yibmlg.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816726/Brussels%20Kitchen/EVENTS/Wild_plants/Wild_plants_main_fpy8gw.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816727/Brussels%20Kitchen/EVENTS/Wild_plants/Wild_plants_1_fjlrox.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816724/Brussels%20Kitchen/EVENTS/Wild_plants/Wild_plants_2_ifchc8.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816608/Brussels%20Kitchen/EVENTS/Eatcolor_2013/Eatcolor_2013_main_itxior.png", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816615/Brussels%20Kitchen/EVENTS/Eatcolor_2013/Eatcolor_2013_1_lnf7n1.png", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816610/Brussels%20Kitchen/EVENTS/Eatcolor_2013/Eatcolor_2013_2_ho80or.png"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816469/Brussels%20Kitchen/EVENTS/1st_year_party/1_year_main_fpxxid.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816469/Brussels%20Kitchen/EVENTS/1st_year_party/1_year_1_stye4b.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816469/Brussels%20Kitchen/EVENTS/1st_year_party/1_year_2_kqwymn.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816683/Brussels%20Kitchen/EVENTS/Pizza_waffle/Pizza_waffle_main_anz8if.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816683/Brussels%20Kitchen/EVENTS/Pizza_waffle/Pizza_waffle_1_afwfh5.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816683/Brussels%20Kitchen/EVENTS/Pizza_waffle/Pizza_waffle_2_hbenyv.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816493/Brussels%20Kitchen/EVENTS/2nd_book_launch/2nd_book_main_zpdefb.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816496/Brussels%20Kitchen/EVENTS/2nd_book_launch/2nd_book_1_hzgiws.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816492/Brussels%20Kitchen/EVENTS/2nd_book_launch/2nd_book_2_zea2fj.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816708/Brussels%20Kitchen/EVENTS/Viens_chez_moi/Viens_chez_moi_main_dhvbux.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816707/Brussels%20Kitchen/EVENTS/Viens_chez_moi/Viens_chez_moi_1_jebdmv.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816708/Brussels%20Kitchen/EVENTS/Viens_chez_moi/Viens_chez_moi_2_h39kcy.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816554/Brussels%20Kitchen/EVENTS/Brunch_club/Brunch_club_main_ixpxn5.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816563/Brussels%20Kitchen/EVENTS/Brunch_club/Brunch_club_1_uc9csp.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816565/Brussels%20Kitchen/EVENTS/Brunch_club/Brunch_club_2_z5ld4i.jpg"]
+]
+
+# Create events and their images
+create_objects_with_images(event_attributes, Event, events_photo_url_list)

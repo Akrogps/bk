@@ -36,7 +36,7 @@ class PlacesController < ApplicationController
       @places_list = Place.all
     end
 
-    @places = @places_list.reject { |place| place.latitude.nil? }
+    @places = @places_list.reject { |place| place.latitude.nil? }.sort_by { |place| place.created_at }.reverse
 
     @markers = @places.map do |place|
       {
