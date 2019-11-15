@@ -1,6 +1,22 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+# Function: object creation with images
+def create_objects_with_images(object_attributes, object_title, images_list)
+  object_attributes.each_with_index do |attributes, index|
+    new_object = object_title.create(attributes)
+    images_list[index].each_with_index do |url, index|
+      if index == 0
+        new_image = new_object.images.new(main: true)
+      else
+        new_image = new_object.images.new
+      end
+      new_image.remote_photo_url = url
+      new_image.save
+    end
+  end
+end
+
 # Clear the DB
 Place.reindex
 Place.destroy_all
@@ -17,12 +33,13 @@ place_attributes = [
     content: "It seems like in Hawaii, food is all about acai and poke bowls, from breakfast till sundown, including in between surf lessons. At Komo, both are served all day long, from Tuesday to Saturday, non-stop. It was during a trip to Hawaii that Lauren first got to discover and try both, everywhere, all the time. And back to Hawaii she went, once the idea of Komo was clear in her mind, so that she could pick up all the inspiration she needed.<br/>
 <br/>
 As a food lover who’d worked in the hospitality business since she could remember and got trained in the coolest eateries in Brussels – Knees to Chin and Bao Bang Bang among others -, she chose to partner with two of her closest friends, Olivia and Juliette, to launch her own food concept: a smoothie and poke bowls bar, just like in Hawaii. And the girls haven’t missed a single reference. From the surf board turned into a table, the little plastic belly dancers on the shelves, and the multiple shark objects and drawings – it feels just as if you’d walk into a surf shack. The place is fresh, colorful, and the girls are super nice and welcoming – pretty much everything you could ask from this type of place. Well not everything, what matters most still is inside those bowls. From Hawaii, they’ve kept the base: warm rice, marinated fish – which makes all the difference apparently -, avocado, edamame and exotic fruits. The rest of the add-ons will help you reach your five fruit and veggie target. It’s quite straight to the point, as colorful as the interior, and simply delicious. For 14€ for the larger version, you’ve got yourself one of the best healthy lunch-deals of the city, hands down. In the morning and afternoon, Komo is the place to go to grab a smoothie bowl, made with acai berries, banana or even avocado; a great and healthy option to replace our more traditional and extra-sweet breakfasts and snacks. And there as well, it’s no surprise by now: it’s just delicious.",
-    address: "36 Rue Defacqz, 1050 Ixelles",
+    address: "36 Rue Defacqz, 1050 Bruxelles",
     phone_number: "02 751 00 38",
     website: "http://www.komobowl.be/",
-    opening_hours: "from monday to friday, from 10am to 3pm and from 6pm to 10pm
-saturday from 11am to 3pm",
-    price_indication: "poke bowls : 11€ – 14€, smoothie bowls : 8,50€",
+    opening_hours: "From Monday to Friday, from 10am to 3pm and from 6pm to 10pm<br/>
+Saturday from 11am to 3pm",
+    price_indication: "Poke bowls: 11€ – 14€<br/>
+Smoothie bowls: 8.50€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
@@ -36,13 +53,14 @@ saturday from 11am to 3pm",
     content: "Strategically located on Place Fernand Cocq, right in the heart of Ixelles, Café Tulipant has been open for only about just a week. And though the construction works by its entrance currently make it a little tricky for customers to access, its future perfectly sun-exposed terrace, however, seems promising enough to compete with the Belga itself.<br/>
 <br/>
 Inside, the old floor tiles from the previous restaurant have been kept, the walls have been scraped to reveal bricks darkened by time as well as several paint and wallpaper layers beneath it. By the front door, a heavy red curtain protects customers from the cold, and by the back, a beautiful stone bar welcomes cocktail making in the evening. On the left, an open kitchen, and on its windowsill, a tulip bouquet. The Café Tulipant takes its name from the previous Auberge Tulipant which once stood in place of Ixelles’ City Hall, before a beautiful tulip garden. Bits and pieces of poetry and romantism from the days has been spread across the Café. We can’t help but smile when, going through the drinks menu, we come across the sentence “I’ve been staring at you for so long, come join me”, hidden between two lines of craft beers, or when we hear the beautiful notes of “Ne me quittes pas” by Jacques Brel playing in the room. As for the food, the Belgian spaghetti Bolognese surely has no business here. Geoffroy Baraud, the young self-taught chef, is determined to make a name for himself and for his extremely creative and elegant cuisine. Each day, he wakes up with a single goal in mind : make his customers happy. A clear mission accomplished when his dessert was brought to our table : a choux filled with 65 Brazilian chocolate ganache, served with apple caramel, matcha meringue and pear and mango compote (5€). A very promising café indeed.",
-    address: "25 Place Fernand Cocq, 1050 Ixelles",
+    address: "25 Place Fernand Cocq, 1050 Bruxelles",
     phone_number: "02 851 31 80",
     website: "https://cafetulipant.be/",
-    opening_hours: "from monday to wednesday, from 11am to 1am
-thursday and friday, from 11am to 2am
-saturday from 10am to 2am and sunday from 10am to 11pm",
-    price_indication: "plat du jour: 12€",
+    opening_hours: "From Monday to Wednesday, from 11am to 1am<br/>
+Thursday and Friday, from 11am to 2am<br/>
+Saturday from 10am to 2am<br/>
+Sunday from 10am to 11pm",
+    price_indication: "Daily special: 12€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: true,
@@ -60,11 +78,11 @@ Warm and welcoming, these are the two words that popped in our minds the first t
 Breakfast, Saturday brunch and delicious desserts complete the pitcure. Luis has us try the Polvorones, a specialty from Andalusia, the region where he is from. The pastries are usually prepared for Christmas, but Kamala loves them so much that she’s decided to serve them all year long. Like her dad says, “they’re simply violent”.<br/>
 Their branding and visual identity matches the color of the walls. Here, everything is blue, blue, blue. We love the pretty illustrations on the cards and menus which perfectly reflect the moto of the house ; joyful and delicate food.<br/>
 Truth is, even though it’s delicious, Luka’s spirit is about much more than just its food.",
-    address: "260 Chaussée d’Ixelles, 1050 Ixelles",
+    address: "260 Chaussée d’Ixelles, 1050 Bruxelles",
     phone_number: "02 646 75 47",
     website: "https://www.facebook.com/restoluka/",
-    opening_hours: "open tuesday and wednesday from 12 to 2:30pm,
-from thursday to saturday from 12 to 2:30pm and from 7 to 9:30pm",
+    opening_hours: "Tuesday and Wednesday from 12am to 2:30pm<br/>
+From Thursday to Saturday from 12am to 2:30pm and from 7pm to 9:30pm",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
@@ -79,11 +97,11 @@ from thursday to saturday from 12 to 2:30pm and from 7 to 9:30pm",
 <br/>
 Right at the entrance, a little satue of Rodin, a tribute to the name of the street, will help you navigate throughout the space. Around it on the floor, arrows are pointing to the counter, the veranda, or the dining room, for those who may have lost their way. The inside, entirely renovated for the project, reminds us of the warm and cosy room of a theatre, where you’d sip on a glass of wine while waiting for act II. Heavy red velvet curtains surround the windows, brick walls left naked give the place a rather cosy feeling and mismatched leather seats complete the picture. The big windows of this four-facade house do the rest : the Comptoir is cosy, but always full of light.<br/>
 At the counter, that’s where you’ll order before being served in the dining room, or in the beautiful veranda. We chose between a range of sandwiches, soups, hot, cold and hot and cold bowls. The bowls were a real success. The hot bowl (11€) – beef meatballs, yoghurt sauce, grilled vegetables, pine nuts, cilantro and wheat – was the definition of comfort food to us. Spicy, hearty and delicious. Same went for the hot-and-cold bowl (also 11€), with spicy roasted cauliflower, eggplants, pumpkin and chickpeas. But the Comptoir is open from early morning to evening, and aside its delicious bowls, it also makes for the perfect spot for breakfast, a sweet break, or a few hours of work along with a coffee.",
-    address: "8 Avenue Auguste Rodin, 1050 Ixelles",
+    address: "8 Avenue Auguste Rodin, 1050 Bruxelles",
     phone_number: "02 203 00 14",
     website: "http://comptoir-rodin.be/",
-    opening_hours: "from tuesday to friday, from 8:30am to 3:30pm
-saturday & sunday, from 10:30am to 4pm",
+    opening_hours: "From Tuesday to Friday, from 8:30am to 3:30pm<br/>
+Saturday and Sunday, from 10:30am to 4pm",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: true,
@@ -101,11 +119,11 @@ After being transformed into a bank, a mutual, and a bunch of other things, the 
 From the Parvis, Café Flora is hard to miss: its bright yellow terrace shines from early morning until nightfall.",
     address: "16A Sint-Gillisvoorplein, 1060 Bruxelles",
     website: "https://www.facebook.com/cafeflora1060/",
-    opening_hours: "from sunday to wednesday from 8:30 to 11pm
-on thursday from 8:30 till midnight
-friday and saturday from 8:30 till 2am",
-    price_indication: "evening snacks : 6,50€ – 15€
-cocktails : 7€- 10€",
+    opening_hours: "From Sunday to Wednesday, from 8:30am to 11pm<br/>
+Thursday from 8:30am till midnight<br/>
+Friday and Saturday from 8:30am till 2am",
+    price_indication: "Evening snacks: 6.50€ – 15€<br/>
+Cocktails: 7€ - 10€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
@@ -122,8 +140,8 @@ On the menu side, we ended up being quite disappointed with the veggies, which a
     address: "1 Rue Saint-Bernard, 1060 Bruxelles",
     phone_number: "02 347 79 46",
     website: "https://www.tero-restaurant.com/",
-    opening_hours: "open from tuesday to friday from 10am to 2pm
-    and from tuesday to saturday from 7 to 10pm",
+    opening_hours: "From Tuesday to Friday, from 10am to 2pm<br/>
+From Tuesday to Saturday, from 7pm to 10pm",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
@@ -139,9 +157,9 @@ We meet friends for a hearty, seasonal and delicious lunch, prepared by the chef
     address: "60 Rue des Minimes, 1000 Bruxelles",
     phone_number: "02 355 37 11",
     website: "http://cafedesminimes.be/",
-    opening_hours: "open from tuesday to sunday from noon to 1am
-   friday and saturday untill 2 am" ,
-    price_indication: "lunch : from 10€ to 18€" ,
+    opening_hours: "From Tuesday to Sunday, from noon to 1am<br/>
+Friday and Saturday until 2am" ,
+    price_indication: "Lunch: 10€ - 18€" ,
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: true,
@@ -158,10 +176,10 @@ Symbolic references from the area have been included everywhere, from the colour
     address: "27 Rue de Tamines, 1060 Bruxelles",
     phone_number: "02 771 91 08",
     website: "http://fernand-obb.be/",
-    opening_hours: "on monday from 6pm to 10pm
-from tuesday to friday from 11:30am to 3pm, and from 6pm to 10pm
-on saturday from 11:30am to 10pm",
-    price_indication: "shrimp croquette: 7,50€",
+    opening_hours: "Monday from 6pm to 10pm<br/>
+From Tuesday to Friday, from 11:30am to 3pm and from 6pm to 10pm<br/>
+Saturday from 11:30am to 10pm",
+    price_indication: "Shrimp croquette: 7.50€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
@@ -175,11 +193,11 @@ on saturday from 11:30am to 10pm",
     content: "La Meute is the story of three friends. Two brothers, Alexis and Arnaud, who after having launched two successful donburi bars, partner with their friends Jim take on a new challenge. Challenge succeeded. At La Meute, as the name says (the herd in French), we'll meet our best meat-lover friends to enjoy an easy and laid back dinner.<br/>
 The concept is quite straightforward : the three partners want to offer delicious and quality meat to their customers, without ever having to break the bank. The famous 'meute' is a an Irish breed, from Wexford more specifically, and is raised in the Belgian pastures of Veurne, a few kilometers away from our dearest North Sea coast.<br/>
 Inside, it's small and cosy, the tables are close and the atmosphere welcoming. It's perfect before a movie, or a drink in Flagey, but it's just as good to hang out for hours chatting with a group of friends. Aside from the carnivores who'll find what they're looking for in the contrefilet-fries-coleslaw-homemade sauce combo (20€), the vegetarians won't be left out with the veggie plate of the day (16€), neither will the wine lovers with the natural wine list from Basin (from 3,80€ by the glass). We love this place with its butcher-shop like decoration, its huge front window lighting up even the greyest winter days, and the great value for money of its short but deadly efficient menu.",
-    address: "6 Rue Lesbroussart, 1050 Ixelles",
-    phone_number: "0476 75 42 86",
+    address: "6 Rue Lesbroussart, 1050 Bruxelles",
+    phone_number: "04 76 75 42 86",
     website: "https://restaurantlameute.business.site/",
-    opening_hours: "open from tuesday from saturday from noon to 2pm et from 7 to 10pm",
-    price_indication: "menu : 20€" ,
+    opening_hours: "From Tuesday to Saturday, from noon to 2pm and from 7pm to 10pm",
+    price_indication: "Menu: 20€" ,
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
@@ -197,8 +215,8 @@ Nuovo Rosso is a place we love, and recommend with closed eyes. It's not the pla
     address: "Rue Bosquet 62, 1060 Bruxelles",
     phone_number: "02 538 89 28",
     website: "https://www.facebook.com/nuovorosso/",
-    opening_hours: "open from monday to friday from noon to 2pm
-and from 7 to 10:30 pm. Saturday from 7pm to 10:30pm",
+    opening_hours: "From Monday to Friday, from noon to 2pm and from 7pm to 10:30pm<br/>
+Saturday from 7pm to 10:30pm",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
@@ -214,7 +232,7 @@ and from 7 to 10:30 pm. Saturday from 7pm to 10:30pm",
   As we make our way to the back of the restaurant, we discover the second most important item guaranteeing the quality of the food : yet another oven. This one has been custom-made from cast-iron, and carries out the slow cooking of significant quantities of meat. Three stories, and burning at the bottom, a massive wood-fire. It will take it 5 hours to cook chicken, and between 10 to 16 hours to cook beef or lamb. We can already feel our mouths watering.<br/>
   On the menu, stuffed breads – renamed tannours by Georges after their own specific oven – are waiting for us. We order a falafel tannour (5€) – minute-made, both falafels and bread – , and a chicken tannour plate (6,50€), along with some extra grilled veggies ( 30 cents per extra, far from being overpriced to say the least).
   And what else can we say : the concept is brilliant and the food delicious. We can only recommend you go see for yourself.",
-    address: "98 Rue de la Brasserie, 1050 Ixelles",
+    address: "98 Rue de la Brasserie, 1050 Bruxelles",
     website: "https://www.facebook.com/mytannour/",
     price_indication: "Falafel Tannour: 5€",
     booking_link: "https://www.thefork.be/",
@@ -232,8 +250,8 @@ and from 7 to 10:30 pm. Saturday from 7pm to 10:30pm",
     address: "208 Rue Antoine Dansaert, 1000 Bruxelles",
     phone_number: "02 355 53 73",
     website: "https://www.facebook.com/barducanal/",
-    opening_hours: "from tuesday to saturday, from 12pm to midnight
-  sunday, from 3pm to 10pm",
+    opening_hours: "From Tuesday to Saturday, from 12pm to midnight<br/>
+Sunday from 3pm to 10pm",
     price_indication: "Smoked salmon tartar with herring eggs: 10€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
@@ -251,8 +269,8 @@ and from 7 to 10:30 pm. Saturday from 7pm to 10:30pm",
     address: "8 Place de la Liberté, 1000 Bruxelles",
     phone_number: "02 356 14 05",
     website: "https://www.caberdouche.com/",
-    opening_hours: "open everyday from 9am to midnight",
-    price_indication: "lunch special : 13-15€",
+    opening_hours: "Everyday from 9am to midnight",
+    price_indication: "Lunch special: 13 - 15€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: true,
@@ -265,12 +283,12 @@ and from 7 to 10:30 pm. Saturday from 7pm to 10:30pm",
     subtitle: "néo-cantine et bar de quartier",
     content: "Le Phare du Kanaal is a charming bar and lunch spot, located « on the other side of the canal », as most people from uptown like to name the area. And we’ve got to admit, that though the Phare opened over four years ago, we have only been in the neighborhood so many times. Last time we came, we were lucky to meet Hanna, the founder of this beautiful spot.<br/>
   She told us that, as a Parisian, little did she think about how isolated she might be when she initially found the place. And we’re glad. Before setting her headquarters, the Phare used to be yet another Chien Vert fabric showroom. The owner, as a true and dedicated boat fan, had the façade painted with a huge boat at sea. He even went further and made the wooden floor slightly tilted to give the customers the impression to be on a boat. Next time you feel like the floor isn’t straight, now you know why. As soon as she opened, Hanna partnered with Julien, initially to help her on the food side. Now it’s Simon – ex-Contrebande – who runs the kitchen, offering only seasonal and local ingredients in his daily specials. On the wall, a “wall of farm” poster features all of their superstar local suppliers. On the first floor, a co-working space welcomes about twenty freelancers, who come and go according to their needs thanks to their “swimming pool pass” (130€ for 10 entries). A gorgeous project we fully support.",
-    address: "40 Quai des Charbonnages, 1080 Molenbeek",
+    address: "40 Quai des Charbonnages, 1080 Bruxelles",
     phone_number: "02 410 06 84",
     website: "http://lepharedukanaal.com/",
-    opening_hours: "from monday to friday, from 9am to 8pm
-  saturday, from 11am to 6pm",
-    price_indication: "lunch : 15€",
+    opening_hours: "From Monday to Friday, from 9am to 8pm<br/>
+Saturday from 11am to 6pm",
+    price_indication: "Lunch: 15€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: true,
@@ -283,11 +301,11 @@ and from 7 to 10:30 pm. Saturday from 7pm to 10:30pm",
     subtitle: "italian enoteca",
     content: "Saying eating at Vincenzo’s to refer to eating at Vini Divini, would make all the sense in the world. The chef from Naples welcomes his customers in his tiny restaurant – literally the size of two parking spots – as if it were his own home. Vini Divini has been opened for over 21 years now, and if you still haven’t heard of it, it might just be due to its size and the difficulty to get a table among the regulars in its extremely intimate setting. To get a table, make sure to book 2-3 weeks in advance, 4 to eat at the counter on the weekends.<br/>
   Once inside, let the chef and his team guide you. Vincenzo and Elise – his sous-chef for 13 years now – offer inspired and seasonal Italian cuisine in a five-course tasting menu (60€) to about 20 customers per night. All around us, wine bottles fill the shelves all the way to the ceiling, satisfying even the biggest Italian wines enthusiasts. We start with a Proseco glass (included in the menu), while observing each detail of the happy mess around us. The atmosphere is fantastic: the music is loud, the restaurant is full – like every single night – and the place is extremely charming and filled with good vibes only. All around, customers are drinking and laughing, as dishes slowly start to arrive on the tables. The menu starts with a buffala, quickly followed with Bouchot mussels, delicious ravioli filled with ricotta cheese and boletus mushrooms and served in a butter-sage sauce, then an amazing line-caught sea bass we still remember. The hit of the show: the lemon pie, with a lemon curd like we never had the chance to try before. An institution, to say the least.",
-    address: "28 Rue du Berger, 1050 Ixelles",
+    address: "28 Rue du Berger, 1050 Bruxelles",
     phone_number: "04 77 26 14 87",
     website: "http://vini-divini.eu/",
-    opening_hours: "from monday to saturday, from 7pm to 10:15pm",
-    price_indication: "brunch in the hotel le berger: 35€",
+    opening_hours: "From Monday to Saturday, from 7pm to 10:15pm",
+    price_indication: "Brunch in the hotel le berger: 35€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
@@ -303,17 +321,17 @@ In the shelves and in the boxes by the window, you’ll find organic veggies and
 We already really love this Petit Mercado who opened just a few days ago, its strong and super promising vision, beautiful space and and extremely welcoming team.",
     address: "82 Rue de l'Hôtel des Monnaies, 1060 Bruxelles",
     website: "https://www.facebook.com/lepetitmercadobxl/",
-    opening_hours: "from tuesday to saturday from 10am to 9:30pm
-on sundays from 10am to 6pm",
-    price_indication: "lunch : 6€ – 13€€
-to share with drinks : 3€ – 10€
-wine by the glass : 4€ – 7€",
+    opening_hours: "From Tuesday to Saturday, from 10am to 9:30pm<br/>
+Sunday from 10am to 6pm",
+    price_indication: "Lunch: 6€ – 13€<br/>
+To share with drinks: 3€ – 10€<br/>
+Wine by the glass: 4€ – 7€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
     terrace: true,
     monday_night: false,
-    sunday_night: false,
+    sunday_night: false
   },
   {
     title: "Le Fabiola",
@@ -321,17 +339,17 @@ wine by the glass : 4€ – 7€",
     content: "If you already knew the Cheese and Wine Café, you won’t bel lost walking into Le Fabiola. Inside, most of the interior has remained unchanged, from the red brick walls to the long shared wooden tables. On the walls, shelves filled with wine bottles, and lots of references to our previous Queen Fabiola, making this place now unique.<br/>
 When Thibault and Olivier first got into wines, over 12 years ago, only very few places in Brussels seemed to be specialized in the area. After both living for a few years in Spain, they decided to combine best of both worlds: Spanish wines, white pudding from Lièges, and pictures of queen Fabiola all around, a symbol of our Belgian culture.<br/>
 But their offer doesn’t stop there. When opening the Fabiola six years ago now, they also brought back the Gin and Tonics trend from Spain, when it had only just started, as well as the concept of tapas. Today, they still have a cool selection of gins of offer, and their tapas range has grown a lot too. Other than white pudding, there is also pan con tomate, burrata, serrano ham, grilled camembert cheese served with honey and chorizo – clearly the hit of the house -, and about a dozen more. Wines are mostly Spanish, with a few from France, a few in direct trade, and a nice selection of natural and organic wines, growing every year. We love taking a seat on the little terrace outside to catch the last rays of sun, sipping on a glass of Vividor, a red wine we discovered here and love (27€ the bottle), watching the people go by.",
-    address: "52 Rue Lesbroussart, 1050 Ixelles",
+    address: "52 Rue Lesbroussart, 1050 Bruxelles",
     website: "https://www.facebook.com/LEFABIOLA/",
-    opening_hours: "from monday to saturday, from 17h30 to minuit",
-    price_indication: "wine by the glass : 4,5€ – 7€
-tapas : 3€ – 25€",
+    opening_hours: "From Monday to Saturday, from 5:30pm to midnight",
+    price_indication: "Wine by the glass: 4.5€ – 7€<br/>
+Tapas: 3€ – 25€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
     terrace: false,
     monday_night: true,
-    sunday_night: false,
+    sunday_night: false
   },
   {
     title: "Titulus",
@@ -341,14 +359,16 @@ Since then, they’ve been producing their own red, white, rosé and natural spa
     address: "167A Chaussée de Wavre, 1050 Bruxelles",
     phone_number: "02 512 98 30",
     website: "http://www.titulus.be/",
-    opening_hours: "open monday from 5 to 10pm and from tuesday to saturday from 12 to 10pm",
-    price_indication: "wine by the glass: 4€-9€ / to eat: 3,50€ – 17€",
+    opening_hours: "Monday from 5pm to 10pm<br/>
+From Tuesday to Saturday, from 12am to 10pm",
+    price_indication: "Wine by the glass: 4€ - 9€<br/>
+To eat: 3.50€ – 17€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
     terrace: true,
     monday_night: true,
-    sunday_night: false,
+    sunday_night: false
   },
   {
     title: "Monk",
@@ -358,40 +378,39 @@ We fell in love for this eclectic and cosmopolitan customer base, changing as th
     address: "42 Rue Sainte-Catherine, 1000 Bruxelles",
     phone_number: "02 511 75 11",
     website: "http://www.monk.be/",
-    opening_hours: "from monday to saturday,
-from 12pm to 3pm and from 6pm to 11pm on sunday,
-from 6pm to 11pm",
-    price_indication: "beers: 2.20 – 5.50€
-mixed platter: 12€",
+    opening_hours: "From Monday to Saturday, from 12pm to 3pm and from 6pm to 11pm<br/>
+Sunday from 6pm to 11pm",
+    price_indication: "Beers: 2.20€ – 5.50€<br/>
+Mixed platter: 12€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
     terrace: true,
     monday_night: false,
-    sunday_night: true,
+    sunday_night: true
   },
   {
     title: "Ethylo",
     subtitle: "cocktail bar",
     content: "Inside, it feels as though we’re in a speakeasy dating from the prohibition period in the U.S. back in the late 20’s. The wallpaper, the barman’s suspenders, the gramophone by the window and the huge vintage tv transformed into a high table all highly contribute to the feeling. We immediately feel like taking place at one of those low marble tables, in this cosy and intimate venue.<br/>
 On the menu, a short list of cocktails: 7 signature cocktails, 7 classics (from 8 to 13€), and two mocktails (6€), making it easier to make a decision. We let the waitress guide us and order the weekly special, a Umami cocktail made from Tequila, mango shrub and soy sauce. Romain tells us how he loves picking flavors for his cocktails in the food he discovers. For this one, he was inspired by an Asian dish. He cooked mango with shallots then let the mixture macerate in sugar before adding wine vinegar to it. The result is just delicious. His specialty: anything that can be homemade in his workshop below. Shrubs, syrups, fruit juices, liquors and infused alcohol; nothing’s is forgotten, not even the homemade aquafaba saved from the homemade humos. But what he wanted most when opening Ethylo was the ability to offer quality spirits, which he just loves selecting, at affordable prices. Before opening the bar with his two partners, Romain learned a big part of the job at Green Lab. Then, at Copain, close by, where he quickly realized that the demand for cocktail in the area was really high. A good thing and a perfect timing too, as he had been dreaming of opening his own cosy cocktail place for 5 to 6 years already. And this how Ethylo was born.",
-    address: "2 Rue Josse Impens, 1030 Schaerbeek",
+    address: "2 Rue Josse Impens, 1030 Bruxelles",
     phone_number: "02 307 37 31",
     website: "https://www.ethylo.be/",
-    opening_hours: "from tuesday to thursday, from 6pm to 1am
-from friday to saturday, from 6pm to 2am",
-    price_indication: "cocktails: 8€ – 13.50€",
+    opening_hours: "From Tuesday to Thursday, from 6pm to 1am<br/>
+From Friday to Saturday, from 6pm to 2am",
+    price_indication: "Cocktails: 8€ – 13.50€",
     booking_link: "https://www.thefork.be/",
     deliveroo_link: "https://deliveroo.be/fr",
     brunch: false,
     terrace: false,
     monday_night: false,
-    sunday_night: false,
+    sunday_night: false
   }
 ]
 
 # All places pictures URLs
-photo_url_list = [
+places_photo_url_list = [
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576418/Brussels%20Kitchen/Komo/komo_main_z3urjs.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576418/Brussels%20Kitchen/Komo/komo1_clppxh.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576418/Brussels%20Kitchen/Komo/komo2_rdui0g.jpg"],
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576483/Brussels%20Kitchen/Tulipant/tulipant_main_pcemmv.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576483/Brussels%20Kitchen/Tulipant/tulipant1_gugb4l.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576483/Brussels%20Kitchen/Tulipant/tulipant2_amy4o1.jpg"],
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576427/Brussels%20Kitchen/Luka/luka_main_w4yuit.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576427/Brussels%20Kitchen/Luka/luka1_n4bmwc.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576427/Brussels%20Kitchen/Luka/luka2_z8yust.jpg"],
@@ -415,18 +434,7 @@ photo_url_list = [
 ]
 
 # Create places and their images
-place_attributes.each_with_index do |attributes, index|
-  new_place = Place.create(attributes)
-  photo_url_list[index].each_with_index do |url, index|
-    if index == 0
-      new_image = new_place.images.new(main: true)
-    else
-      new_image = new_place.images.new
-    end
-    new_image.remote_photo_url = url
-    new_image.save
-  end
-end
+create_objects_with_images(place_attributes, Place, places_photo_url_list)
 
 # Create categories and tags
 Category::CATEGORIES.each { |category| Category.create(name: category) }
@@ -463,8 +471,6 @@ event_attributes = [
     Intrigued? Put on your headphones, turn the sound up, put the video on HD and hit play!<br/><br/>But none of this would’ve been the same without the precious help and welcome of the MAD, where we were able to create 4 magical days of pure gastronomy. Without Vivien and Baptiste, the talented wine makers and founders of Titulus and their wine pairings without which none of the menus would have matched such excellence. Without the presence and work of Joana and François, from Fika and Café Capitale, and their origin filtered coffee which delicately ended each dinner. And without the priceless help of Asa Selection, Maes Inox, Marcolini and the talented Eprod team behind this video!",
     event_date: DateTime.parse("2017-11-21 19:00:00"),
     address: "10 Place du Nouveau Marché aux Grains, 1000 Bruxelles",
-    details: "No details",
-    price_indication: "No price indication",
     state: "happened",
     tickets_link: ""
   },
@@ -482,8 +488,6 @@ The dishes you have tried during the launch – the pork buns from Umamido, the 
 ",
     event_date: DateTime.parse("2017-09-10 19:00:00"),
     address: "18 Rue Duquesnoy, 1000 Bruxelles",
-    details: "No details",
-    price_indication: "No price indication",
     state: "happened",
     tickets_link: ""
   },
@@ -500,8 +504,7 @@ Thanks to Our Daily Bottle for the wine pairing, to Delhaize for the organic pro
 Also a big thanks to Hailing Wang for the great video.",
     event_date: DateTime.parse("2017-03-16 19:30:00"),
     address: "Place Sainte-Croix, 1050 Bruxelles",
-    details: "No details",
-    price_indication: "50€ pp",
+    price_indication: "50€ per person",
     state: "upcoming",
     tickets_link: "info@brusselskitchen.com"
   },
@@ -517,7 +520,6 @@ And a particular thanks to Hailing Wang, our very talented photographer of the n
     event_date: DateTime.parse("2014-05-26 11:00:00"),
     address: "48 Rue Véronèse, 1000 Bruxelles",
     details: "From 11am to 7pm",
-    price_indication: "No price indication",
     state: "happened",
     tickets_link: ""
   },
@@ -534,8 +536,6 @@ Intrigued? Put on your headphones, turn the sound up, put the video on HD and hi
 But none of this would’ve been the same without the precious help and welcome of the MAD, where we were able to create 4 magical days of pure gastronomy. Without Vivien and Baptiste, the talented wine makers and founders of Titulus and their wine pairings without which none of the menus would have matched such excellence. Without the presence and work of Joana and François, from Fika and Café Capitale, and their origin filtered coffee which delicately ended each dinner. And without the priceless help of Asa Selection, Maes Inox, Marcolini and the talented Eprod team behind this video!",
     event_date: DateTime.parse("2013-10-22 19:00:00"),
     address: "10 Place du Nouveau Marché aux Grains, 1000 Bruxelles",
-    details: "No details",
-    price_indication: "No price indication",
     state: "happened",
     tickets_link: ""
   },
@@ -557,8 +557,6 @@ I know it sounds a lot like an award ceremony but I really did have to thank all
 And to finish, here is a 20% off discount on all purchase on www.kusmitea.com with the code KUSMIBK (valid until the 30.04.2013, may not be combined with any other offers or promotions).",
     event_date: DateTime.parse("2013-03-31 19:00:00"),
     address: "22 Rue du Marché Aux Herbes, 1000 Bruxelles",
-    details: "No details",
-    price_indication: "No price indication",
     state: "happened",
     tickets_link: ""
   },
@@ -575,8 +573,6 @@ We simply didn’t move from behind the bar for five hours straight, and we even
 Anyways, it was really easy, apparently really good (we only had a small piece to try), and super fast. You’ll just need a waffle machine, pizza dough (I highly recommend the one from Lidle, they’re already square shaped, much easier), and your favorite pizza ingredients to fill in. Here, besides the mozzarella and tomato sauce, we used parma ham, grilled zucchini and peppers, mushrooms, basil and arugula. And to drink, some raspberries in a cava glass, so easy.",
     event_date: DateTime.parse("2012-06-03 19:00:00"),
     address: "455 Chaussée de Boondael, 1050 Ixelles",
-    details: "No details",
-    price_indication: "No price indication",
     state: "happened",
     tickets_link: ""
   },
@@ -590,8 +586,8 @@ It was simply incredible having so many of you there – and on a rainy Sunday n
 Thank you for coming, thank you for all of your kind words when announcing the release of this second book, thank you for everything. And a huge thank you to the MAD, for letting us use their amazing MAD Café, and its huge terrace, which was simply perfect, even under the rain. This night couldn’t have been possible without them so again, THANK YOU.",
     event_date: DateTime.parse("2019-10-07 19:00:00"),
     address: "10 Place du Nouveau Marché aux Grains, 1000 Bruxelles",
-    details: "Delivery to belgium only",
-    price_indication: "19.95€ + 4€ delivery fees",
+    details: "Delivery to Belgium only",
+    price_indication: "19.95€ + 4€ (delivery fees)",
     state: "happened",
     tickets_link: "https://www.brusselskitchen.com/produit/les-nouvelles-adresses-food-style-2019-fr-en?lang=en"
   },
@@ -629,7 +625,7 @@ To Titulus for this long-lasting and strong partnership, and for their great win
     event_date: DateTime.parse("2019-10-28 19:00:00"),
     address: "Place Sainte-Croix, 1050 Bruxelles",
     details: "Shared table of 16 people",
-    price_indication: "4 course tasting menu + apetizer + sparkling wine & + wine pairings: 75€",
+    price_indication: "4 course tasting menu + apetizer + sparkling wine + wine pairings: 75€",
     state: "happened" ,
     tickets_link: "https://www.eventbrite.com/e/viens-chez-moi-jinvite-benoit-stas-alice-pollet-tickets-76872486677"
   },
@@ -668,14 +664,48 @@ Practical info :<br/>
 • How much : 45€ pp",
     event_date: DateTime.parse("2019-12-08 11:00:00"),
     address: "38 Rue Saint-Laurent, 1000 Bruxelles",
-    details: "No details",
-    price_indication: "45€ pp drinks included",
+    price_indication: "45€ pp (drinks included)",
     state: "upcoming",
     tickets_link: "https://www.eventbrite.com/e/le-brunch-club-8-decembre-tickets-65642355051"
   }
 ]
 
-# Create events
-event_attributes.each do |attributes|
-  Event.create(attributes)
-end
+# All events pictures URLs
+events_photo_url_list = [
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816657/Brussels%20Kitchen/EVENTS/Eatcolor_2017/Eatcolor_2017_main_sjdx9j.png", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816660/Brussels%20Kitchen/EVENTS/Eatcolor_2017/Eatcolor_2017_1_vrn1vl.png", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816645/Brussels%20Kitchen/EVENTS/Eatcolor_2017/Eatcolor_2017_2_mnp6jh.png"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816431/Brussels%20Kitchen/EVENTS/1st_book_launch/1st_book_main_z9gmtq.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816433/Brussels%20Kitchen/EVENTS/1st_book_launch/1st_book_1_a8udid.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816430/Brussels%20Kitchen/EVENTS/1st_book_launch/1st_book_2_p6nxic.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816523/Brussels%20Kitchen/EVENTS/BKs_table/BK_table_main_yokmkh.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816525/Brussels%20Kitchen/EVENTS/BKs_table/BK_table_1_h3nx6w.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816522/Brussels%20Kitchen/EVENTS/BKs_table/BK_table_2_yibmlg.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816726/Brussels%20Kitchen/EVENTS/Wild_plants/Wild_plants_main_fpy8gw.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816727/Brussels%20Kitchen/EVENTS/Wild_plants/Wild_plants_1_fjlrox.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816724/Brussels%20Kitchen/EVENTS/Wild_plants/Wild_plants_2_ifchc8.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816608/Brussels%20Kitchen/EVENTS/Eatcolor_2013/Eatcolor_2013_main_itxior.png", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816615/Brussels%20Kitchen/EVENTS/Eatcolor_2013/Eatcolor_2013_1_lnf7n1.png", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816610/Brussels%20Kitchen/EVENTS/Eatcolor_2013/Eatcolor_2013_2_ho80or.png"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816469/Brussels%20Kitchen/EVENTS/1st_year_party/1_year_main_fpxxid.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816469/Brussels%20Kitchen/EVENTS/1st_year_party/1_year_1_stye4b.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816469/Brussels%20Kitchen/EVENTS/1st_year_party/1_year_2_kqwymn.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816683/Brussels%20Kitchen/EVENTS/Pizza_waffle/Pizza_waffle_main_anz8if.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816683/Brussels%20Kitchen/EVENTS/Pizza_waffle/Pizza_waffle_1_afwfh5.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816683/Brussels%20Kitchen/EVENTS/Pizza_waffle/Pizza_waffle_2_hbenyv.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816493/Brussels%20Kitchen/EVENTS/2nd_book_launch/2nd_book_main_zpdefb.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816496/Brussels%20Kitchen/EVENTS/2nd_book_launch/2nd_book_1_hzgiws.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816492/Brussels%20Kitchen/EVENTS/2nd_book_launch/2nd_book_2_zea2fj.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816708/Brussels%20Kitchen/EVENTS/Viens_chez_moi/Viens_chez_moi_main_dhvbux.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816707/Brussels%20Kitchen/EVENTS/Viens_chez_moi/Viens_chez_moi_1_jebdmv.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816708/Brussels%20Kitchen/EVENTS/Viens_chez_moi/Viens_chez_moi_2_h39kcy.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816554/Brussels%20Kitchen/EVENTS/Brunch_club/Brunch_club_main_ixpxn5.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816563/Brussels%20Kitchen/EVENTS/Brunch_club/Brunch_club_1_uc9csp.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573816565/Brussels%20Kitchen/EVENTS/Brunch_club/Brunch_club_2_z5ld4i.jpg"]
+]
+
+# Create events and their images
+create_objects_with_images(event_attributes, Event, events_photo_url_list)
+
+# All books attributes
+book_attributes = [
+  {
+    title: "The best places to eat out in style (2017)",
+    unit_price: 23.95,
+    product_sku: 1
+  },
+  {
+    title: "New hotspots to eat out in style (2019)",
+    unit_price: 23.95,
+    product_sku: 2
+  }
+]
+
+# All books pictures URLs
+books_photo_url_list = [
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820547/Brussels%20Kitchen/BOOKS/book_1/book1_main_yw59sm.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820549/Brussels%20Kitchen/BOOKS/book_1/book1_1_acho49.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820547/Brussels%20Kitchen/BOOKS/book_1/book1_2_mq8hzc.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820552/Brussels%20Kitchen/BOOKS/book_1/book1_3_kuecmk.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820548/Brussels%20Kitchen/BOOKS/book_1/book1_4_t3cwhe.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820564/Brussels%20Kitchen/BOOKS/book_2/book2_main_mv9khl.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820565/Brussels%20Kitchen/BOOKS/book_2/book2_1_qzva8w.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820564/Brussels%20Kitchen/BOOKS/book_2/book2_2_e4ubxz.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820564/Brussels%20Kitchen/BOOKS/book_2/book2_3_mbw0wh.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573820565/Brussels%20Kitchen/BOOKS/book_2/book2_4_mrbsik.jpg"]
+]
+
+# Create books and their images
+create_objects_with_images(book_attributes, Book, books_photo_url_list)

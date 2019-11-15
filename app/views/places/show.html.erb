@@ -1,8 +1,10 @@
 <div class="places" style="background-color: white;">
   <div class="page-setup">
-    <div class="flex-main-img">
-      <%= cl_image_tag(@place.images.where(main: true).first.photo, crop: :fit) %>
-    </div>
+    <% if @place.images.where(main: true).first.photo %>
+      <div class="flex-main-img">
+        <%= cl_image_tag(@place.images.where(main: true).first.photo, crop: :fit) %>
+      </div>
+    <% end %>
     <div class="flex-title text-center col-12">
       <div class="justify-content-between">
         <!-- <div class="col-2"></div> -->
@@ -23,10 +25,26 @@
         <div class="flex-info-place">
           <div class="info">
             <p id="info"><%=@place.address%></p>
-            <p><%= link_to "Website", @place.website, target: :_blank %></p>
-            <p id="info"><%=@place.phone_number%></p>
-            <p id="info"><%=@place.opening_hours%></p>
-            <p id="info"><%=@place.price_indication%></p>
+            <% if @place.website %>
+              <p><%= link_to "Website", @place.website, target: :_blank %></p>
+            <% else %>
+              <p id="info">No website</p>
+            <% end %>
+            <% if @place.phone_number %>
+              <p id="info"><%=@place.phone_number%></p>
+            <% else %>
+              <p id="info">No phone number</p>
+            <% end %>
+            <% if @place.opening_hours %>
+              <p id="info"><%=@place.opening_hours.html_safe%></p>
+            <% else %>
+              <p id="info">No opening hours</p>
+            <% end %>
+            <% if @place.price_indication %>
+              <p id="info"><%=@place.price_indication.html_safe%></p>
+            <% else %>
+              <p id="info">No price indication</p>
+            <% end %>
           </div>
         </div>
         <a href="https://deliveroo.be/fr" class="btn btn-link btn-outline-success" id="deliveroo-btn" target="_blank">Deliveroo</a>

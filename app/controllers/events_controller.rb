@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: :show
 
   def index
-    @events = Event.all
+    @events = Event.all.order("event_date DESC")
   end
 
   def show
