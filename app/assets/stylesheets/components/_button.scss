@@ -1,15 +1,15 @@
 .button-event {
   width: 100px;
-  border: 1px solid blue;
-  color: blue;
+  border: 1px solid $blue;
+  color: $blue;
   margin: 30px auto 0 auto;
   padding: 6px;
 
   a {
-    color: blue;
+    color: $blue;
     font-size: 14px;
     &:hover {
-      color: blue;
+      color: $blue;
     }
   }
 }

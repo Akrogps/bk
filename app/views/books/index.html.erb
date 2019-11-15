@@ -1,18 +1,14 @@
 <div class="books-grid">
-  <div class="card-book">
-    <%= link_to image_tag("book1.jpg"), books_path, class: "card-book" %>
-    <div class="card-book-content">
-      <h5>The best places to eat out with style</h5>
-      <h6 style="color:blue;">19,95€</h6>
+  <% @books.each do |book| %>
+    <div class="card-book">
+      <%= link_to cl_image_tag(book.images.where(main: true).first.photo, crop: :fit), book_path(book), class: "card-book" %>
+      <div class="card-book-content">
+        <h6><%=link_to book.title, book_path(book) %></h6>
+        <h6 ><%= book.unit_price %>€</h6>
+        <p class="button-event">Order now</p>
+      </div>
     </div>
-  </div>
-  <div>
-    <%= link_to image_tag("book2.jpg"), books_path, class: "card-book" %>
-    <div class="card-book-content">
-      <h5>New hotspots to eat out with style</h5>
-      <h6 style="color:blue;">19,95€</h6>
-    </div>
-  </div>
+  <% end %>
 </div>
 
 

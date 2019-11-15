@@ -1,7 +1,7 @@
 <div class="places" style="background-color: white;">
   <div class="page-setup">
-    <div class="event-img">
-      <%= image_tag "book1.jpg" %>
+    <div class="book-img">
+      <%= cl_image_tag(@book.images.where(main: true).first.photo, crop: :fit) %>
     </div>
     <div class="flex-title text-center col-12">
       <div class="justify-content-between">
