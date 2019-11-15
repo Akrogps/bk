@@ -1,8 +1,10 @@
-<div class="map-pic">
-  <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "map-pic" %>
-</div>
+<% if place.images.where(main: true).first.photo %>
+  <div class="map-pic">
+    <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "map-pic" %>
+  </div>
+<% end %>
 <div class="map-txt">
   <h2><%= place.title %></h2>
   <p><%= place.subtitle %></p>
-  <p><%= place.address %></p>
+  <p><%= place.address.gsub(",", "<br/>").html_safe %></p>
 </div>

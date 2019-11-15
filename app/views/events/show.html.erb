@@ -11,9 +11,11 @@
         </div>
         <!-- <div class="col-2"></div> -->
       </div>
-      <div class="subtitle">
-        <p><light><%=@event.subtitle%></light></p>
-      </div>
+      <% if @event.subtitle %>
+        <div class="subtitle">
+          <p><light><%=@event.subtitle%></light></p>
+        </div>
+      <% end %>
     </div>
     <div class="row content-info">
       <div class="flex-content col-8" style="background-color: transparent;">
@@ -22,10 +24,18 @@
       <div class="flex-sidebar-place col-4">
         <div class="flex-info-place">
           <div class="info">
-            <p id="info"><%=@event.subtitle%></p>
+            <p id="info"><%=@event.event_date.strftime("%d %B %Y, at %H:%m")%></p>
             <p id="info"><%=@event.address%></p>
-            <p id="info"><%=@event.details%></p>
-            <p id="info"><%=@event.price_indication%></p>
+            <% if @event.details %>
+              <p id="info"><%=@event.details.html_safe%></p>
+            <% else %>
+              <p id="info">No details</p>
+            <% end %>
+            <% if @event.price_indication %>
+              <p id="info"><%=@event.price_indication.html_safe%></p>
+            <% else %>
+              <p id="info">No price indication</p>
+            <% end %>
           </div>
         </div>
         <a href="https://deliveroo.be/fr" class="btn btn-link btn-outline-success" id="booking-btn" target="_blank">Get tickets</a>
