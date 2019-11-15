@@ -11,23 +11,19 @@
         </div>
         <!-- <div class="col-2"></div> -->
       </div>
-      <div class="subtitle">
-        <p><light><%=@book.title%></light></p>
-      </div>
     </div>
     <div class="row content-info">
-      <div class="flex-content col-8" style="background-color: transparent;">
-          <p><%=@book.description.html_safe%></p>
-      </div>
+      <% if @book.description %>
+        <div class="flex-content col-8" style="background-color: transparent;">
+            <p><%=@book.description.html_safe%></p>
+        </div>
+      <% end %>
       <div class="flex-sidebar-place col-4">
         <div class="flex-info-place">
           <div class="info">
-            <p id="info"><%=@book.product_sku%></p>
-            <p id="info"><%=@book.details%></p>
-            <p id="info"><%=@book.unit_price%></p>
+            <p id="info"><%=@book.unit_price%>€</p>
           </div>
         </div>
-        <a href="https://deliveroo.be/fr" class="btn btn-link btn-outline-success" id="booking-btn" target="_blank">Get tickets</a>
         <%= render 'shared/brunch_club' %>
         <%= render 'shared/bk_books' %>
       </div>
