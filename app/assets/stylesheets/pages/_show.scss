@@ -66,13 +66,13 @@
       margin-top: 8px;
       margin-bottom: 8px;
       width: 100%;
-      color: blue;
+      color: $blue;
       text-decoration: none;
-      border-color: blue;
+      border-color: $blue;
 
       &:hover {
         color: white;
-        background-color: blue;
+        background-color: $blue;
       }
     }
   }

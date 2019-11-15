@@ -23,7 +23,7 @@
 }
 .navbar-element {
   padding: 2px 5px;
-  color: blue;
+  color: $blue;
 }
 
 .navbar-element_FR {
@@ -34,6 +34,6 @@
 
 .navbar-element_EN {
   margin-left: 0px;
-  border: 1px solid gray;
+  border: 1px solid $gray;
   padding: 2px 5px;
 }
