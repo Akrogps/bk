@@ -1,62 +1,66 @@
+
+
 <div class="row search-page">
-
-  <!-- Searchbar -->
-  <div class="search-form col-7">
-    <%= form_for(:query, url: places_path, method: :get) do |f| %>
-      <div class="search-tags">
-         <%= f.fields_for :tags do |ff| %>
-           <% Tag::TAGS.each do |tag| %>
-              <%= ff.check_box tag, value: tag %>
-              <%= ff.label tag %>
-              <% end %>
-           <% end %>
-        </div>
-      <div class="search-categories">
-        <%= f.fields_for :categories do |ff| %>
-          <% Category::CATEGORIES.each do |category| %>
-            <%= ff.check_box category, value: category %>
-            <%= ff.label category %>
-            <% end %>
-          <% end %>
-      </div>
-      <div class="location-searchbar">
-        <%= f.text_field "address", placeholder: "Type a location here", id: "location-searchbar" %>
-        <%= f.label "address" %>
-      </div>
-      <div class="search-attribute">
-        <div>
-          <%= f.check_box "brunch", value: "brunch" %>
-          <%= f.label "brunch" %>
-        </div>
-        <div>
-          <%= f.check_box "terrace", value: "terrace" %>
-          <%= f.label "terrace" %>
-        </div>
-        <div>
-          <%= f.check_box "monday_night", value: "monday_night" %>
-          <%= f.label "monday_night" %>
-        </div>
-        <div>
-          <%= f.check_box "sunday_night", value: "sunday_night" %>
-          <%= f.label "sunday_night" %>
-        </div>
-      </div>
-      <%= f.submit "Go", value: "Find" %>
-    <% end %>
-  </div>
-
-  <!-- Map -->
-  <div class="col-5"
-      id="map"
-      style="width: 100%;
-      height: 100vh;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
 
   <!-- Resto cards -->
   <div class="search-cards justify-content-left col-7">
-    <div class="card-grid justify-content-center" >
+
+<div class="search-form form-inline">
+    <%= form_for(:query, url: places_path, method: :get) do |f| %>
+    <div class="checkboxes-container col-7">
+    <div  class="search-tags">
+     <%= f.fields_for :tags do |ff| %>
+       <% Tag::TAGS.each do |tag| %>
+       <div class="form-group">
+          <%= ff.check_box tag, value: tag ,class: "form-control"%>
+          <%= ff.label tag %>
+     </div>
+
+          <% end %>
+       <% end %>
+    </div>
+    <div  class="search-categories">
+      <%= f.fields_for :categories do |ff| %>
+        <% Category::CATEGORIES.each do |category| %>
+        <div class="form-group">
+          <%= ff.check_box category, value: category ,class: "form-control" %>
+          <%= ff.label category %>
+     </div>
+
+          <% end %>
+        <% end %>
+    </div>
+    <div  class="search-attribute">
+      <div class="form-group" >
+        <%= f.check_box "brunch", value: "brunch" ,class: "form-control"%>
+        <%= f.label "brunch" %>
+      </div>
+      <div class="form-group" >
+        <%= f.check_box "terrace", value: "terrace",class: "form-control" %>
+        <%= f.label "terrace" %>
+      </div>
+      <div class="form-group" >
+        <%= f.check_box "monday_night", value: "monday_night",class: "form-control" %>
+        <%= f.label "monday_night" %>
+      </div>
+      <div class="form-group" >
+        <%= f.check_box "sunday_night", value: "sunday_night" ,class: "form-control"%>
+        <%= f.label "sunday_night" %>
+      </div>
+
+    </div>
+
+    </div>
+
+    <div  class="location-searchbar">
+      <%= f.text_field "address", placeholder: "Type a location here", id: "location-searchbar" %>
+      <%= f.label "address" %>
+    </div>
+    <%= f.submit "Go", value: "Find" %>
+  <% end %>
+</div>
+
+    <div  class="card-grid justify-content-center" >
       <% @places.each do |place| %>
         <div class="card-resto">
           <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "card-resto" %>
@@ -79,5 +83,13 @@
         </div>
       <% end %>
     </div>
+  </div>
+<!-- Map -->
+  <div class="col-5"
+      id="map"
+      style="width: 100%;
+      height: 100vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
