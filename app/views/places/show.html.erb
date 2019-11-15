@@ -47,8 +47,12 @@
             <% end %>
           </div>
         </div>
-        <a href="https://deliveroo.be/fr" class="btn btn-link btn-outline-success" id="deliveroo-btn" target="_blank">Deliveroo</a>
-        <a href="https://deliveroo.be/fr" class="btn btn-link btn-outline-success" id="booking-btn" target="_blank">Book a table</a>
+        <% if @place.deliveroo_link != "" %>
+          <%= link_to "Deliveroo", @place.deliveroo_link, class: "btn btn-link btn-outline-success", id: "deliveroo-btn", target: "_blank" %>
+        <% end %>
+        <% if @place.booking_link != "" %>
+          <%= link_to "Book a table", @place.booking_link, class: "btn btn-link btn-outline-success", id: "booking-btn", target: "_blank" %>
+        <% end %>
         <%= render 'shared/brunch_club' %>
         <%= render 'shared/bk_books' %>
       </div>
