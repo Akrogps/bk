@@ -1,95 +1,100 @@
-
-
 <div class="row search-page">
-
-  <!-- Resto cards -->
   <div class="search-cards justify-content-left col-7">
-
-<div class="search-form form-inline">
-    <%= form_for(:query, url: places_path, method: :get) do |f| %>
-    <div class="checkboxes-container col-7">
-    <div  class="search-tags">
-     <%= f.fields_for :tags do |ff| %>
-       <% Tag::TAGS.each do |tag| %>
-       <div class="form-group">
-          <%= ff.check_box tag, value: tag ,class: "form-control"%>
-          <%= ff.label tag %>
-     </div>
-
-          <% end %>
-       <% end %>
-    </div>
-    <div  class="search-categories">
-      <%= f.fields_for :categories do |ff| %>
-        <% Category::CATEGORIES.each do |category| %>
-        <div class="form-group">
-          <%= ff.check_box category, value: category ,class: "form-control" %>
-          <%= ff.label category %>
-     </div>
-
-          <% end %>
-        <% end %>
-    </div>
-    <div  class="search-attribute">
-      <div class="form-group" >
-        <%= f.check_box "brunch", value: "brunch" ,class: "form-control"%>
-        <%= f.label "brunch" %>
-      </div>
-      <div class="form-group" >
-        <%= f.check_box "terrace", value: "terrace",class: "form-control" %>
-        <%= f.label "terrace" %>
-      </div>
-      <div class="form-group" >
-        <%= f.check_box "monday_night", value: "monday_night",class: "form-control" %>
-        <%= f.label "monday_night" %>
-      </div>
-      <div class="form-group" >
-        <%= f.check_box "sunday_night", value: "sunday_night" ,class: "form-control"%>
-        <%= f.label "sunday_night" %>
-      </div>
-
-    </div>
-
-    </div>
-
-    <div  class="location-searchbar">
-      <%= f.text_field "address", placeholder: "Type a location here", id: "location-searchbar" %>
-      <%= f.label "address" %>
-    </div>
-    <%= f.submit "Go", value: "Find" %>
-  <% end %>
-</div>
-
-    <div  class="card-grid justify-content-center" >
-      <% @places.each do |place| %>
-        <div class="card-resto">
-          <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "card-resto" %>
-          <div class="card-resto-infos" style="text-decoration: none;">
-            <h2><%= link_to place.title, place_path(place), class: "text-dark" %></h2>
-          </div>
-          <div class="card-resto-subtitle">
-            <p><%= place.subtitle %></p>
-          </div>
-          <div class="card-resto-content">
-            <p><%= truncate(place.address.gsub(",", "<br/>").html_safe, :length => 120) %></p>
-            <% place.tags.each_with_index do |tag, index| %>
-              <% if index == place.tags.count - 1 %>
-                <span><%= tag.name %></span>
-              <% else %>
-                <span><%= tag.name %>,</span>
+    <!-- Search form -->
+    <div class="search-form form-inline">
+      <%= form_for(:query, url: places_path, method: :get) do |f| %>
+        <div class="checkboxes-container col-7">
+          <div class="search-tags">
+            <%= f.fields_for :tags do |ff| %>
+              <% Tag::TAGS.each do |tag| %>
+                <div class="form-group" id="checkboxes">
+                  <%= ff.check_box tag, value: tag ,class: "form-control"%>
+                  <%= ff.label tag %>
+                </div>
               <% end %>
             <% end %>
           </div>
+          <div class="search-categories">
+            <%= f.fields_for :categories do |ff| %>
+              <% Category::CATEGORIES.each do |category| %>
+                <div class="form-group">
+                  <%= ff.check_box category, value: category ,class: "form-control" %>
+                  <%= ff.label category %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="search-attribute">
+            <div class="form-group" >
+              <%= f.check_box "brunch", value: "brunch" ,class: "form-control"%>
+              <%= f.label "brunch" %>
+            </div>
+            <div class="form-group" >
+              <%= f.check_box "terrace", value: "terrace",class: "form-control" %>
+              <%= f.label "terrace" %>
+            </div>
+            <div class="form-group" >
+              <%= f.check_box "monday_night", value: "monday_night",class: "form-control" %>
+              <%= f.label "monday_night" %>
+            </div>
+            <div class="form-group" >
+              <%= f.check_box "sunday_night", value: "sunday_night" ,class: "form-control"%>
+              <%= f.label "sunday_night" %>
+            </div>
+          </div>
         </div>
+        <div class="location-searchbar">
+          <%= f.text_field "address", placeholder: "Type a location here", id: "location-searchbar" %>
+        </div>
+        <%= f.submit "Go", value: "Find" %>
+      <% end %>
+    </div>
+    <!-- Places cards -->
+    <div class="card-grid justify-content-center">
+      <% if @places.empty? %>
+        <div class="card-resto text-center" id="no-results">
+          <h3>No results</h3>
+        </div>
+      <% else %>
+        <% @places.each do |place| %>
+          <div class="card-resto">
+            <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "card-resto" %>
+            <div class="card-resto-infos" style="text-decoration: none;">
+              <h2><%= link_to place.title, place_path(place), class: "text-dark" %></h2>
+            </div>
+            <div class="card-resto-subtitle">
+              <p><%= place.subtitle %></p>
+            </div>
+            <div class="card-resto-content">
+              <p><%= truncate(place.address.gsub(",", "<br/>").html_safe, :length => 120) %></p>
+              <% place.tags.each_with_index do |tag, index| %>
+                <% if index == place.tags.count - 1 %>
+                  <span><%= tag.name %></span>
+                <% else %>
+                  <span><%= tag.name %>,</span>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
-<!-- Map -->
+  <!-- Map -->
   <div class="col-5"
       id="map"
       style="width: 100%;
-      height: 100vh;"
+      height: calc(100vh - 72px);"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  <% if @places.empty? %>
+    <script>
+      const map = document.getElementById("map");
+      map.classList.add("map-opacity");
+    </script>
+    <div id="map-over">
+      <h3>No results matching your search, sorry...</h3>
+    </div>
+  <% end %>
 </div>
