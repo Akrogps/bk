@@ -48,7 +48,7 @@
             <%= f.text_field "address", placeholder: "Type a location here", id: "location-searchbar" %>
           </div>
         </div>
-        <div class="search-attribute form-inline">
+        <div class="search-attribute form-inline col-7">
           <div class="form-group" >
             <%= f.check_box "brunch", value: "brunch" ,class: "form-control"%>
             <%= f.label "brunch" %>
@@ -65,8 +65,10 @@
             <%= f.check_box "sunday_night", value: "sunday_night" ,class: "form-control"%>
             <%= f.label "sunday_night" %>
           </div>
+          <div class="find">
+            <%= f.submit "Go", value: "Find", class: "form-control" %>
+          </div>
         </div>
-        <%= f.submit "Go", value: "Find" %>
       <% end %>
     </div>
     <!-- Places cards -->
