@@ -1,0 +1,57 @@
+.search-tags {
+  background-color: white;
+  justify-content: left;
+  padding: 10px;
+}
+
+.search-categories {
+  background-color: white;
+  justify-content: left;
+  padding: 10px;
+}
+
+.multiselect {
+  width: 200px;
+}
+
+.select-box {
+  position: relative;
+}
+
+.select-box select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.over-select {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes1, #checkboxes2  {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#checkboxes1 label {
+  display: block;
+}
+
+#checkboxes2 label {
+  display: block;
+}
+
+#checkboxes1 label {
+  &:hover {
+    box-shadow: 0 0 1px rgb(150, 150, 150);
+  }
+}
+
+#checkboxes2 label {
+  &:hover {
+    box-shadow: 0 0 1px rgb(150, 150, 150);
+  }
+}

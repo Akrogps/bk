@@ -32,3 +32,15 @@
     margin: 0;
   }
 }
+
+.map-opacity {
+  opacity: 0.4;
+}
+
+#map-over {
+  position: absolute;
+  top: 51%;
+  right: 55px;
+  z-index: 999;
+  color: rgb(25, 25, 25);
+}

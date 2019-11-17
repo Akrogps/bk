@@ -38,7 +38,9 @@
             <% end %>
           </div>
         </div>
-        <a href="https://deliveroo.be/fr" class="btn btn-link btn-outline-success" id="booking-btn" target="_blank">Get tickets</a>
+        <% if @event.state == "upcoming" %>
+          <%= link_to "Get tickets", @event.tickets_link, class: "btn btn-link btn-outline-success", id: "booking-btn", target: "_blank" %>s
+        <% end %>
         <%= render 'shared/brunch_club' %>
         <%= render 'shared/bk_books' %>
       </div>
