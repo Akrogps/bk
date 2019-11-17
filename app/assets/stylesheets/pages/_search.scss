@@ -14,8 +14,10 @@
     padding: 0;
   }
 }
+
 .search-form {
   padding: 5px;
+  
   .search-tags {
     padding: 5px;
     background-color: transparent;
@@ -33,6 +35,7 @@
       }
     }
   }
+  
   .search-categories {
     padding: 5px;
     background-color: transparent;
@@ -50,6 +53,7 @@
       }
     }
   }
+  
   .search-attribute {
     justify-content: space-around;
     padding: 10px;
