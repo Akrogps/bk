@@ -15,25 +15,17 @@
   }
 }
 
-.search-tags {
-  background-color: white;
-  justify-content: left;
-  padding: 10px;
-}
-
-.search-categories {
-  background-color: white;
-  justify-content: left;
-  padding: 10px;
-}
-
 .search-attribute {
   background-color: white;
   justify-content: left;
   padding: 10px;
 }
 
-.checkboxes-container{
+.checkboxes-container {
   display: flex;
   flex-direction: rows;
+}
+
+.location-searchbar {
+  width: 900px;
 }

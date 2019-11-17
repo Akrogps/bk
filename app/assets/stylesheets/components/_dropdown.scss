@@ -1,3 +1,15 @@
+.search-tags {
+  background-color: white;
+  justify-content: left;
+  padding: 10px;
+}
+
+.search-categories {
+  background-color: white;
+  justify-content: left;
+  padding: 10px;
+}
+
 .multiselect {
   width: 200px;
 }
@@ -19,15 +31,27 @@
   bottom: 0;
 }
 
-#checkboxes {
+#checkboxes1, #checkboxes2  {
   display: none;
   border: 1px #dadada solid;
 }
 
-#checkboxes label {
+#checkboxes1 label {
   display: block;
 }
 
-#checkboxes label:hover {
-  background-color: #1e90ff;
+#checkboxes2 label {
+  display: block;
+}
+
+#checkboxes1 label {
+  &:hover {
+    background-color: #1e90ff;
+  }
+}
+
+#checkboxes2 label {
+  &:hover {
+    background-color: #1e90ff;
+  }
 }
