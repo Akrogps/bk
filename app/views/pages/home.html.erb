@@ -1,16 +1,13 @@
 <div class="banner">
-  <form>
-    <div class="custom-select" >
-      <select class="custom-select" placeholder="All locations">
-        <option value="Restaurant">Restaurant</option>
-        <option value="Cantine">Cantine</option>
-        <option value="Bar">Bar</option>
-        <option value="Brunch">Brunch</option>
-        <option value="Café">Café</option>
-      </select>
-    </div>
-    <input class="close-to" type="address" placeholder="Close to ..." >
-    <button type="submit" class="button-go">Go</button>
+  <form class="form-inline" id="home-form">
+    <%= form_for(:query, url: places_path, method: :get) do |f| %>
+      <div class="location-searchbar">
+        <%= f.text_field "address", placeholder: "Type a location here", id: "location-searchbar" %>
+      </div>
+      <div class="find">
+        <%= f.submit "Go", value: "Find", class: "form-control" %>
+      </div>
+    <% end %>
   </form>
 </div>
 <div class="container">
