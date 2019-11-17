@@ -14,18 +14,66 @@
     padding: 0;
   }
 }
+.search-form {
+  padding: 5px;
+  .search-tags {
+    padding: 5px;
+    background-color: transparent;
 
-.search-attribute {
-  background-color: white;
-  justify-content: left;
-  padding: 10px;
-}
+    .form-group {
+      padding-left: 20px;
+      padding-right: 20px;
+      background-color: transparent;
+      border-radius: 2px;
+      border-color: gray;
+      border: solid 1px;
 
-.checkboxes-container {
-  display: flex;
-  flex-direction: rows;
-}
+      label {
+        margin-left: 15px;
+      }
+    }
+  }
+  .search-categories {
+    padding: 5px;
+    background-color: transparent;
 
-.location-searchbar {
-  width: 900px;
+    .form-group {
+      padding-left: 20px;
+      padding-right: 20px;
+      background-color: transparent;
+      border-radius: 2px;
+      border-color: gray;
+      border: solid 1px;
+
+      label {
+        margin-left: 15px;
+      }
+    }
+  }
+  .search-attribute {
+    justify-content: space-around;
+    padding: 10px;
+
+    .form-group {
+      padding-left: 20px;
+      padding-right: 20px;
+      background-color: transparent;
+      border-radius: 2px;
+      border-color: gray;
+      border: solid 1px;
+
+      label {
+        margin-left: 15px;
+      }
+    }
+  }
+
+  .checkboxes-container {
+    display: flex;
+    flex-direction: rows;
+  }
+
+  .location-searchbar {
+    width: 900px;
+  }
 }
