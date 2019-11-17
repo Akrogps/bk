@@ -3,44 +3,45 @@
     <!-- Search form -->
     <div class="search-form form-inline">
       <%= form_for(:query, url: places_path, method: :get) do |f| %>
-        <form>
-          <div class="multiselect">
-            <div class="select-box" onclick="showCheckboxes()">
-              <select>
-                <option>All places</option>
-              </select>
-              <div class="over-select"></div>
-            </div>
-            <div id="checkboxes">
-              <label for="one">
-                <input type="checkbox" id="one" />First checkbox</label>
-              <label for="two">
-                <input type="checkbox" id="two" />Second checkbox</label>
-              <label for="three">
-                <input type="checkbox" id="three" />Third checkbox</label>
-            </div>
-          </div>
-        </form>
-
         <div class="checkboxes-container col-7">
           <div class="search-tags">
             <%= f.fields_for :tags do |ff| %>
-              <% Tag::TAGS.each do |tag| %>
-                <div class="form-group">
-                  <%= ff.check_box tag, value: tag ,class: "form-control"%>
-                  <%= ff.label tag %>
+              <div class="multiselect">
+                <div class="select-box" onclick="showCheckboxes('checkboxes1')">
+                  <select>
+                    <option>All places</option>
+                  </select>
+                  <div class="over-select"></div>
                 </div>
-              <% end %>
+              </div>
+              <div id="checkboxes1">
+                <% Tag::TAGS.each do |tag| %>
+                  <div class="form-group">
+                    <%= ff.check_box tag, value: tag ,class: "form-control"%>
+                    <%= ff.label tag %>
+                  </div>
+                <% end %>
+              </div>
             <% end %>
           </div>
           <div class="search-categories">
             <%= f.fields_for :categories do |ff| %>
-              <% Category::CATEGORIES.each do |category| %>
-                <div class="form-group">
-                  <%= ff.check_box category, value: category ,class: "form-control" %>
-                  <%= ff.label category %>
+              <div class="multiselect">
+                <div class="select-box" onclick="showCheckboxes('checkboxes2')">
+                  <select>
+                    <option>Types of food</option>
+                  </select>
+                  <div class="over-select"></div>
                 </div>
-              <% end %>
+              </div>
+              <div id="checkboxes2">
+                <% Category::CATEGORIES.each do |category| %>
+                  <div class="form-group">
+                    <%= ff.check_box category, value: category ,class: "form-control"%>
+                    <%= ff.label category %>
+                  </div>
+                <% end %>
+              </div>
             <% end %>
           </div>
           <div class="search-attribute">

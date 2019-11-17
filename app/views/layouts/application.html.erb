@@ -18,16 +18,26 @@
       <%= yield %>
     </div>
     <script>
-      let expanded = false;
-      const showCheckboxes = () => {
-        console.log("test");
-        const checkboxes = document.getElementById("checkboxes");
-        if (!expanded) {
-          checkboxes.style.display = "block";
-          expanded = true;
+      let expanded1 = false;
+      let expanded2 = false;
+      const showCheckboxes = (dropdown_name) => {
+        const checkboxes = document.getElementById(dropdown_name);
+        if (dropdown_name === "checkboxes1") {
+          if (!expanded1) {
+            checkboxes.style.display = "block";
+            expanded1 = true;
+          } else {
+            checkboxes.style.display = "none";
+            expanded1 = false;
+          }
         } else {
-          checkboxes.style.display = "none";
-          expanded = false;
+          if (!expanded2) {
+            checkboxes.style.display = "block";
+            expanded2 = true;
+          } else {
+            checkboxes.style.display = "none";
+            expanded2 = false;
+          }
         }
       };
     </script>
