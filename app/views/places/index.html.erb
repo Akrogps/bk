@@ -1,15 +1,15 @@
 <div class="row search-page">
-  <div class="search-cards justify-content-left col-7">
+  <div class="search-cards col-md-12 col-lg-7">
     <!-- Search form -->
     <div class="search-form form-inline">
       <%= form_for(:query, url: places_path, method: :get) do |f| %>
-        <div class="checkboxes-container col-7">
-          <div class="search-tags">
+        <div class="checkboxes-container ">
+          <div class="search-dropdown">
             <%= f.fields_for :tags do |ff| %>
               <div class="multiselect">
                 <div class="select-box" id="select-box1">
                   <select>
-                    <option>All places</option>
+                    <option>All types</option>
                   </select>
                   <div class="over-select"></div>
                 </div>
@@ -28,12 +28,12 @@
               </div>
             <% end %>
           </div>
-          <div class="search-categories">
+          <div class="search-dropdown">
             <%= f.fields_for :categories do |ff| %>
               <div class="multiselect">
                 <div class="select-box" id="select-box2">
                   <select>
-                    <option>Types of food</option>
+                    <option>Cuisines</option>
                   </select>
                   <div class="over-select"></div>
                 </div>
@@ -60,7 +60,7 @@
             <% end %>
           </div>
         </div>
-        <div class="search-attribute form-inline col-7">
+        <div class="search-attribute">
           <% @booleans = ["brunch", "terrace", "monday_night", "sunday_night"] %>
           <% @booleans.each do |boolean| %>
             <div class="form-group">
@@ -73,7 +73,7 @@
             </div>
           <% end %>
           <div class="find">
-            <%= f.submit "Go", value: "Find", class: "form-control" %>
+            <%= f.submit "Go", value: "Go", class: "form-control" %>
           </div>
         </div>
       <% end %>
@@ -85,7 +85,7 @@
       <% end %>
     </div>
     <!-- Places cards -->
-    <div class="card-grid justify-content-center">
+    <div class="card-grid-search justify-content-center">
       <% if @places.empty? %>
         <div class="card-resto text-center" id="no-results">
           <h3>No results</h3>
@@ -116,7 +116,7 @@
     </div>
   </div>
   <!-- Map -->
-  <div class="col-5"
+  <div class="col-md-12 col-lg-5"
       id="map"
       style="width: 100%;
       height: calc(100vh - 72px);"

@@ -24,11 +24,13 @@
 .navbar-element {
   padding: 2px 5px;
   color: $blue;
+  font-family: $headers-font;
 }
 
 .navbar-element_FR {
   margin-right: 10px;
   padding: 2px 5px;
+  font-family: $headers-font;
 
 }
 
@@ -36,4 +38,6 @@
   margin-left: 0px;
   border: 1px solid $gray;
   padding: 2px 5px;
+  font-family: $headers-font;
+
 }
