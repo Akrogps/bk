@@ -2,20 +2,17 @@ class OrdersController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
   def show
-    session = Stripe::Checkout::Session.create(
+    @order = Order.find_by(id: session[:order_id])
+    @list_items = @order.order_lines.map { |line|
+      line
+    }
+    stripe_session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
-      line_items: [order.order_lines.map do {
-        name: teddy.sku,
-        images: [teddy.photo_url],
-        amount: teddy.price_cents,
-        currency: 'eur',
-        quantity: 1
-      }}],
-      success_url: order_url(order),
-      cancel_url: order_url(order)
+      line_items: [@list_items],
+      success_url: order_url(@order),
+      cancel_url: order_url(@order)
     )
-
-    order.update(checkout_session_id: session.id)
+    @order.update(checkout_session_id: stripe_session.id)
     redirect_to new_order_payment_path(order)
   end
 end

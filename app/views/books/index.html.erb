@@ -20,9 +20,6 @@
   <%= @order.order_lines.count %>
 </div>
 
-<%= link_to "Go to checkout", @place.booking_link, class: "btn btn-link btn-outline-success", id: "booking-btn", target: "_blank" %>
-<div class="purchase">
-  <%= @order.order_lines.count %>
-</div>
+<%= link_to "Go to checkout", order_path(@order), class: "btn btn-link btn-outline-success", id: "booking-btn", target: "_blank" %>
 
 
