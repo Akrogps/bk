@@ -4,13 +4,13 @@ class OrdersController < ApplicationController
   def show
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
-      line_items: [{
+      line_items: [order.order_lines.map do {
         name: teddy.sku,
         images: [teddy.photo_url],
         amount: teddy.price_cents,
         currency: 'eur',
         quantity: 1
-      }],
+      }}],
       success_url: order_url(order),
       cancel_url: order_url(order)
     )

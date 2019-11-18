@@ -3,9 +3,8 @@ class BooksController < ApplicationController
   before_action :set_book, only: :show
 
   def index
-
     @books = Book.all
-
+    @order = Order.find_by(id: session[:order_id])
   end
 
   def show
