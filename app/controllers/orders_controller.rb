@@ -7,9 +7,9 @@ class OrdersController < ApplicationController
     @list_items = @order.order_lines.map do |line|
       { name: Book.where(id: line.productable_id)[0].title,
         images: [Book.where(id: line.productable_id)[0].images.first.photo_url],
-        amount: 60,
+        amount: line.price_cents,
         currency: 'eur',
-        quantity: 2
+        quantity: 1
       }
     end
     @list_items.flatten!
@@ -20,8 +20,7 @@ class OrdersController < ApplicationController
       success_url: order_url(@order),
       cancel_url: order_url(@order)
     )
-    raise
-    @order.update(checkout_session_id: stripe_session.id)
+    # @order.update(checkout_session_id: stripe_session.id)
     redirect_to new_order_payment_path(@order)
   end
 end
