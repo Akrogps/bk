@@ -1,8 +1,10 @@
 <div class="places" style="background-color: white;">
   <div class="page-setup">
-    <div class="event-img">
-      <%= image_tag "brunchclub_home.jpg" %>
-    </div>
+    <% if @event.images.where(main: true).first.photo %>
+      <div class="flex-main-img">
+        <%= cl_image_tag(@event.images.where(main: true).first.photo, crop: :fit) %>
+      </div>
+    <% end %>
     <div class="flex-title text-center col-12">
       <div class="justify-content-between">
         <!-- <div class="col-2"></div> -->
@@ -18,9 +20,21 @@
       <% end %>
     </div>
     <div class="row content-info">
-      <div class="flex-content col-8" style="background-color: transparent;">
-          <p><%=@event.content.html_safe%></p>
+      <div class="left-content col-8">
+        <div class="flex-content" style="background-color: transparent;">
+            <p><%=@event.content.html_safe%></p>
+        </div>
+        <div class="imgs">
+          <%= cl_image_tag(@event.images.where(main: false)[0].photo, crop: :fit) %>
+        </div>
+        <div class="newsletter-show">
+          <%= render 'shared/newsletter' %>
+        </div>
+        <div class="imgs">
+          <%= cl_image_tag(@event.images.where(main: false)[1].photo, crop: :fit) %>
+        </div>
       </div>
+
       <div class="flex-sidebar-place col-4">
         <div class="flex-info-place">
           <div class="info">
