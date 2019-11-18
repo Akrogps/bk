@@ -30,10 +30,8 @@ class PlacesController < ApplicationController
           end
         end
 
-        check_if_filled("brunch")
-        check_if_filled("terrace")
-        check_if_filled("monday_night")
-        check_if_filled("sunday_night")
+        search_for_booleans
+        create_params_hash
       end
     else
       @places_list = Place.all
@@ -79,10 +77,28 @@ class PlacesController < ApplicationController
     params.require(:query).permit(tags: {}, categories: {})
   end
 
+  def search_for_booleans
+    check_if_filled("brunch")
+    check_if_filled("terrace")
+    check_if_filled("monday_night")
+    check_if_filled("sunday_night")
+  end
+
   def check_if_filled(element_string)
     if params[:query][element_string] == "1"
       @element_boolean = true
       @places_list = @places_list.select { |place| place[element_string] == @element_boolean }
     end
+  end
+
+  def create_params_hash
+    @params_hash = {}
+    params[:query][:tags].each { |tag| @params_hash[tag[0]] = params[:query][:tags][tag[0]] }
+    params[:query][:categories].each { |categorie| @params_hash[categorie[0]] = params[:query][:categories][categorie[0]] }
+    @params_hash["address"] = params[:query]["address"]
+    @params_hash["brunch"] = params[:query]["brunch"]
+    @params_hash["terrace"] = params[:query]["terrace"]
+    @params_hash["monday_night"] = params[:query]["monday_night"]
+    @params_hash["sunday_night"] = params[:query]["sunday_night"]
   end
 end
