@@ -5,33 +5,36 @@ class PlacesController < ApplicationController
   def index
     if check_if_filter
       @places_list = []
+      @geocoded_list_empty = false
       list_if_geocoded
-      @places_list_tag = filter_by(Tag, "tags")
-      @places_list_category = filter_by(Category, "categories")
+      if !@geocoded_list_empty
+        @places_list_tag = filter_by(Tag, "tags")
+        @places_list_category = filter_by(Category, "categories")
 
-      if !@places_list_tag.empty? && !@places_list_category.empty?
-        if @places_list.empty?
-          @places_list = @places_list_category & @places_list_tag
+        if !@places_list_tag.empty? && !@places_list_category.empty?
+          if @places_list.empty?
+            @places_list = @places_list_category & @places_list_tag
+          else
+            @places_list = @places_list_category & @places_list_tag & @places_list
+          end
+          @places_list.flatten!
+        elsif @places_list_tag.empty? && @places_list_category.empty?
+          @places_list = Place.all if @places_list.empty?
         else
-          @places_list = @places_list_category & @places_list_tag & @places_list
+          if @places_list.empty?
+            @places_list = @places_list_tag unless @places_list_tag.empty?
+            @places_list = @places_list_category unless @places_list_category.empty?
+          else
+            @places_list = @places_list & @places_list_tag unless @places_list_tag.empty?
+            @places_list = @places_list & @places_list_category unless @places_list_category.empty?
+          end
         end
-        @places_list.flatten!
-      elsif @places_list_tag.empty? && @places_list_category.empty?
-        @places_list = Place.all if @places_list.empty? && params[:query]["address"].empty?
-      else
-        if @places_list.empty?
-          @places_list = @places_list_tag unless @places_list_tag.empty?
-          @places_list = @places_list_category unless @places_list_category.empty?
-        else
-          @places_list = @places_list & @places_list_tag unless @places_list_tag.empty?
-          @places_list = @places_list & @places_list_category unless @places_list_category.empty?
-        end
+
+        check_if_filled("brunch")
+        check_if_filled("terrace")
+        check_if_filled("monday_night")
+        check_if_filled("sunday_night")
       end
-
-      check_if_filled("brunch")
-      check_if_filled("terrace")
-      check_if_filled("monday_night")
-      check_if_filled("sunday_night")
     else
       @places_list = Place.all
     end
@@ -60,6 +63,7 @@ class PlacesController < ApplicationController
     if !params[:query]["address"].empty?
       @address = params[:query]["address"]
       @places_list = Place.near(@address, 1).to_a
+      @geocoded_list_empty = true if @places_list.empty?
     end
   end
 
