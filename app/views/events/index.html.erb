@@ -1,4 +1,4 @@
-<div class="card-grid justify-content-center" >
+<div class="card-grid-events justify-content-center" >
     <% @events.each do |event| %>
       <div class="card-event">
         <%= link_to cl_image_tag(event.images.where(main: true).first.photo, crop: :fit), event_path(event), class: "card-event" %>

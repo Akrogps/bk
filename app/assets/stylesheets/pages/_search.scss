@@ -1,3 +1,12 @@
+.card-grid-search {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-gap: 32px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
 .search-page {
   padding-left: 25px;
 
@@ -18,56 +27,39 @@
 .search-form {
   padding: 5px;
 
-  .search-tags {
+  .search-dropdown {
     padding: 5px;
     background-color: transparent;
-
     .form-group {
       padding-left: 20px;
       padding-right: 20px;
-      background-color: transparent;
-      border-radius: 2px;
-      border-color: gray;
-      border: solid 1px;
+      background-color: white;
 
       label {
         margin-left: 15px;
-      }
-    }
-  }
+        font-family: $headers-font;
 
-  .search-categories {
-    padding: 5px;
-    background-color: transparent;
-
-    .form-group {
-      padding-left: 20px;
-      padding-right: 20px;
-      background-color: transparent;
-      border-radius: 2px;
-      border-color: gray;
-      border: solid 1px;
-
-      label {
-        margin-left: 15px;
       }
     }
   }
 
   .search-attribute {
-    justify-content: space-around;
-    padding: 10px;
+    justify-content: space-between;
+    padding: 5px;
+    display: flex;
+    flex-direction: rows;
+    flex-wrap: wrap;
 
     .form-group {
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
       background-color: transparent;
-      border-radius: 2px;
-      border-color: gray;
+      border-color: $gray;
       border: solid 1px;
 
       label {
         margin-left: 15px;
+        font-family: $headers-font;
       }
     }
   }
@@ -75,9 +67,115 @@
   .checkboxes-container {
     display: flex;
     flex-direction: rows;
+    flex-wrap: wrap;
   }
 
+.find {
+  appearance: none;
+  font-family: $headers-font;
+  border: none;
+  height: auto;
+}
+
   .location-searchbar {
-    width: 900px;
+    margin: 5px;
+    min-width: 280px;
+
+    input {
+      font-family: $headers-font;
+      border: none;
+      height: 44px;
+    }
   }
 }
+
+.select-box {
+
+  select {
+    border: none;
+    color: $gray;
+    border-radius: none !important;
+    appearance: none;
+    background-color: white;
+    font-family: $headers-font;
+    padding: 10px;
+    background-image: "../../images/arrow_search.png";
+  }
+  option {
+    border-radius: none !important;
+  }
+}
+
+.over-select {
+  appearance: none;
+  border-radius: none !important;
+  font-weight: lighter;
+
+}
+
+.search-tags {
+  background-color: white;
+  justify-content: left;
+  padding: 10px;
+}
+
+.search-categories {
+  background-color: white;
+  justify-content: left;
+  padding: 10px;
+}
+
+.multiselect {
+  width: 200px;
+}
+
+.select-box {
+  position: relative;
+}
+
+.select-box select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.over-select {
+  border-radius: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes1, #checkboxes2  {
+  display: none;
+}
+
+#checkboxes1 {
+
+  label {
+    display: block;
+  }
+}
+
+
+
+#checkboxes2 label {
+  display: block;
+}
+
+#checkboxes1 label {
+  &:hover {
+    box-shadow: 0 0 1px rgb(150, 150, 150);
+  }
+}
+
+#checkboxes2 label {
+  &:hover {
+    box-shadow: 0 0 1px rgb(150, 150, 150);
+  }
+}
+
+
+
+
