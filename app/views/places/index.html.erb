@@ -79,7 +79,7 @@
         </div>
       <% else %>
         <% @places.each do |place| %>
-          <div class="card-resto">
+          <div class="card-resto" style="grid-template-columns: repeat(auto-fill, 400px);">
             <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "card-resto" %>
             <div class="card-resto-infos" style="text-decoration: none;">
               <h2><%= link_to place.title, place_path(place), class: "text-dark" %></h2>
