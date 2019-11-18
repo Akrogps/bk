@@ -1,3 +1,7 @@
+<div class="basket">
+<%=  %>
+</div>
+
 <div class="books-grid">
   <% @books.each do |book| %>
     <div class="card-book">
@@ -5,7 +9,13 @@
       <div class="card-book-content">
         <h6><%=link_to book.title, book_path(book) %></h6>
         <h6 ><%= book.unit_price %>€</h6>
-        <p class="button-event">Order now</p>
+        <%= form_tag order_lines_path do %>
+        <%= hidden_field_tag 'book_id', book.id %>
+        <%= hidden_field_tag 'product_sku', book.product_sku %>
+        <%= hidden_field_tag 'price', book.unit_price %>
+        <%= hidden_field_tag 'amount_of_products', 1 %>
+        <%= submit_tag 'Order now', class: 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
   <% end %>

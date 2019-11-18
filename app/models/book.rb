@@ -5,4 +5,6 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :product_sku, presence: true
   validates :unit_price, presence: true
+
+  monetize :unit_price_cents
 end

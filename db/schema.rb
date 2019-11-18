@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_140733) do
+ActiveRecord::Schema.define(version: 2019_11_18_132807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_140733) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "product_sku"
+    t.integer "unit_price_cents", default: 0, null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -85,16 +86,17 @@ ActiveRecord::Schema.define(version: 2019_11_12_140733) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "product_sku"
+    t.integer "price_cents", default: 0, null: false
     t.index ["order_id"], name: "index_order_lines_on_order_id"
     t.index ["productable_type", "productable_id"], name: "index_order_lines_on_productable_type_and_productable_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.string "state", default: "open"
-    t.integer "total_price"
     t.string "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
   end
 
   create_table "places", force: :cascade do |t|
