@@ -3,12 +3,15 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by(id: session[:order_id])
-    @list_items = @order.order_lines.map { |line|
-      line
-    }
+    @list_items = []
+    @list_items = @order.order_lines.map do |line|
+      { product_sku: line.product_sku, price: line.price_cents, amount_of_products: 1 }
+    end
+    @list_items.flatten!
+
     stripe_session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
-      line_items: [@list_items],
+      line_items: @list_items,
       success_url: order_url(@order),
       cancel_url: order_url(@order)
     )
