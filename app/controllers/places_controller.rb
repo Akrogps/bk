@@ -17,7 +17,7 @@ class PlacesController < ApplicationController
         end
         @places_list.flatten!
       elsif @places_list_tag.empty? && @places_list_category.empty?
-        @places_list = Place.all if @places_list.empty?
+        @places_list = Place.all if @places_list.empty? && params[:query]["address"].empty?
       else
         if @places_list.empty?
           @places_list = @places_list_tag unless @places_list_tag.empty?

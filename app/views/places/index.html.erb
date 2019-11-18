@@ -7,7 +7,7 @@
           <div class="search-tags">
             <%= f.fields_for :tags do |ff| %>
               <div class="multiselect">
-                <div class="select-box" onclick="showCheckboxes('checkboxes1')">
+                <div class="select-box" id="select-box1" onclick="showCheckboxes('checkboxes1')">
                   <select>
                     <option>All places</option>
                   </select>
@@ -27,7 +27,7 @@
           <div class="search-categories">
             <%= f.fields_for :categories do |ff| %>
               <div class="multiselect">
-                <div class="select-box" onclick="showCheckboxes('checkboxes2')">
+                <div class="select-box" id="select-box2" onclick="showCheckboxes('checkboxes2')">
                   <select>
                     <option>Types of food</option>
                   </select>
