@@ -53,7 +53,7 @@
           </div>
         </div>
         <% if @event.state == "upcoming" %>
-          <%= link_to "Get tickets", @event.tickets_link, class: "btn btn-link btn-outline-success", id: "booking-btn", target: "_blank" %>s
+          <%= link_to "Get tickets", @event.tickets_link, class: "btn btn-link btn-outline-success", id: "booking-btn", target: "_blank" %>
         <% end %>
         <%= render 'shared/brunch_club' %>
         <%= render 'shared/bk_books' %>
