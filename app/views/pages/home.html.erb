@@ -44,10 +44,10 @@
 <div class="brunch-club">
   <h3>Le Brunch Club</h3>
   <div>
-    <%= link_to image_tag("brunchclub_home.jpg"), event_path(Event.where(title: "Le Brunch Club")[0].id), class: "brunch-club-img"  %>
+    <%= link_to image_tag("brunchclub_home.jpg"), event_path(Event.find_by(title: "Le Brunch Club").id), class: "brunch-club-img"  %>
   </div>
   <div class="button">
-    <h5><%= link_to "More info", event_path(Event.where(title: "Le Brunch Club")[0].id) %></h5>
+    <h5><%= link_to "More info", event_path(Event.find_by(title: "Le Brunch Club").id) %></h5>
   </div>
 </div>
 <%= render 'shared/newsletter' %>

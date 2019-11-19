@@ -18,7 +18,6 @@ def create_objects_with_images(object_attributes, object_title, images_list)
 end
 
 # Clear the DB
-Place.reindex
 Place.destroy_all
 Event.destroy_all
 Book.destroy_all
