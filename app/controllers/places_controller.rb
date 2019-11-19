@@ -66,7 +66,7 @@ class PlacesController < ApplicationController
   end
 
   def check_if_filter
-    params[:query] && params[:query][:tags].present? && params[:query][:categories].present?
+    params[:query] && params[:query][:tags].present?
   end
 
   def filter_by(class_title, plural_name)
@@ -94,7 +94,9 @@ class PlacesController < ApplicationController
   def create_params_hash
     @params_hash = {}
     params[:query][:tags].each { |tag| @params_hash[tag[0]] = params[:query][:tags][tag[0]] }
-    params[:query][:categories].each { |categorie| @params_hash[categorie[0]] = params[:query][:categories][categorie[0]] }
+    if params[:query][:categories]
+      params[:query][:categories].each { |categorie| @params_hash[categorie[0]] = params[:query][:categories][categorie[0]] }
+    end
     @params_hash["address"] = params[:query]["address"]
     @params_hash["brunch"] = params[:query]["brunch"]
     @params_hash["terrace"] = params[:query]["terrace"]

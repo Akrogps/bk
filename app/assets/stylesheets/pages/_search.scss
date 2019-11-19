@@ -89,6 +89,20 @@
   }
 }
 
+#fields-selected {
+  display: flex;
+  flex-direction: rows;
+  flex-wrap: wrap;
+}
+
+.field-selected {
+  border: 1px solid $gray;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: $headers-font;
+  margin-left: 15px;
+}
+
 .select-box {
   select {
     border: none;
@@ -100,7 +114,7 @@
     padding: 10px;
     background-image: "../../images/arrow_search.png";
   }
-  
+
   option {
     border-radius: none !important;
   }
@@ -154,7 +168,7 @@
 #checkboxes1 {
   label {
     display: block;
-    
+
     &:hover {
       box-shadow: 0 0 1px rgb(150, 150, 150);
     }
@@ -164,7 +178,7 @@
 #checkboxes2 {
   label {
     display: block;
-    
+
     &:hover {
       box-shadow: 0 0 1px rgb(150, 150, 150);
     }
