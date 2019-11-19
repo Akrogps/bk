@@ -79,7 +79,7 @@
 
   .location-searchbar {
     margin: 5px;
-    min-width: 280px;
+    width: 280px;
 
     input {
       font-family: $headers-font;
@@ -100,7 +100,7 @@
     padding: 10px;
     background-image: "../../images/arrow_search.png";
   }
-  
+
   option {
     border-radius: none !important;
   }
@@ -154,7 +154,7 @@
 #checkboxes1 {
   label {
     display: block;
-    
+
     &:hover {
       box-shadow: 0 0 1px rgb(150, 150, 150);
     }
@@ -164,9 +164,19 @@
 #checkboxes2 {
   label {
     display: block;
-    
+
     &:hover {
       box-shadow: 0 0 1px rgb(150, 150, 150);
     }
   }
+}
+
+.search-results {
+  padding-top: 30px;
+  text-align: center;
+}
+
+.show-map {
+  display: flex;
+  text-align: left;
 }
