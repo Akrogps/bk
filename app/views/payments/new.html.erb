@@ -4,13 +4,13 @@
       <ul>
         <% @order.order_lines.each do |line| %>
           <li>
-          <%= image_tag Book.where(id: line.productable_id)[0].images.first.photo_url, width: '100px' %>
-          <%= Book.where(id: line.productable_id)[0].title %>
-          <%= line.amount_of_products %>
-          <%= humanized_money_with_symbol (line.price * line.amount_of_products) %>
+            <%= image_tag Book.where(id: line.productable_id)[0].images.first.photo_url, width: '100px' %>
+            <%= Book.where(id: line.productable_id)[0].title %>
+            <%= line.amount_of_products %>
+            <%= humanized_money_with_symbol (line.price * line.amount_of_products) %>
           </li>
         <% end %>
-        </ul>
+      </ul>
     </div>
     <div class="col">
       <h1>Checkout summary</h1>
