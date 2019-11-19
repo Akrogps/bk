@@ -37,6 +37,18 @@
                       <% end %>
                       <%= ff.label tag %>
                     </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <div class="search-dropdown">
+              <%= f.fields_for :categories do |ff| %>
+                <div class="multiselect">
+                  <div class="select-box" id="select-box2">
+                    <select>
+                      <option>Cuisines</option>
+                    </select>
+                    <div class="over-select"></div>
                   </div>
                 </div>
                 <div id="checkboxes2">
@@ -49,39 +61,7 @@
                       <% end %>
                       <%= ff.label category %>
                     </div>
-                  </div>
-                  <div id="checkboxes2">
-                    <% Category::CATEGORIES.each do |category| %>
-                      <div class="form-group">
-                        <% if @params_hash && @params_hash[category] == "1" %>
-                          <%= ff.check_box category, value: category, checked: true, class: "form-control" %>
-                        <% else %>
-                          <%= ff.check_box category, value: category, class: "form-control" %>
-                        <% end %>
-                        <%= ff.label category %>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
-              </div>
-              <div class="location-searchbar">
-                <% if @params_hash && @params_hash["address"] != "" %>
-                  <%= f.text_field "address", value: @params_hash["address"], id: "location-searchbar" %>
-                <% else %>
-                  <%= f.text_field "address", placeholder: "Type a location here", id: "location-searchbar" %>
-                <% end %>
-              </div>
-            </div>
-            <div class="search-attribute">
-              <% @booleans = ["brunch", "terrace", "monday_night", "sunday_night"] %>
-              <% @booleans.each do |boolean| %>
-                <div class="form-group">
-                  <% if @params_hash && @params_hash[boolean] == "1" %>
-                    <%= f.check_box boolean, value: boolean, checked: true, class: "form-control"%>
-                  <% else %>
-                    <%= f.check_box boolean, value: boolean, class: "form-control"%>
                   <% end %>
-                  <%= f.label boolean %>
                 </div>
               <% end %>
             </div>
@@ -89,7 +69,7 @@
               <% if @params_hash && @params_hash["address"] != "" %>
                 <%= f.text_field "address", value: @params_hash["address"], id: "location-searchbar" %>
               <% else %>
-                <%= f.text_field "address", placeholder: "Close to...", id: "location-searchbar" %>
+                <%= f.text_field "address", placeholder: "Type a location here", id: "location-searchbar" %>
               <% end %>
             </div>
           </div>
