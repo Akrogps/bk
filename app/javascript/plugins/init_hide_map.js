@@ -7,7 +7,6 @@ const initHideMap = () => {
     map.classList.toggle("map-toggle");
     leftStyleContainer.classList.toggle("col-lg-12");
   });
-
 };
 
 export { initHideMap };
