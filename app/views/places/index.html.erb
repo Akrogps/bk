@@ -130,7 +130,11 @@
       map.classList.add("map-opacity");
     </script>
     <div id="map-over">
-      <h3>No results matching your search, sorry...</h3>
+      <% if @location_issue %>
+        <h3>No results close to this address, sorry...</h3>
+      <% else %>
+        <h3>No results matching your search, sorry...</h3>
+      <% end %>
     </div>
   <% end %>
 </div>

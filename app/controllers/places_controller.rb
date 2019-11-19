@@ -32,6 +32,9 @@ class PlacesController < ApplicationController
 
         search_for_booleans
         create_params_hash
+      else
+        @location_issue = true
+        create_params_hash
       end
     else
       @places_list = Place.all

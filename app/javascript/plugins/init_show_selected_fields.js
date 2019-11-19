@@ -5,28 +5,36 @@ const initShowSelectedFields = (class_name, slice_number) => {
   let fields = document.querySelectorAll(class_name);
 
   fields.forEach((field) => {
-    field.addEventListener("click", function(event) {
-      const text = field.id.slice(slice_number);
-      if (elements.includes(text)) {
-        elements = elements.filter(field => field !== text);
-      } else {
+    let text = field.id.slice(slice_number);
+
+    window.addEventListener("load", function(event) {
+      if (field.checked) {
         elements.push(text);
       }
       show.innerHTML = "";
       elements.forEach((element) => {
         show.insertAdjacentHTML("beforeend", `
-          <div class="field-selected">${element}</div>
+          <div class="field-selected">
+            ${element}
+          </div>
         `);
       });
     });
-  });
 
-  window.addEventListener("load", function(event) {
-    console.log(elements);
-    elements.forEach((element) => {
-      show.insertAdjacentHTML("beforeend", `
-        <div class="field-selected">${element}</div>
-      `);
+    field.addEventListener("click", function(event) {
+      if (event.target.checked) {
+        elements.push(text);
+      } else {
+        elements = elements.filter(field => field !== text);
+      }
+      show.innerHTML = "";
+      elements.forEach((element) => {
+        show.insertAdjacentHTML("beforeend", `
+          <div class="field-selected">
+            ${element}
+          </div>
+        `);
+      });
     });
   });
 };
