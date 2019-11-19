@@ -1,83 +1,117 @@
 <div class="row search-page">
+  <div class="show-map">
+    <label class="label">
+      <div class="toggle">
+        <input class="toggle-state" type="checkbox" name="check" value="check" id="show-map-box" />
+          <div class="toggle-inner">
+            <div class="indicator"></div>
+          </div>
+        <div class="active-bg"></div>
+      </div>
+      <div class="label-text">Map</div>
+    </label>
+  </div>
   <div class="search-cards col-md-12 col-lg-7">
     <!-- Search form -->
-    <div class="search-form form-inline">
-      <%= form_for(:query, url: places_path, method: :get) do |f| %>
-        <div class="checkboxes-container ">
-          <div class="search-dropdown">
-            <%= f.fields_for :tags do |ff| %>
-              <div class="multiselect">
-                <div class="select-box" id="select-box1">
-                  <select>
-                    <option>All places</option>
-                  </select>
-                  <div class="over-select"></div>
+    <div class="search-box">
+      <div class="search-form form-inline">
+        <%= form_for(:query, url: places_path, method: :get) do |f| %>
+          <div class="checkboxes-container ">
+            <div class="search-dropdown">
+              <%= f.fields_for :tags do |ff| %>
+                <div class="multiselect">
+                  <div class="select-box" id="select-box1">
+                    <select>
+                      <option>All places</option>
+                    </select>
+                    <div class="over-select"></div>
+                  </div>
                 </div>
-              </div>
-              <div id="checkboxes1">
-                <% Tag::TAGS.each do |tag| %>
-                  <div class="form-group">
-                    <% if @params_hash && @params_hash[tag] == "1" %>
-                      <%= ff.check_box tag, value: tag, checked: true, class: "form-control elements-selected1" %>
-                    <% else %>
-                      <%= ff.check_box tag, value: tag, class: "form-control elements-selected1" %>
+                <div id="checkboxes1">
+                  <% Tag::TAGS.each do |tag| %>
+                    <div class="form-group">
+                      <% if @params_hash && @params_hash[tag] == "1" %>
+                        <%= ff.check_box tag, value: tag, checked: true, class: "form-control elements-selected1" %>
+                      <% else %>
+                        <%= ff.check_box tag, value: tag, class: "form-control elements-selected1" %>
+                      <% end %>
+                      <%= ff.label tag %>
+                    </div>
+                  </div>
+                </div>
+                <div id="checkboxes2">
+                  <% Category::CATEGORIES.each do |category| %>
+                    <div class="form-group">
+                      <% if @params_hash && @params_hash[category] == "1" %>
+                        <%= ff.check_box category, value: category, checked: true, class: "form-control elements-selected2" %>
+                      <% else %>
+                        <%= ff.check_box category, value: category, class: "form-control elements-selected2" %>
+                      <% end %>
+                      <%= ff.label category %>
+                    </div>
+                  </div>
+                  <div id="checkboxes2">
+                    <% Category::CATEGORIES.each do |category| %>
+                      <div class="form-group">
+                        <% if @params_hash && @params_hash[category] == "1" %>
+                          <%= ff.check_box category, value: category, checked: true, class: "form-control" %>
+                        <% else %>
+                          <%= ff.check_box category, value: category, class: "form-control" %>
+                        <% end %>
+                        <%= ff.label category %>
+                      </div>
                     <% end %>
-                    <%= ff.label tag %>
                   </div>
                 <% end %>
               </div>
-            <% end %>
-          </div>
-          <div class="search-dropdown">
-            <%= f.fields_for :categories do |ff| %>
-              <div class="multiselect">
-                <div class="select-box" id="select-box2">
-                  <select>
-                    <option>Cuisines</option>
-                  </select>
-                  <div class="over-select"></div>
-                </div>
-              </div>
-              <div id="checkboxes2">
-                <% Category::CATEGORIES.each do |category| %>
-                  <div class="form-group">
-                    <% if @params_hash && @params_hash[category] == "1" %>
-                      <%= ff.check_box category, value: category, checked: true, class: "form-control elements-selected2" %>
-                    <% else %>
-                      <%= ff.check_box category, value: category, class: "form-control elements-selected2" %>
-                    <% end %>
-                    <%= ff.label category %>
-                  </div>
+              <div class="location-searchbar">
+                <% if @params_hash && @params_hash["address"] != "" %>
+                  <%= f.text_field "address", value: @params_hash["address"], id: "location-searchbar" %>
+                <% else %>
+                  <%= f.text_field "address", placeholder: "Type a location here", id: "location-searchbar" %>
                 <% end %>
               </div>
-            <% end %>
-          </div>
-          <div class="location-searchbar">
-            <% if @params_hash && @params_hash["address"] != "" %>
-              <%= f.text_field "address", value: @params_hash["address"], id: "location-searchbar" %>
-            <% else %>
-              <%= f.text_field "address", placeholder: "Close to...", id: "location-searchbar" %>
-            <% end %>
-          </div>
-        </div>
-        <div id="fields-selected"></div>
-        <div class="search-attribute">
-          <% @booleans = ["brunch", "terrace", "monday_night", "sunday_night"] %>
-          <% @booleans.each do |boolean| %>
-            <div class="form-group">
-              <% if @params_hash && @params_hash[boolean] == "1" %>
-                <%= f.check_box boolean, value: boolean, checked: true, class: "form-control"%>
-              <% else %>
-                <%= f.check_box boolean, value: boolean, class: "form-control"%>
-              <% end %>
-              <%= f.label boolean %>
             </div>
-          <% end %>
-          <div class="find">
-            <%= f.submit "Go", value: "Go", class: "form-control" %>
+            <div class="search-attribute">
+              <% @booleans = ["brunch", "terrace", "monday_night", "sunday_night"] %>
+              <% @booleans.each do |boolean| %>
+                <div class="form-group">
+                  <% if @params_hash && @params_hash[boolean] == "1" %>
+                    <%= f.check_box boolean, value: boolean, checked: true, class: "form-control"%>
+                  <% else %>
+                    <%= f.check_box boolean, value: boolean, class: "form-control"%>
+                  <% end %>
+                  <%= f.label boolean %>
+                </div>
+              <% end %>
+            </div>
+            <div class="location-searchbar">
+              <% if @params_hash && @params_hash["address"] != "" %>
+                <%= f.text_field "address", value: @params_hash["address"], id: "location-searchbar" %>
+              <% else %>
+                <%= f.text_field "address", placeholder: "Close to...", id: "location-searchbar" %>
+              <% end %>
+            </div>
           </div>
-        </div>
-      <% end %>
+          <div id="fields-selected"></div>
+          <div class="search-attribute">
+            <% @booleans = ["brunch", "terrace", "monday_night", "sunday_night"] %>
+            <% @booleans.each do |boolean| %>
+              <div class="form-group">
+                <% if @params_hash && @params_hash[boolean] == "1" %>
+                  <%= f.check_box boolean, value: boolean, checked: true, class: "form-control"%>
+                <% else %>
+                  <%= f.check_box boolean, value: boolean, class: "form-control"%>
+                <% end %>
+                <%= f.label boolean %>
+              </div>
+            <% end %>
+            <div class="find">
+              <%= f.submit "Go", value: "Go", class: "form-control go-button" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
     <!-- Message with corresponding number of places -->
     <div class="search-results">
@@ -85,10 +119,6 @@
         <h6>We have found <%= pluralize(@places.length, "place") %> corresponding to your search</h6>
         <p style="font-family: NeutraText-DemiAlt; font-size: 12px;">Classed by publication date</p>
       <% end %>
-    </div>
-    <div class="show-map">
-      <input type="checkbox" id="show-map-box">
-      <p>Show map</p>
     </div>
     <!-- Places cards -->
     <div class="card-grid-search justify-content-center">

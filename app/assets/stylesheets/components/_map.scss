@@ -48,3 +48,12 @@
 .map-toggle {
   display: none;
 }
+
+.marker {
+  background-image: url('restaurant-icon.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
