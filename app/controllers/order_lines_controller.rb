@@ -9,8 +9,15 @@ class OrderLinesController < ApplicationController
       order.order_lines << order_line
     else
       order = Order.create(user: session[:session_id])
-      order.order_lines << current_book.order_lines.create(order_line_creation_params)
-      session[:order_id] = order.id
+      existing_product_order_line = order.order_lines.where(product_sku: permitted_params[:product_sku])
+      if existing_product_order_line.present?
+        existing_product_order_line.update(
+          amount_of_products: existing_product_order_line.amount_of_products + 1
+        )
+      else
+        order.order_lines << current_book.order_lines.create(order_line_creation_params)
+        session[:order_id] = order.id
+      end
     end
     redirect_to books_path
   end

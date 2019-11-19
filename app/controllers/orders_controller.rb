@@ -21,7 +21,6 @@ class OrdersController < ApplicationController
       cancel_url: order_url(@order)
     )
     @order.update(checkout_stripe_session_id: stripe_session.id)
-    redirect_to order_path(@order)
-    # redirect_to new_order_payment_path(@order)
+    redirect_to new_order_payment_path(@order)
   end
 end
