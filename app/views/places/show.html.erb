@@ -18,8 +18,20 @@
       </div>
     </div>
     <div class="row content-info">
-      <div class="flex-content col-8" style="background-color: transparent;">
-          <p><%=@place.content.html_safe%></p>
+      <div class="left-content col-8">
+        <div class="flex-content" style="background-color: transparent;">
+            <p><%=@place.content.html_safe%></p>
+        </div>
+        <div class="imgs">
+          <%= cl_image_tag(@place.images.where(main: false)[0].photo, crop: :fit) %>
+        </div>
+        <div class="newsletter-show">
+          <%= render 'shared/newsletter' %>
+        </div>
+        <div class="imgs">
+          <%= cl_image_tag(@place.images.where(main: false)[1].photo, crop: :fit) %>
+        </div>
+
       </div>
       <div class="flex-sidebar-place col-4">
         <div class="flex-info-place">

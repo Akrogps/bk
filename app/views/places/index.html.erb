@@ -80,10 +80,15 @@
       <% end %>
     </div>
     <!-- Message with corresponding number of places -->
-    <div>
+    <div class="search-results">
       <% if @places.length > 0 %>
-        <h3><%= pluralize(@places.length, "place") %> for you</h3>
+        <h6>We have found <%= pluralize(@places.length, "place") %> corresponding to your search</h6>
+        <p style="font-family: NeutraText-DemiAlt; font-size: 12px;">Classed by publication date</p>
       <% end %>
+    </div>
+    <div class="show-map">
+      <input type="checkbox" id="show-map-box">
+      <p>Show map</p>
     </div>
     <!-- Places cards -->
     <div class="card-grid-search justify-content-center">

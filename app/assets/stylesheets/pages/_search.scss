@@ -79,7 +79,7 @@
 
   .location-searchbar {
     margin: 5px;
-    min-width: 280px;
+    width: 280px;
 
     input {
       font-family: $headers-font;
@@ -183,4 +183,14 @@
       box-shadow: 0 0 1px rgb(150, 150, 150);
     }
   }
+}
+
+.search-results {
+  padding-top: 30px;
+  text-align: center;
+}
+
+.show-map {
+  display: flex;
+  text-align: left;
 }
