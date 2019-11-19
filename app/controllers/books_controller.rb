@@ -4,6 +4,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    @order = Order.find_by(id: session[:order_id])
   end
 
   def show
