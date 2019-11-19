@@ -12,7 +12,7 @@
     </label>
   </div>
   <div class="search-cards col-md-12 col-lg-7">
-      <!-- Search form -->
+    <!-- Search form -->
     <div class="search-box">
       <div class="search-form form-inline">
         <%= form_for(:query, url: places_path, method: :get) do |f| %>
@@ -22,9 +22,7 @@
                 <div class="multiselect">
                   <div class="select-box" id="select-box1">
                     <select>
-                      <option>
-                        <p>All types</p>
-                      </option>
+                      <option>All places</option>
                     </select>
                     <div class="over-select"></div>
                   </div>
@@ -33,37 +31,57 @@
                   <% Tag::TAGS.each do |tag| %>
                     <div class="form-group">
                       <% if @params_hash && @params_hash[tag] == "1" %>
-                        <%= ff.check_box tag, value: tag, checked: true, class: "form-control" %>
+                        <%= ff.check_box tag, value: tag, checked: true, class: "form-control elements-selected1" %>
                       <% else %>
-                        <%= ff.check_box tag, value: tag, class: "form-control" %>
+                        <%= ff.check_box tag, value: tag, class: "form-control elements-selected1" %>
                       <% end %>
                       <%= ff.label tag %>
                     </div>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-            <div class="search-dropdown">
-              <%= f.fields_for :categories do |ff| %>
-                <div class="multiselect">
-                  <div class="select-box" id="select-box2">
-                    <select>
-                      <option>Cuisines</option>
-                    </select>
-                    <div class="over-select"></div>
                   </div>
                 </div>
                 <div id="checkboxes2">
                   <% Category::CATEGORIES.each do |category| %>
                     <div class="form-group">
                       <% if @params_hash && @params_hash[category] == "1" %>
-                        <%= ff.check_box category, value: category, checked: true, class: "form-control" %>
+                        <%= ff.check_box category, value: category, checked: true, class: "form-control elements-selected2" %>
                       <% else %>
-                        <%= ff.check_box category, value: category, class: "form-control" %>
+                        <%= ff.check_box category, value: category, class: "form-control elements-selected2" %>
                       <% end %>
                       <%= ff.label category %>
                     </div>
+                  </div>
+                  <div id="checkboxes2">
+                    <% Category::CATEGORIES.each do |category| %>
+                      <div class="form-group">
+                        <% if @params_hash && @params_hash[category] == "1" %>
+                          <%= ff.check_box category, value: category, checked: true, class: "form-control" %>
+                        <% else %>
+                          <%= ff.check_box category, value: category, class: "form-control" %>
+                        <% end %>
+                        <%= ff.label category %>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="location-searchbar">
+                <% if @params_hash && @params_hash["address"] != "" %>
+                  <%= f.text_field "address", value: @params_hash["address"], id: "location-searchbar" %>
+                <% else %>
+                  <%= f.text_field "address", placeholder: "Type a location here", id: "location-searchbar" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="search-attribute">
+              <% @booleans = ["brunch", "terrace", "monday_night", "sunday_night"] %>
+              <% @booleans.each do |boolean| %>
+                <div class="form-group">
+                  <% if @params_hash && @params_hash[boolean] == "1" %>
+                    <%= f.check_box boolean, value: boolean, checked: true, class: "form-control"%>
+                  <% else %>
+                    <%= f.check_box boolean, value: boolean, class: "form-control"%>
                   <% end %>
+                  <%= f.label boolean %>
                 </div>
               <% end %>
             </div>
@@ -71,10 +89,11 @@
               <% if @params_hash && @params_hash["address"] != "" %>
                 <%= f.text_field "address", value: @params_hash["address"], id: "location-searchbar" %>
               <% else %>
-                <%= f.text_field "address", placeholder: "Type a location here", id: "location-searchbar" %>
+                <%= f.text_field "address", placeholder: "Close to...", id: "location-searchbar" %>
               <% end %>
             </div>
           </div>
+          <div id="fields-selected"></div>
           <div class="search-attribute">
             <% @booleans = ["brunch", "terrace", "monday_night", "sunday_night"] %>
             <% @booleans.each do |boolean| %>
@@ -146,7 +165,11 @@
       map.classList.add("map-opacity");
     </script>
     <div id="map-over">
-      <h3>No results matching your search, sorry...</h3>
+      <% if @location_issue %>
+        <h3>No results close to this address, sorry...</h3>
+      <% else %>
+        <h3>No results matching your search, sorry...</h3>
+      <% end %>
     </div>
   <% end %>
 </div>

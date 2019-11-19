@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="books-to-buy">
+      <ul>
+        <% @order.order_lines.each do |line| %>
+          <li>
+            <%= image_tag Book.where(id: line.productable_id)[0].images.first.photo_url, width: '100px' %>
+            <%= Book.where(id: line.productable_id)[0].title %>
+            <%= line.amount_of_products %>
+            <%= humanized_money_with_symbol (line.price * line.amount_of_products) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col">
+      <h1>Checkout summary</h1>
+      <p>Total purchase for <strong><%= humanized_money_with_symbol @order.sum_total_price %></strong></p>
+      <button id="pay" class="btn btn-primary">Pay</button>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @order.checkout_stripe_session_id %>'
+          });
+        });
+      </script>
+    </div>
+  </div>
+</div>

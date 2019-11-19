@@ -277,3 +277,16 @@
    transform: translate3d(25%, 0, 0);
 }
 
+#fields-selected {
+  display: flex;
+  flex-direction: rows;
+  flex-wrap: wrap;
+}
+
+.field-selected {
+  border: 1px solid $gray;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: $headers-font;
+  margin-left: 15px;
+}
