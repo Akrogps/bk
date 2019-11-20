@@ -11,7 +11,7 @@
            <div class="product-add-one" data-product-id="<%= line.id %>">+</div>
           <p>Total amount: <%= humanized_money_with_symbol (line.price * line.amount_of_products) %></p>
         </li>
-       <div id="destroy-product">Destroy</div>
+       <div class="destroy-product" data-product-id="<%= line.id %>">Destroy</div>
       <% end %>
     </ul>
   </div>

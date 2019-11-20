@@ -1,5 +1,5 @@
 class OrderLinesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:create, :update]
+  skip_before_action :authenticate_user!, only: [:create, :update, :destroy]
 
   def create
     order = Order.find_by(id: session[:order_id])
