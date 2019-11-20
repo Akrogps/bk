@@ -1,6 +1,6 @@
 <div class="container d-flex">
   <div class="books-to-buy col-6">
-      <p>Your order:</p>
+    <p>Your order:</p>
     <ul>
       <% @order.order_lines.each do |line| %>
         <li>
@@ -14,41 +14,40 @@
   </div>
   <div class="payment-box">
     <%= form_for(:query, url: places_path, method: :get) do |f| %>
-
-    <p class="text-align-left">Fill in your delivery details:</p>
-    <div class="first-last">
-      <div class="payment-form">
-        <%= f.label "First Name:" %>
-        <%= f.text_field "First Name" %>
+      <p class="text-align-left">Fill in your delivery details:</p>
+      <div class="first-last">
+        <div class="payment-form">
+          <%= f.label "First Name:" %>
+          <%= f.text_field "First Name" %>
+        </div>
+        <div class="payment-form">
+            <%= f.label "Last Name:" %>
+          <%= f.text_field "Last Name" %>
+        </div>
+      </div>
+      <div class="first-last">
+        <div class="payment-form" >
+          <%= f.label "Address:" %>
+          <%= f.text_field "Address" %>
+        </div>
+        <div class="payment-form street-number" >
+          <%= f.label "Street number:" %>
+          <%= f.text_field "Street Number" %>
+        </div>
+      </div>
+      <div class="first-last">
+        <div class="payment-form">
+          <%= f.label "Postal Code:" %>
+          <%= f.text_field "Postal Code" %>
+        </div>
+        <div class="payment-form">
+          <%= f.label "City:" %>
+          <%= f.text_field "City" %>
+        </div>
       </div>
       <div class="payment-form">
-          <%= f.label "Last Name:" %>
-        <%= f.text_field "Last Name" %>
-      </div>
-    </div>
-    <div class="first-last">
-      <div class="payment-form" >
-        <%= f.label "Address:" %>
-        <%= f.text_field "Address" %>
-      </div>
-      <div class="payment-form street-number" >
-        <%= f.label "Street number:" %>
-        <%= f.text_field "Street Number" %>
-      </div>
-    </div>
-    <div class="first-last">
-      <div class="payment-form">
-        <%= f.label "Postal Code:" %>
-        <%= f.text_field "Postal Code" %>
-      </div>
-      <div class="payment-form">
-        <%= f.label "City:" %>
-        <%= f.text_field "City" %>
-      </div>
-    </div>
-    <div class="payment-form">
-    </div class="mt-10">
-      <%= f.submit "Add this address", value: "Add this address", class: "go-button" %>
+      </div class="mt-10">
+        <%= f.submit "Add this address", value: "Add this address", class: "go-button" %>
     <% end %>
   </div>
 </div>
