@@ -13,6 +13,26 @@
       </ul>
     </div>
     <div class="col">
+      <div class="col">
+        <%= form_for(:query, url: places_path, method: :get) do |f| %>
+        First name:<br>
+          <input type="text" name="firstname" value="Mickey">
+           <br>
+        Last name:<br>
+        <input type="text" name="lastname" value="Mouse">
+          <br><br>
+          Street:<br>
+        <input type="text" name="lastname" value="Address">
+          <br>
+          Number:<br>
+        <input type="text" name="lastname" value="Address">
+          <br>
+          Postal Code:<br>
+        <input type="text" name="lastname" value="Address">
+          <br>
+        <% end %>
+      </div>
+    </div>
       <h1>Checkout summary</h1>
       <p>Total purchase for <strong><%= humanized_money_with_symbol @order.sum_total_price %></strong></p>
       <button id="pay" class="btn btn-primary">Pay</button>
