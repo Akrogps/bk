@@ -4,6 +4,10 @@ const initHideMap = () => {
   const leftStyleContainer = document.querySelector('.search-cards');
   const maptext = document.querySelector('.label-text');
 
+  if (!checkbox) {
+    return
+  }
+
   checkbox.addEventListener("click", function(event) {
     map.classList.toggle("map-toggle");
     leftStyleContainer.classList.toggle("col-lg-12");

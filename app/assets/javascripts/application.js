@@ -1,6 +1,5 @@
 //= require rails-ujs
 //= require_tree .
-//= require turbolinks
 
 const updateProductQuantity = (e, action) => {
   Rails.ajax({
@@ -14,7 +13,7 @@ const updateProductQuantity = (e, action) => {
 }
 
 const destroyProduct = (e) => {
-  console.log(e)
+  console.log("destroy product", e.target.dataset.productId)
   Rails.ajax({
     url: "/order_lines/" + e.target.dataset.productId,
     type: "delete",
@@ -34,8 +33,12 @@ productLinesRemove.forEach(productLine => {
   productLine.addEventListener("click", (e) => updateProductQuantity(e, "remove_one"))
 })
 
-let productDestroy = document.getElementById("destroy-product")
-productDestroy.addEventListener("click", (e) => destroyProduct(e))
+let productDestroys = document.querySelectorAll(".destroy-product")
+if(productDestroys){
+  productDestroys.forEach(productLine => {
+    productLine.addEventListener("click", (e) => destroyProduct(e))
+  })
+}
 
 
 

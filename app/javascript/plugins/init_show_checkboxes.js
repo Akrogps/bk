@@ -2,6 +2,10 @@ const initShowCheckboxes = (dropdown_name, select_name) => {
   let dropdown = document.getElementById(dropdown_name);
   let select = document.getElementById(select_name);
 
+  if (!select) {
+    return
+  }
+
   select.addEventListener("click", function(event) {
     if (dropdown_name === "checkboxes1") {
       if (!expanded1) {
