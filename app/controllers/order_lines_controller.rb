@@ -40,13 +40,14 @@ class OrderLinesController < ApplicationController
       order_line.amount_of_products += 1
       order_line.save
     elsif action == "remove_one"
-      order_line.amount_of_products = [order_line.amount_of_products -= 1, 0].max
+      order_line.amount_of_products = [order_line.amount_of_products -= 1, 1].max
       order_line.save
     end
-    redirect_to new_order_payment_path
+    #redirect_to new_order_payment_path(order_line.order_id)
   end
 
   def destroy
+
   end
 
   private

@@ -8,14 +8,20 @@ const updateProductQuantity = (e, action) => {
     type: "put",
     data: `amount=${action}`,
     success: (data) => {
-      console.log(data)
+      location.reload()
     }
   })
 }
 
-amount.insertAdjacentHTML
-
-let amount = document.getElementById("amount-of-product")
+const destroyProduct = (e) => {
+  Rails.ajax({
+    url: "/order_lines/" + e.target.dataset.productId,
+    type: "delete",
+    success: (data) => {
+      location.reload()
+    }
+  })
+}
 
 let productLinesAdd = document.querySelectorAll(".product-add-one")
 productLinesAdd.forEach(productLine => {
@@ -26,6 +32,8 @@ let productLinesRemove = document.querySelectorAll(".product-remove-one")
 productLinesRemove.forEach(productLine => {
   productLine.addEventListener("click", (e) => updateProductQuantity(e, "remove_one"))
 })
+
+let productDestroy = document.getElementById(".")
 
 
 
