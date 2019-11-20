@@ -31,7 +31,6 @@
   margin-right: 10px;
   padding: 2px 5px;
   font-family: $headers-font;
-
 }
 
 .navbar-element_EN {
@@ -39,5 +38,15 @@
   border: 1px solid $gray;
   padding: 2px 5px;
   font-family: $headers-font;
+}
 
+.search-navbar {
+  font-family: $headers-font;
+  margin: 20px;
+  color: $blue;
+  display: flex;
+  width: 100px;
+  &:hover{
+    opacity: 0.8;
+  }
 }

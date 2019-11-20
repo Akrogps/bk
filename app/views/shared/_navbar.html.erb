@@ -1,7 +1,10 @@
 <nav class="navbar-expand-lg fixed-top">
   <div class="custom-navbar">
-    <div class="icon col-4">
-      <i class="fas fa-search-location"></i>
+    <div class="col-4">
+      <div class="search-navbar">
+        <%= link_to_unless_current "Search", places_path  %>
+        <i class="fas fa-search" style="padding-left: 10px;" ></i>
+      </div>
     </div>
     <div class="col-4">
       <div id="navbar-title">
