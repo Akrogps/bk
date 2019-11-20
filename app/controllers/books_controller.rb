@@ -5,6 +5,13 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @order = Order.find_by(id: session[:order_id])
+    @number_of_items = 0
+
+    unless @order.nil?
+      @order.order_lines.each do |line|
+        @number_of_items += line.amount_of_products
+      end
+    end
   end
 
   def show

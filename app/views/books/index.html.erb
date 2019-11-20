@@ -17,14 +17,9 @@
   <% end %>
 </div>
 <div class="basket">
-  <% if @order.nil? %>
-    <%= 0 %>
-  <% else %>
-    <%= @order.order_lines.count %>
-  <% end %>
-    </%>
+  <%= @number_of_items %>
 </div>
 
 <% if !@order.nil? %>
-  <%= link_to "Go to checkout", order_path(@order), class: "btn btn-link btn-outline-success", id: "booking-btn", target: "_blank" %>
+  <%= link_to "Go to checkout", order_path(@order), class: "btn btn-link btn-outline-success", id: "booking-btn" %>
 <% end %>
