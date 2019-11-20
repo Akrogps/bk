@@ -1,6 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-# Function: object creation with images
 def create_objects_with_images(object_attributes, object_title, images_list)
   object_attributes.each_with_index do |attributes, index|
     new_object = object_title.create(attributes)
@@ -404,6 +401,126 @@ From Friday to Saturday, from 6pm to 2am",
     terrace: false,
     monday_night: false,
     sunday_night: false
+  },
+  {
+    title: "Al Bacio",
+    subtitle: "pizzeria",
+    content: "The first thing we notice at Al Bacio is the music. Hard to do otherwise when Mambo n°5 is playing so loud it can be heard from the other side of the street. Inside, the waiters and the pizzaiola are dancing in the almost empty restaurant – all the tables and chairs have been put outside on the terrace – and we just want to joint them. The colorful little disco lights, a crucial detail to the essence of the place, are waiting for their time to shine – probably later that same night – in a corner.<br/>
+<br/>
+We catch a glimpse of the pizzaiolo working the dough before having a seat outside, with a delicious glass of Nebiolo (8€). Giovanni and Claudio, the two business partners, both come from Puglia, in the South of Italy. Their selection of wine by the glass – Primitivo from Puglia but also Montepulciano and Nebbiolo from Piémont, defy all competition. Next to the twenty pizzas available on the menu, a selection of three suggestions changes weekly – except for the mortadella, burrata and pistachio pizza (16€), which has become a classic. Impossible to miss it. We also order another suggestion, a delicious bresaola pizza with grano and arugula (16€), and a tagliere misto. All the produce have been imported from the region of Puglia, except from the mozzarella used for the pizzas, imported straight from Naples. Only a few streets away, Al Bacetto has now joined the family, welcoming customers who couldn’t get a table at Al Bacio. One of the best pizzerias in town.",
+    address: "119 Rue Américaine, 1050 Bruxelles",
+    phone_number: "04 70 34 15 68",
+    website: "https://albacio.business.site/",
+    opening_hours: "From Tuesday to Saturday, from 12pm to 1:30pm and from 7pm to 10:30pm<br/>
+Sunday from 7pm to 10:30pm",
+    price_indication: "Pizza: 8€ - 19€",
+    booking_link: "https://albacio.business.site/#details",
+    deliveroo_link: "",
+    brunch: false,
+    terrace: true,
+    monday_night: false,
+    sunday_night: true
+  },
+  {
+    title: "Old Boy",
+    subtitle: "bistrot asiatique",
+    content: "The concept of small plates to share was key for the founders, John and Xavier, when opening Old Boy. Both with Eurasian origins, they wanted to offer in their first venue, the same sharing experience you find in the street or Bangkok or in Taipei’s night markets. As food lovers, what they value most is rather the joy of eating and drinking out. It is with all of that in mind that Old Boy opened in 2019.<br/>
+<br/>
+Small plates was the start. Then, came the music. Laid-back during the day, and rather loud at night, with playlists from the 90’s, to the customers’ greatest delight. Then, came the interior project. Advised by Lakhdar, they called upon Jean-Michel de Haan, already known for his brilliant interior renovations at Gazzetta or Notos – to name a few. At Old Boy, you can eat at the counter or take a seat at one of the little green marble tables by the windows. The main elements of the project: a snake-like fence overhanging above the massive green marble bar. Whereas in the restrooms, the blue light will make you lose all your color senses, and the super loud music might make you think you’re in a club. This could be London, L.A., even Paris, but it’s hard to think it’s actually Brussels. Then came the wine. Alexis, self-taught wine waiter, was the first person to join the team. The result of their collaboration is a beautiful wine selection, mostly natural, with some fantastic orange wines among them. As for the small plates, we had amazing Taiwan tofu bao, Thai minced chicken salad, and spicy Chinese beef noodle. Around 10-12 small dishes are available on the menu, changing regularly. The food is simply excellent. In short, we love this place, and go back (very) often. Definitely our go-to restaurant of the year.",
+    address: "110 Rue de Tenbosch, 1050 Bruxelles",
+    phone_number: "02 544 15 55",
+    website: "http://oldboyrestaurant.be/",
+    opening_hours: "Monday from 7pm to 10:30pm<br/>
+From Tuesday to Saturday, from 12pm to 2:30pm and from 7pm to 10:30pm",
+    price_indication: "Small plates: 6€ – 14€",
+    booking_link: "",
+    deliveroo_link: "",
+    brunch: true,
+    terrace: true,
+    monday_night: true,
+    sunday_night: false
+  },
+  {
+    title: "St Kilda",
+    subtitle: "sharing tasting menu",
+    content: "We walked into St Kilda with sparkles in our eyes and little peaks of excitement. It’s already been more than a year since this gem has opened, well hidden in a residential area in Uccle, and we’d only just heard about it. Milan and Antoine welcomed us with a smile, from behind their huge kitchen counter, in their semi-confidential restaurant.<br/>
+<br/>
+Before opening as a restaurant, St Kilda was initially the headquarters of their catering business – hence the size of the kitchen. After living for 7 years in Australia, Milan came back to Brussels to launch his own business, and invited both of his childhood friends, Antoine and Maxime, to join in. The project grew bigger, starting off as caterers in the cinema industry – where catering is usually, more often than not, extremely poor. Then, came the restaurant, and the gorgeous decoration making us want to stay here forever. But better be warned: St Kilda is a different type of restaurant – it does not have opening hours, neither does it have a menu. Before coming, make sure to give them a call, they’ll be happy to welcome you. Once seated, let Milan guide you into his unique sharing plates tasting menu (25€ for lunch, 40€ for dinner). We had beetroot gazpacho, “Belgian ceviche” with sardines, maatjes paired with old gouda mousse and pickled onions, tiny squids with grey shrimp and parsley stems, and finally, the most mind-blowing tagliatelle al ragu. We’d made lasagnas, and I happened to have some oxtail, explained Milan. That was clearly fine by us, as it was one of the best al ragu we’d ever had. Most definitely the one restaurant you should try this summer.<br/>",
+    address: "44 Avenue Coghen, 1180 Bruxelles",
+    phone_number: "02 319 92 82",
+    website: "https://stkildabxl.be/",
+    opening_hours: "From Tuesday to Friday, from 4pm to 10pm<br/>
+Sunday from 7pm to 11pm",
+    price_indication: "Tasting menu: 40€",
+    booking_link: "https://stkildabxl.be/reservation/",
+    deliveroo_link: "",
+    brunch: true,
+    terrace: true,
+    monday_night: false,
+    sunday_night: true
+  },
+  {
+    title: "Martine",
+    subtitle: "lunch and brunch",
+    content: "Martine, like Maroussia and Justine, who decided to open their very own restaurant after spending only a few years in the industry. At age 25 and 26 only, the girls have been trained among the best in their category – Tero and Ici to name a few -, and knew exactly what they wanted. At the first glance, their healthy-arty-organic canteen linking the stunning Gallery La Patinoire Royale is quite a success. But it’s actually got much more to offer then what you could guess from that first glance.<br/>
+<br/>
+Inside, the decoration is rather minimal – maybe even too minimal -, to stay consistent with the looks of the gallery. But though the whole thing may feel a bit cold at first, it all changes as soon as the girls warmly welcome you in, and you dive into the menu. That menu, which is changed every month, is just as appealing as it is eclectic. Coco Bowls for healthy food addicts (15€) stand right next to crispy breaded cutlets served with tagliatelle (18€), classic avocado toasts (13€), but also slow cooked pork with tonnato sauce (17€). What matters most, says Maroussia, at the head of the kitchen, is to offer something for everyone. Same goes for breakfasts, where the vegan budwig cream with gluten-free granola (8€) – absolutely delicious by the way – is right next to scrambled eggs with bacon, or even pastries with butter and jam. It does make things much easier, we have to say, knowing you can come here with absolutely anyone. But the best this place has to offer, is definitely a meal outside on their terrace, overlooked by a tree so big that it rather looks like a garden. It is also the perfect link to the Gallery, on the other side of the building. In the weekends, we’ll come back for an exhibit, followed by Martine’s delicious brunch.",
+    address: "80 Chaussée de Charleroi, 1060 Bruxelles",
+    phone_number: "02 454 54 51",
+    website: "https://www.martine-restaurant.be/",
+    opening_hours: "Tuesday from 11:30 to 2:30pm<br/>
+From Wednesday to Friday, from 11:30am to 2pm and from 7pm to 10pm<br/>
+Brunch on Saturday and Sunday from 10:30pm to 4pm",
+    price_indication: "Mains: 11€ – 17€<br/>
+Brunch: 20€",
+    booking_link: "https://www.martine-restaurant.be/reservations",
+    deliveroo_link: "",
+    brunch: true,
+    terrace: true,
+    monday_night: false,
+    sunday_night: false
+  },
+  {
+    title: "Brut",
+    subtitle: "fine organic food",
+    content: "First, there’s Alice and Benoit, passionate chefs, and amongst other things, the initial founders of Little Tokyo. When their plan to leave Brussels for good to open a restaurant in Brazil falls through, they decide to start an on-demande chef business. Then there’s Leo, Alice’s brother, working in a start-up studio in tech, miles away from the hospitality business, but who’s always had a passion for food.<br/>
+The couple is in need of a driver and of a hand during their dinners, while Leo is looking for something more meaningful. A new team is born.<br/>
+<br/>
+A year later, Brut restaurant is finally ready to open, two streets behind the Flagey square. And meaningful it is, from the choice of local producers to the decoration which has been entirely recycled. Ingredients are almost 100 Belgian sourced, except for a few things like the Label Rouge salmon, which is smoked on the premises. Recycled, organic and craft-trade products are some of the keywords defining their vision. For each and every single one of the ingredients they work with, they have taken the time to meet the farmers and suppliers, making sure to pick the best mozzarella (made in Belgium of course), or the best duck from the Ardennes. Their lunch menu (23€ for two courses) is a great reflection of bistronomy as we love it : local produce, seasonal vegetables, perfectly cooked meats and a fun twist in ingredient pairing making the difference. We had Nameko mushrooms from Brussels served in a salad with Brussels sprouts in tempura as a starter, and slow cooked duck filet on parsnip purée with miso. The plates were set beautifully and the food was hearty and delicious. On Friday evenings, the only night of the week the restaurant is open, they serve a unique 5 course tasting menu (48€), to pair with natural wines, Belgian beer of even Kombucha if you like.",
+    address: "49 Rue Antoine Labarre, 1050 Bruxelles",
+    phone_number: "02 342 09 75",
+    website: "https://brutfood.be/",
+    opening_hours: "From Monday to Thursday from 10am to 7pm<br/>
+Friday from 10am to 11pm<br/>
+Sunday from 10am to 4pm",
+    price_indication: "2 courses lunch: 23€<br/>
+5 courses tasting menu on Friday: 48€<br/>
+Brunch on Sunday: 25€",
+    booking_link: "https://brutfood.be/reserver/",
+    deliveroo_link: "",
+    brunch: true,
+    terrace: true,
+    monday_night: true,
+    sunday_night: false
+  },
+  {
+    title: "Beli",
+    subtitle: "lebanese cuisine",
+    content: "Since ever she was a kid, Caroline had been dreaming of opening her own restaurant. After working in London with her sister Sandy in the hospitality business, they both came to the same realisation. Back in Belgium, they opened Beli in Spring 2016, together with their mom, Martine Sarafian. The restaurant is located right between the Sablon and the Marolles, and is half-way through Belgium and Lebanon.<br/>
+<br/>
+The name is a reference to the culture of both countries, using the first syllables of each to form the word ͞Beli͟. A Lebanese restaurant, definitely, but not a traditional one either. Beli wants to remain an approachable place, wether you have middle-eastern origins or not. Both rooms in the restaurant are bright and nicely decorated with naked hanging lightbulbs, wooden tables and colourful cushions, fresh cut flowers and a dozen of framed pictures of Beyrouth hung on the wall. At the entrance, a lemon tree reminds the customers of the Mediterannean experience they’re about to live as soon as they enter. In the kitchen, the three girls have hired talented Syrian refugee chefs, for who they had a direct crush as soon as they met. Together, and though the language barrier may sometimes be difficult, they have defined a menu centered around mezze, as close as possible to the Sarafian – El Chalouhi family’s culinary traditions. And besides the traditional and delicious eggplant caviar, cheese puff pastries or falafels, you’ll also find a few Belgian touches on the menu, like homemade veal meatloaf, beetroot carpaccio or garlic shrimps.",
+    address: "11 Rue Joseph Stevens, 1000 Bruxelles",
+    phone_number: "02 538 88 88",
+    website: "http://www.beli.be/",
+    opening_hours: "From Tuesday to Saturday for lunch<br/>
+From Thursday to Saturday for dinner",
+    price_indication: "Mezze: 4€ – 12€",
+    booking_link: "http://www.restaurant-beli.com/info",
+    deliveroo_link: "",
+    brunch: false,
+    terrace: true,
+    monday_night: false,
+    sunday_night: true
   }
 ]
 
@@ -429,6 +546,12 @@ places_photo_url_list = [
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576469/Brussels%20Kitchen/Titulus/titulus_main_nrot4f.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576469/Brussels%20Kitchen/Titulus/titulus_1_dkkv4i.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576469/Brussels%20Kitchen/Titulus/titulus_2_xlbkub.jpg"],
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576456/Brussels%20Kitchen/Monk/monk_main_thod9s.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576456/Brussels%20Kitchen/Monk/monk1_xtna9v.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576457/Brussels%20Kitchen/Monk/monk2_usvowl.jpg"],
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576386/Brussels%20Kitchen/Ethylo/ethylo_main_pihy7m.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576386/Brussels%20Kitchen/Ethylo/ethylo1_ngwys4.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576386/Brussels%20Kitchen/Ethylo/ethylo2_wlddaf.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245722/Brussels%20Kitchen/Al_bacio/al_bacio_main_zxx53j.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245722/Brussels%20Kitchen/Al_bacio/al_bacio_1_bdvsyd.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245721/Brussels%20Kitchen/Al_bacio/al_bacio_2_yq4qhr.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245772/Brussels%20Kitchen/Old_boy/old_boy_main_l0vjq9.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245772/Brussels%20Kitchen/Old_boy/old_boy_1_frje8v.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245772/Brussels%20Kitchen/Old_boy/old_boy_2_qrlkb8.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245809/Brussels%20Kitchen/St_kilda/st_kilda_main_oylnff.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245809/Brussels%20Kitchen/St_kilda/st_kilda_1_h4jml8.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245809/Brussels%20Kitchen/St_kilda/st_kilda_2_jahtdx.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245845/Brussels%20Kitchen/Martine/martine_main_metf9j.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245845/Brussels%20Kitchen/Martine/martine_1_vasee6.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245845/Brussels%20Kitchen/Martine/martine_2_iogsmh.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245880/Brussels%20Kitchen/Brut/brut_main_hspzpd.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245880/Brussels%20Kitchen/Brut/brut_1_dak72n.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245881/Brussels%20Kitchen/Brut/brut_2_pd4oz4.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245908/Brussels%20Kitchen/Beli/beli_main_rrakea.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245908/Brussels%20Kitchen/Beli/beli_1_bdg3nx.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245908/Brussels%20Kitchen/Beli/beli_2_vsnxwv.jpg"],
 ]
 
 # Create places and their images
