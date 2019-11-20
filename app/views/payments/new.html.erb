@@ -7,7 +7,7 @@
             <%= image_tag Book.where(id: line.productable_id)[0].images.first.photo_url, width: '100px' %>
             <%= Book.where(id: line.productable_id)[0].title %>
             <div class="product-remove-one" data-product-id="<%= line.id %>">-</div>
-            <%= line.amount_of_products %>
+            <div id="amount-of-product"><%= line.amount_of_products %></div>
             <div class="product-add-one" data-product-id="<%= line.id %>">+</div>
             <%= humanized_money_with_symbol (line.price * line.amount_of_products) %>
           </li>

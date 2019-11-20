@@ -3,7 +3,6 @@
 //= require turbolinks
 
 const updateProductQuantity = (e, action) => {
-  console.log(e)
   Rails.ajax({
     url: "/order_lines/" + e.target.dataset.productId,
     type: "put",
@@ -13,6 +12,10 @@ const updateProductQuantity = (e, action) => {
     }
   })
 }
+
+amount.insertAdjacentHTML
+
+let amount = document.getElementById("amount-of-product")
 
 let productLinesAdd = document.querySelectorAll(".product-add-one")
 productLinesAdd.forEach(productLine => {
