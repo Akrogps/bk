@@ -1,0 +1,63 @@
+.basket {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.basket-box {
+  margin: 10px 30px 60px 30px;
+  #booking-btn {
+    padding: 10px 20px;
+    background-color: $blue;
+    color: white;
+    font-family: $headers-font;
+    margin-left: 50px;
+    &:hover {
+      background-color: white;
+      color: $blue;
+    }
+  }
+}
+
+.first-last {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-box {
+  margin: 60px 30px 0 30px;
+  display: flex;
+  width: auto;
+  justify-content: left;
+}
+
+.street-number {
+   .text_field input {
+    width: 50px;
+  }
+}
+
+.payment-form {
+  text-align: left;
+  padding: 5px;
+  .go-button {
+    margin-top: 30px;
+    width: 100px;
+  }
+  .text_field {
+    width: auto;
+  }
+}
+
+.checkout {
+  margin: 40px;
+}
+
+.books-to-buy {
+  margin: 30px;
+  text-align: left;
+  p {
+    margin: 40px;
+  }
+}
