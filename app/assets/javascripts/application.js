@@ -14,6 +14,7 @@ const updateProductQuantity = (e, action) => {
 }
 
 const destroyProduct = (e) => {
+  console.log(e)
   Rails.ajax({
     url: "/order_lines/" + e.target.dataset.productId,
     type: "delete",
@@ -33,7 +34,8 @@ productLinesRemove.forEach(productLine => {
   productLine.addEventListener("click", (e) => updateProductQuantity(e, "remove_one"))
 })
 
-let productDestroy = document.getElementById(".")
+let productDestroy = document.getElementById("destroy-product")
+productDestroy.addEventListener("click", (e) => destroyProduct(e))
 
 
 

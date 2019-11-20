@@ -6,7 +6,6 @@
           <li>
             <%= image_tag Book.where(id: line.productable_id)[0].images.first.photo_url, width: '100px' %>
             <%= Book.where(id: line.productable_id)[0].title %>
-            <%= if line.amount_of_products == 1 %>
             <div class="product-remove-one" data-product-id="<%= line.id %>">-</div>
             <div id="amount-of-product"><%= line.amount_of_products %></div>
             <div class="product-add-one" data-product-id="<%= line.id %>">+</div>
