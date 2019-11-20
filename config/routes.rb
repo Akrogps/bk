@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :destroy] do
     resources :payments, only: :new
   end
-  resources :order_lines, only: [:create, :update]
+  resources :order_lines, only: [:create, :update, :destroy]
 end

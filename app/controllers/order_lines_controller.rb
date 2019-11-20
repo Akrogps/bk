@@ -43,6 +43,10 @@ class OrderLinesController < ApplicationController
       order_line.amount_of_products = [order_line.amount_of_products -= 1, 0].max
       order_line.save
     end
+    redirect_to new_order_payment_path
+  end
+
+  def destroy
   end
 
   private
