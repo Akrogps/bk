@@ -229,12 +229,15 @@
   display: flex;
   flex-direction: rows;
   flex-wrap: wrap;
+
+  .field-selected {
+    border: 1px solid $gray;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: $headers-font;
+    margin-left: 15px;
+    border-radius: 3px;
+    color: $blue;
+  }
 }
 
-.field-selected {
-  border: 1px solid $gray;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-family: $headers-font;
-  margin-left: 15px;
-}
