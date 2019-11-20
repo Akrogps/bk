@@ -1,39 +1,61 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="books-to-buy">
-      <ul>
-        <% @order.order_lines.each do |line| %>
-          <li>
-            <%= image_tag Book.where(id: line.productable_id)[0].images.first.photo_url, width: '100px' %>
-            <%= Book.where(id: line.productable_id)[0].title %>
-            <%= line.amount_of_products %>
-            <%= humanized_money_with_symbol (line.price * line.amount_of_products) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="col">
-      <%= form_for(:query, url: places_path, method: :get) do |f| %>
-        <%= f.label "First Name" %>
-        <%= f.text_field "First Name" %>
-        <%= f.label "Last Name" %>
-        <%= f.text_field "Last Name" %>
-        <%= f.label "Street number" %>
-        <%= f.text_field "Street number" %>
-        <%= f.label "Street name" %>
-        <%= f.text_field "Street name" %>
-        <%= f.label "Postal Code" %>
-        <%= f.text_field "Postal Code" %>
-        <%= f.label "City" %>
-        <%= f.text_field "City" %>
-        <%= f.label "Country" %>
-        <%= f.text_field "Country" %>
-        <%= f.submit "Add this address", value: "Add this address", class: "form-control go-button" %>
+<div class="container d-flex">
+  <div class="books-to-buy col-6">
+    <p>Your order:</p>
+    <ul>
+      <% @order.order_lines.each do |line| %>
+        <li>
+          <%= image_tag Book.where(id: line.productable_id)[0].images.first.photo_url, width: '100px' %>
+          <%= Book.where(id: line.productable_id)[0].title %>
+          <p>Number of items: <%= line.amount_of_products %></p>
+          <p>Total amount: <%= humanized_money_with_symbol (line.price * line.amount_of_products) %></p>
+        </li>
       <% end %>
-    </div>
-    <h1>Checkout summary</h1>
+    </ul>
+  </div>
+  <div class="payment-box">
+    <%= form_for(:query, url: places_path, method: :get) do |f| %>
+      <p class="text-align-left">Fill in your delivery details:</p>
+      <div class="first-last">
+        <div class="payment-form">
+          <%= f.label "First Name:" %>
+          <%= f.text_field "First Name" %>
+        </div>
+        <div class="payment-form">
+            <%= f.label "Last Name:" %>
+          <%= f.text_field "Last Name" %>
+        </div>
+      </div>
+      <div class="first-last">
+        <div class="payment-form" >
+          <%= f.label "Address:" %>
+          <%= f.text_field "Address" %>
+        </div>
+        <div class="payment-form street-number" >
+          <%= f.label "Street number:" %>
+          <%= f.text_field "Street Number" %>
+        </div>
+      </div>
+      <div class="first-last">
+        <div class="payment-form">
+          <%= f.label "Postal Code:" %>
+          <%= f.text_field "Postal Code" %>
+        </div>
+        <div class="payment-form">
+          <%= f.label "City:" %>
+          <%= f.text_field "City" %>
+        </div>
+      </div>
+      <div class="payment-form">
+      </div class="mt-10">
+        <%= f.submit "Add this address", value: "Add this address", class: "go-button" %>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="checkout">
+      <h4>Checkout summary</h4>
     <p>Total purchase for <strong><%= humanized_money_with_symbol @order.sum_total_price %></strong></p>
-    <button id="pay" class="btn btn-primary">Pay</button>
+    <button id="pay" class="btn btn-primary" >Proceed to payment</button>
     <script src="https://js.stripe.com/v3/"></script>
     <script>
       const paymentButton = document.getElementById('pay');
