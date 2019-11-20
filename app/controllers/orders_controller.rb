@@ -23,4 +23,11 @@ class OrdersController < ApplicationController
     @order.update(checkout_stripe_session_id: stripe_session.id)
     redirect_to new_order_payment_path(@order)
   end
+
+  def destroy
+    @order = Order.find_by(id: session[:order_id])
+    @order.destroy
+
+    redirect_to
+  end
 end

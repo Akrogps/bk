@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :places, only: [:index, :show]
   resources :events, only: [:index, :show]
   resources :books, only: [:index, :show]
-  resources :orders, only: :show do
+  resources :orders, only: [:show, :destroy] do
     resources :payments, only: :new
   end
-  resources :order_lines, only: :create
+  resources :order_lines, only: [:create, :update]
 end
