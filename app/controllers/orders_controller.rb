@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
         images: [Book.where(id: line.productable_id)[0].images.first.photo_url],
         amount: line.price_cents,
         currency: 'eur',
-        quantity: 1
+        quantity: line.amount_of_products
       }
     end
     @list_items.flatten!

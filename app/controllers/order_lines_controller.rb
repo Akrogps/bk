@@ -4,20 +4,33 @@ class OrderLinesController < ApplicationController
   def create
     order = Order.find_by(id: session[:order_id])
     if order.present?
-      @current_order = order
-      order_line = OrderLine.new(order_line_creation_params)
-      order.order_lines << order_line
-    else
-      order = Order.create(user: session[:session_id])
+      # @current_order = order
       existing_product_order_line = order.order_lines.where(product_sku: permitted_params[:product_sku])
       if existing_product_order_line.present?
         existing_product_order_line.update(
-          amount_of_products: existing_product_order_line.amount_of_products + 1
+          amount_of_products: existing_product_order_line[0].amount_of_products + 1
         )
+        session[:order_id] = order.id
       else
         order.order_lines << current_book.order_lines.create(order_line_creation_params)
         session[:order_id] = order.id
       end
+      # order_line = OrderLine.new(order_line_creation_params)
+      # order.order_lines << order_line
+    else
+      order = Order.create(user: session[:session_id])
+      order_line = OrderLine.new(order_line_creation_params)
+      order.order_lines << order_line
+      session[:order_id] = order.id
+      # existing_product_order_line = order.order_lines.where(product_sku: permitted_params[:product_sku])
+      # if existing_product_order_line.present?
+      #   existing_product_order_line.update(
+      #     amount_of_products: existing_product_order_line.amount_of_products + 1
+      #   )
+      # else
+      #   order.order_lines << current_book.order_lines.create(order_line_creation_params)
+      #   session[:order_id] = order.id
+      # end
     end
     redirect_to books_path
   end
