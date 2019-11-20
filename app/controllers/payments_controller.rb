@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   skip_before_action :authenticate_user!
-  
+
   def new
     @order = Order.find_by(id: session[:order_id])
     @book = Book.find_by(id: @order.order_lines[0].productable_id)
