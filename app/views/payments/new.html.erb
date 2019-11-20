@@ -13,45 +13,36 @@
       </ul>
     </div>
     <div class="col">
-      <div class="col">
-        <%= form_for(:query, url: places_path, method: :get) do |f| %>
-        First name:<br>
-          <input type="text" name="firstname" value="Mickey">
-           <br>
-        Last name:<br>
-        <input type="text" name="lastname" value="Mouse">
-          <br><br>
-          Street:<br>
-        <input type="text" name="lastname" value="Address">
-          <br>
-          Street number:<br>
-        <input type="text" name="lastname" value="Address">
-          <br>
-          Postal code number:<br>
-        <input type="text" name="lastname" value="Number">
-          <br>
-          City:<br>
-        <input type="text" name="lastname" value="City">
-          <br>
-          Country:<br>
-        <input type="text" name="lastname" value="Country">
-          <br>
-        <% end %>
-      </div>
+      <%= form_for(:query, url: places_path, method: :get) do |f| %>
+        <%= f.label "First Name" %>
+        <%= f.text_field "First Name" %>
+        <%= f.label "Last Name" %>
+        <%= f.text_field "Last Name" %>
+        <%= f.label "Street number" %>
+        <%= f.text_field "Street number" %>
+        <%= f.label "Street name" %>
+        <%= f.text_field "Street name" %>
+        <%= f.label "Postal Code" %>
+        <%= f.text_field "Postal Code" %>
+        <%= f.label "City" %>
+        <%= f.text_field "City" %>
+        <%= f.label "Country" %>
+        <%= f.text_field "Country" %>
+        <%= f.submit "Add this address", value: "Add this address", class: "form-control go-button" %>
+      <% end %>
     </div>
-      <h1>Checkout summary</h1>
-      <p>Total purchase for <strong><%= humanized_money_with_symbol @order.sum_total_price %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_stripe_session_id %>'
-          });
+    <h1>Checkout summary</h1>
+    <p>Total purchase for <strong><%= humanized_money_with_symbol @order.sum_total_price %></strong></p>
+    <button id="pay" class="btn btn-primary">Pay</button>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      const paymentButton = document.getElementById('pay');
+      paymentButton.addEventListener('click', () => {
+        const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+        stripe.redirectToCheckout({
+          sessionId: '<%= @order.checkout_stripe_session_id %>'
         });
-      </script>
-    </div>
+      });
+    </script>
   </div>
 </div>
