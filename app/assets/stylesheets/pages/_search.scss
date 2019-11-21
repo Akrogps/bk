@@ -197,6 +197,20 @@
   text-align: center;
 }
 
+#fields-selected {
+  display: flex;
+  flex-direction: rows;
+  flex-wrap: wrap;
+}
+
+.field-selected {
+  border: 1px solid $gray;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: $headers-font;
+  margin-left: 15px;
+}
+
  // Toggle button map
 .map-text-color {
   color: $gray !important;
@@ -211,6 +225,7 @@
   width: 100px;
   color: $green-foot;
   z-index: 100;
+  font-weight: bold;
 
 }
 
@@ -224,18 +239,15 @@
   margin-left: 8px;
 }
 
-
-
-#fields-selected {
+// Toggle button open now
+.show-open-now {
+  position: absolute;
+  top: 85px;
+  right: 410px;
   display: flex;
-  flex-direction: rows;
-  flex-wrap: wrap;
-}
-
-.field-selected {
-  border: 1px solid $gray;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-family: $headers-font;
-  margin-left: 15px;
+  text-align: left;
+  width: 140px;
+  color: $green-foot;
+  z-index: 100;
+  font-weight: bold;
 }

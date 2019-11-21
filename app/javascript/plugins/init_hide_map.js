@@ -7,7 +7,7 @@ const initHideMap = () => {
   checkbox.addEventListener("click", function(event) {
     map.classList.toggle("map-toggle");
     leftStyleContainer.classList.toggle("col-lg-12");
-    maptext.classList.toggle("map-text-color")
+    maptext.classList.toggle("map-text-color");
   });
 };
 
