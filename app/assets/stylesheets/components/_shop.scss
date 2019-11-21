@@ -1,0 +1,148 @@
+.basket {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.basket-box {
+  margin: 10px 30px 60px 30px;
+  #booking-btn {
+    padding: 10px 20px;
+    background-color: $blue;
+    color: white;
+    font-family: $headers-font;
+    margin-left: 50px;
+    &:hover {
+      background-color: white;
+      color: $blue;
+    }
+  }
+}
+
+.first-last {
+  display: flex;
+}
+
+.payment-box {
+  margin: 30px 30px 0 30px;
+  display: flex;
+  form {
+    text-align: left;
+    width: auto;
+  }
+}
+
+.street-number, .postal-code {
+   input {
+    width: 120px;
+  }
+}
+
+.address, .city {
+   input {
+    width: 300px;
+  }
+}
+.first {
+   input {
+    width: 160px;
+  }
+}
+.last {
+   input {
+    width: 260px;
+  }
+}
+
+.email-form {
+   input {
+    width: 430px;
+    text-decoration: none;
+  }
+}
+
+.payment-form {
+  text-align: left;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.send input {
+  width: 80px !important;
+}
+
+.checkout {
+  margin: 40px;
+}
+
+.books-to-buy {
+  margin: 30px;
+  text-align: left;
+
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 150px;
+  padding: 15px;
+  font-family: $headers-font;
+}
+
+.order-details {
+  display: flex;
+  align-content: flex-end;
+  justify-content: space-between;
+  font-family: "Open Sans";
+  font-size: 12px;
+
+    .quantity, .destroy-product, .total-amount {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .destroy-product{
+    padding-right: 80px;
+    color: $blue;
+    &:hover {
+      color: orange;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+
+
+
+.order {
+  margin: 20px 0;
+  border-top: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  img {
+    height: 140px;
+    object-fit: cover;
+  }
+}
+
+.title-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-remove-one, .product-add-one {
+  padding: 3px 8px;
+  margin: 5px 15px;
+  border: 0.5px solid gray;
+   &:hover {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

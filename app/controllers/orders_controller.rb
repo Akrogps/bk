@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: [:show, :destroy, :success]
 
   def show
     @order = Order.find_by(id: session[:order_id])
@@ -17,10 +17,22 @@ class OrdersController < ApplicationController
     stripe_session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [@list_items],
-      success_url: order_url(@order),
+      success_url: success_orders_url,
       cancel_url: order_url(@order)
     )
     @order.update(checkout_stripe_session_id: stripe_session.id)
     redirect_to new_order_payment_path(@order)
+  end
+
+  def destroy
+    @order = Order.find_by(id: session[:order_id])
+    @order.destroy
+
+    redirect_to new_order_payment_path(@order)
+  end
+
+  def success
+    @order = Order.find_by(id: session[:order_id])
+    @order.destroy
   end
 end

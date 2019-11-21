@@ -38,7 +38,6 @@
       label {
         margin-left: 15px;
         font-family: $headers-font;
-
       }
     }
   }
@@ -46,9 +45,12 @@
   .search-attribute {
     justify-content: space-between;
     padding: 5px;
+    margin: 5px;
     display: flex;
     flex-direction: rows;
     flex-wrap: wrap;
+    border-radius: 2px;
+    color: $gray;
 
     .form-group {
       padding-left: 10px;
@@ -70,12 +72,12 @@
     flex-wrap: wrap;
   }
 
-.find {
-  appearance: none;
-  font-family: $headers-font;
-  border: none;
-  height: auto;
-}
+  .find {
+    appearance: none;
+    font-family: $headers-font;
+    border: none;
+    height: auto;
+  }
 
   .location-searchbar {
     margin: 5px;
@@ -95,8 +97,8 @@
   border: 1px solid $gray;
   background-color: transparent;
   border-radius: none;
-  &:hover{
-    background-color: $gray;
+  &:hover {
+    background-color: $green-foot;
     color: white;
   }
 }
@@ -122,7 +124,6 @@
   appearance: none;
   border-radius: none !important;
   font-weight: lighter;
-
 }
 
 .search-tags {
@@ -201,14 +202,21 @@
   display: flex;
   flex-direction: rows;
   flex-wrap: wrap;
+
+  .field-selected {
+    border: 1px solid $blue;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: $headers-font;
+    margin: 5px;
+    border-radius: 5px;
+    color: $blue;
+  }
 }
 
-.field-selected {
-  border: 1px solid $gray;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-family: $headers-font;
-  margin-left: 15px;
+.form-control {
+  color: $green-foot;
+  border-color: $green-foot;
 }
 
  // Toggle button map
@@ -227,7 +235,6 @@
   color: $green-foot;
   z-index: 100;
   font-weight: bold;
-
 }
 
 .label {
@@ -256,7 +263,6 @@
 
 .not-open-opacity {
   opacity: 0.4;
-}
 
 .not-open-text-color {
   color: $green-foot !important;
@@ -269,4 +275,3 @@
 #active-bg2 {
   background: $green-foot;
 }
-
