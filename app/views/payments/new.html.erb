@@ -1,4 +1,5 @@
 <div class="container d-flex">
+  <% if @order.order_lines.count != 0 %>
   <div class="books-to-buy col-6">
     <h5>Your order:</h5>
     <% @order.order_lines.sort_by(&:id).each do |line| %>
@@ -68,8 +69,6 @@
     <% end %>
   </div>
 </div>
-</div>
-
 <div class="container">
   <div class="checkout">
       <h4>Checkout summary</h4>
@@ -83,7 +82,9 @@
         stripe.redirectToCheckout({
           sessionId: '<%= @order.checkout_stripe_session_id %>'
         });
-      });
-    </script>
-  </div>
+      </script>
+    </div>
+  <% else %>
+    <p>Your bag is empty mf</p>
+ <% end %>
 </div>
