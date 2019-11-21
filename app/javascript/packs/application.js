@@ -7,6 +7,7 @@ import { initShowCheckboxes } from '../plugins/init_show_checkboxes';
 import { initShowSelectedFields } from '../plugins/init_show_selected_fields';
 import { initHideMap } from '../plugins/init_hide_map';
 import { initShowOpenNow } from '../plugins/init_show_open_now';
+import { initHideInputCheckboxes } from '../plugins/init_hide_input_checkboxes';
 
 initMapbox();
 initAutocomplete();
@@ -16,3 +17,4 @@ initShowSelectedFields(".elements-selected1", 11);
 initShowSelectedFields(".elements-selected2", 17);
 initHideMap();
 initShowOpenNow();
+initHideInputCheckboxes();

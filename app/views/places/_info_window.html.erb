@@ -7,4 +7,9 @@
   <h2><%= place.title %></h2>
   <p><%= place.subtitle %></p>
   <p><%= place.address.gsub(",", "<br/>").html_safe %></p>
+  <% if @closed_soon_hash[place] %>
+    <div class="text-center" id="closing-soon-map">
+      <p>Closing soon...</p>
+    </div>
+  <% end %>
 </div>

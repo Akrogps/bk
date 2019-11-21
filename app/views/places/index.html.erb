@@ -35,6 +35,11 @@
                   <% end %>
                 <% end %>
               </div>
+              <% if @closed_soon_hash[place] %>
+                <div class="text-center" id="closing-soon">
+                  <p>Closing soon...</p>
+                </div>
+              <% end %>
             </div>
           <% else %>
             <div class="card-resto not-open-now" style="grid-template-columns: repeat(auto-fill, 400px);">

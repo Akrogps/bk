@@ -15,7 +15,14 @@
 }
 
 .map-txt {
-  padding-top: 10px;
+  padding-top: 15px;
+
+  #closing-soon-map {
+    color: $red-closing-soon;
+    font-weight: bold;
+    padding-top: 6px;
+    padding-bottom: 4px;
+  }
 
   a {
     text-decoration: none;
