@@ -33,6 +33,8 @@ class OrdersController < ApplicationController
 
   def success
     @order = Order.find_by(id: session[:order_id])
-    @order.destroy
+    if !@order.nil?
+      @order.destroy
+    end
   end
 end

@@ -1,0 +1,24 @@
+.success {
+  font-family: $my-font;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: transparent;
+  width: 100vh;
+  height: 70vh;
+  margin: 100px auto;
+  padding: 200px auto;
+  color: $blue;
+  border-color: $blue;
+
+  .text1 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .text2 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
