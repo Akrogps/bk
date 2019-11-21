@@ -2,8 +2,7 @@
   <div class="custom-navbar">
     <div class="col-4">
       <div class="search-navbar">
-        <%= link_to_unless_current "Search", places_path  %>
-        <i class="fas fa-search" style="padding-left: 10px;" ></i>
+        <%= link_to_unless_current (raw("<i class='fas fa-search' id='search-link'></i>")), places_path  %>
       </div>
     </div>
     <div class="col-4">

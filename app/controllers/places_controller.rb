@@ -43,6 +43,7 @@ class PlacesController < ApplicationController
     @places = @places_list.reject { |place| place.latitude.nil? }.sort_by { |place| place.created_at }.reverse
 
     check_if_open_now
+    check_if_closed_soon
 
     @markers = @places.map do |place|
       {
@@ -140,6 +141,24 @@ class PlacesController < ApplicationController
         end
       else
         @open_now_hash[place] = false
+      end
+    end
+  end
+
+  def check_if_closed_soon
+    @closed_soon_hash = {}
+
+    @places.each do |place|
+      if place.opening_hours.where(day_of_week: @current_day)[0]
+        opening_info = place.opening_hours.where(day_of_week: @current_day)[0]
+        end_hour = opening_info.end_time.strftime("%H").to_i
+        if (end_hour - @current_time) <= 1
+          @closed_soon_hash[place] = true
+        else
+          @closed_soon_hash[place] = false
+        end
+      else
+        @closed_soon_hash[place] = false
       end
     end
   end
