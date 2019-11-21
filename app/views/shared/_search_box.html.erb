@@ -54,7 +54,7 @@
           <% if @params_hash && @params_hash["address"] != "" %>
             <%= f.text_field "address", value: @params_hash["address"], id: "location-searchbar" %>
           <% else %>
-            <%= f.text_field "address", placeholder: "Type a location here", id: "location-searchbar" %>
+            <%= f.text_field "address", placeholder: "Close to...", id: "location-searchbar" %>
           <% end %>
         </div>
       </div>

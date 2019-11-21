@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_095452) do
+ActiveRecord::Schema.define(version: 2019_11_20_133326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,16 @@ ActiveRecord::Schema.define(version: 2019_11_19_095452) do
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
   end
 
+  create_table "opening_hours", force: :cascade do |t|
+    t.bigint "place_id"
+    t.integer "day_of_week", null: false
+    t.time "start_time", null: false
+    t.time "end_time", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_opening_hours_on_place_id"
+  end
+
   create_table "order_lines", force: :cascade do |t|
     t.bigint "order_id"
     t.integer "amount_of_products"
@@ -107,7 +117,6 @@ ActiveRecord::Schema.define(version: 2019_11_19_095452) do
     t.string "address"
     t.string "phone_number"
     t.string "website"
-    t.text "opening_hours"
     t.string "price_indication"
     t.string "booking_link"
     t.string "deliveroo_link"
@@ -134,5 +143,6 @@ ActiveRecord::Schema.define(version: 2019_11_19_095452) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "opening_hours", "places"
   add_foreign_key "order_lines", "orders"
 end

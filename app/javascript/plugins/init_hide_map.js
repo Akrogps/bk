@@ -2,7 +2,7 @@ const initHideMap = () => {
   const checkbox = document.getElementById('show-map-box');
   const map = document.getElementById('map');
   const leftStyleContainer = document.querySelector('.search-cards');
-  const maptext = document.querySelector('.label-text');
+  const mapText = document.getElementById('label-text1');
 
   if (!checkbox) {
     return
@@ -11,7 +11,7 @@ const initHideMap = () => {
   checkbox.addEventListener("click", function(event) {
     map.classList.toggle("map-toggle");
     leftStyleContainer.classList.toggle("col-lg-12");
-    maptext.classList.toggle("map-text-color")
+    mapText.classList.toggle("map-text-color");
   });
 };
 
