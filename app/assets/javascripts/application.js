@@ -12,6 +12,13 @@ const updateProductQuantity = (e, action) => {
   })
 }
 
+// input.addEventListener('input', (event) => {
+//   fetch("/order_lines/autocomplete?query=" + event.target.value)
+//   .then((data) => {
+//     return data.json()
+//    // location.reload()
+//   })
+
 const destroyProduct = (e) => {
   console.log("destroy product", e.target.dataset.productId)
   Rails.ajax({
