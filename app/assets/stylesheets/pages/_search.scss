@@ -3,7 +3,7 @@
   justify-content: center;
   grid-template-columns: repeat(auto-fill, 300px);
   grid-gap: 32px;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 40px;
 }
 
@@ -44,8 +44,7 @@
 
   .search-attribute {
     justify-content: space-between;
-    padding: 5px;
-    margin: 5px;
+    margin: 10px 5px;
     display: flex;
     flex-direction: rows;
     flex-wrap: wrap;
@@ -82,6 +81,7 @@
   .location-searchbar {
     margin: 5px;
     width: 280px;
+    font-weight: bold;
 
     input {
       font-family: $headers-font;
@@ -91,17 +91,6 @@
   }
 }
 
-.go-button {
-  appearance: none;
-  height : 45px;
-  border: 1px solid $gray;
-  background-color: transparent;
-  border-radius: none;
-  &:hover {
-    background-color: $green-foot;
-    color: white;
-  }
-}
 
 .select-box {
   select {
@@ -144,7 +133,8 @@
 
 .search-box {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .select-box {
@@ -194,8 +184,10 @@
 }
 
 .search-results {
-  padding-top: 30px;
   text-align: center;
+  h6 {
+    padding-top: 30px;
+  }
 }
 
 #fields-selected {
@@ -215,8 +207,8 @@
 }
 
 .form-control {
-  color: $green-foot;
-  border-color: $green-foot;
+  color: $blue;
+  border-color: $blue;
 }
 
  // Toggle button map
@@ -226,15 +218,13 @@
 }
 
 .show-map {
-  position: absolute;
-  top: 85px;
-  right: 15px;
   display: flex;
   text-align: left;
   width: 100px;
-  color: $green-foot;
+  color: $blue;
   z-index: 100;
-  font-weight: bold;
+  font-family: $headers-font;
+  font-size: 16px;
 }
 
 .label {
@@ -244,28 +234,29 @@
 }
 
 #label-text1, #label-text2 {
-  margin-left: 8px;
+  margin: 0 8px;
 }
 
 // Toggle button open now
 
 .show-open-now {
-  position: absolute;
-  top: 85px;
-  right: 410px;
   display: flex;
+  margin-left: 20px;
   text-align: left;
-  width: 140px;
+  width: 150px;
+  height: 30px;
   color: $gray;
   z-index: 100;
-  font-weight: bold;
+  font-family: $headers-font;
+  font-size: 16px;
 }
 
 .not-open-opacity {
   opacity: 0.4;
+}
 
 .not-open-text-color {
-  color: $green-foot !important;
+  color: $blue !important;
 }
 
 #toggle2 {
@@ -273,5 +264,9 @@
 }
 
 #active-bg2 {
-  background: $green-foot;
+  background: $blue;
+}
+
+.switch {
+  display: flex;
 }

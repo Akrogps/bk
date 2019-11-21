@@ -1,40 +1,17 @@
 <div class="row search-page">
   <!-- Map toggle -->
-  <div class="show-map">
-    <label class="label">
-      <div class="toggle" id="toggle1">
-        <input class="toggle-state" type="checkbox" name="check" value="check" id="show-map-box"/>
-        <div class="toggle-inner">
-          <div class="indicator"></div>
-        </div>
-        <div class="active-bg" id="active-bg1"></div>
-      </div>
-      <div id="label-text1">Map</div>
-    </label>
-  </div>
+
   <!-- Open now toggle -->
-  <div class="show-open-now">
-    <label class="label">
-      <div class="toggle" id="toggle2">
-        <input class="toggle-state" type="checkbox" name="check" value="check" id="show-open-now-box"/>
-        <div class="toggle-inner">
-          <div class="indicator"></div>
-        </div>
-        <div class="active-bg" id="active-bg2"></div>
-      </div>
-      <div id="label-text2">Open now</div>
-    </label>
-  </div>
   <div class="search-cards col-md-12 col-lg-7">
     <!-- Search form -->
     <%= render 'shared/search_box' %>
     <!-- Message with corresponding number of places -->
-    <div class="search-results">
+    <div class="search-results ">
       <% if @places.length > 0 %>
         <h6>We have found <%= pluralize(@places.length, "place") %> corresponding to your search</h6>
-        <p style="font-family: NeutraText-DemiAlt; font-size: 12px;">Classed by publication date</p>
       <% end %>
-    </div>
+
+  </div>
     <!-- Places cards -->
     <div class="card-grid-search justify-content-center">
       <% if @places.empty? %>
