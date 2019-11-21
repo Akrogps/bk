@@ -8,9 +8,7 @@
         <div class="card-event-content">
           <p><%= truncate(event.content.gsub("<br/>", ""), :length => 140) %></p>
           <% if event.state == "upcoming" %>
-            <div class="button-event">
-              <a href="">Get tickets</a>
-            </div>
+            <%= link_to (raw("<div class='button-event'>Get tickets</div>")), event.tickets_link, target: :_blank %>
           <% else %>
             <h6>Closed</h6>
           <% end %>
