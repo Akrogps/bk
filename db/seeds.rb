@@ -813,11 +813,13 @@ book_attributes = [
   {
     title: "The best places to eat out in style (2017)",
     unit_price: 23.95,
+    unit_price_cents: 2395,
     product_sku: 1
   },
   {
     title: "New hotspots to eat out in style (2019)",
     unit_price: 23.95,
+    unit_price_cents: 2395,
     product_sku: 2
   }
 ]
