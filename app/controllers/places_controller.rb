@@ -152,7 +152,7 @@ class PlacesController < ApplicationController
       if place.opening_hours.where(day_of_week: @current_day)[0]
         opening_info = place.opening_hours.where(day_of_week: @current_day)[0]
         end_hour = opening_info.end_time.strftime("%H").to_i
-        if (end_hour - @current_time) <= 1
+        if (end_hour - @current_time) <= 1 && (end_hour - @current_time > 0)
           @closed_soon_hash[place] = true
         else
           @closed_soon_hash[place] = false
