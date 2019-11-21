@@ -13,3 +13,18 @@
     }
   }
 }
+
+.go-button {
+  width: 150px;
+  appearance: none;
+  height : 45px;
+  border: 1px solid $gray;
+  background-color: $blue;
+  color: white !important;
+  border-radius: none;
+  &:hover {
+    background-color: $blue;
+    color: white;
+    opacity: 1.2;
+  }
+}
