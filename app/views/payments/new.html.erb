@@ -81,7 +81,7 @@
         paymentButton.addEventListener('click', () => {
           const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
           stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_stripe_session_id %>'
+            sessionId: '<%= @order.checkout_stripe_session_id %>'})
           });
       </script>
     </div>
