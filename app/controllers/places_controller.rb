@@ -127,7 +127,7 @@ class PlacesController < ApplicationController
     @current_minute = Time.now.strftime("%M").to_i / 60.0
     @current_time = @current_hour + @current_minute
 
-    @places.each do |place|
+    @places.each_with_index do |place, index|
       if place.opening_hours.where(day_of_week: @current_day)[0]
         opening_info = place.opening_hours.where(day_of_week: @current_day)[0]
         start_hour = opening_info.start_time.strftime("%H").to_i
