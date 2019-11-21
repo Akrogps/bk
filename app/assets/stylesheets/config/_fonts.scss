@@ -3,15 +3,14 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
 @font-face {
-    font-family: 'NeutraText-DemiAlt';
-    font-style: normal;
-    font-weight: normal;
-    src: url('/assets/fonts/NeutraText-DemiAlt.otf') format('truetype');
+  font-family: 'NeutraText-DemiAlt';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/assets/fonts/NeutraText-DemiAlt.otf') format('truetype');
+  src: url('/assets/fonts/NeutraText-DemiAlt.svg') format('truetype');
+  src: url('/assets/fonts/NeutraText-DemiAlt.woff') format('truetype');
+  src: url('/assets/fonts/NeutraText-DemiAlt.ttf') format('truetype');
+  src: url('/assets/fonts/NeutraText-DemiAlt.eot') format('truetype');
 }
 
 // Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font:  "NeutraText-DemiAlt", "sans-serif";
-
-$my-font: "Bebas Neue";
-//
