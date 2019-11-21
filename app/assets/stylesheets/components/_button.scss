@@ -5,11 +5,13 @@
   margin: 30px auto 0 auto;
   padding: 6px;
 
+  &:hover {
+    background-color: $blue;
+    color: white;
+    transition: 0.5s;
+  }
+
   a {
-    color: $blue;
     font-size: 14px;
-    &:hover {
-      color: $blue;
-    }
   }
 }
