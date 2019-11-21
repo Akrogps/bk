@@ -20,7 +20,7 @@
                   <% else %>
                     <%= ff.check_box tag, value: tag, class: "form-control elements-selected1" %>
                   <% end %>
-                  <%= ff.label tag %>
+                  <span><strong>+</strong></span><span><%= ff.label tag %></span>
                 </div>
               <% end %>
             </div>
@@ -44,7 +44,7 @@
                   <% else %>
                     <%= ff.check_box category, value: category, class: "form-control elements-selected2" %>
                   <% end %>
-                  <%= ff.label category %>
+                  <span><strong>+</strong></span><span><%= ff.label category %></span>
                 </div>
               <% end %>
             </div>
@@ -62,13 +62,13 @@
       <div class="search-attribute">
         <% @booleans = ["brunch", "terrace", "monday_night", "sunday_night"] %>
         <% @booleans.each do |boolean| %>
-          <div class="form-group">
+          <div class="form-group boolean">
             <% if @params_hash && @params_hash[boolean] == "1" %>
-              <%= f.check_box boolean, value: boolean, checked: true, class: "form-control"%>
+              <%= f.check_box boolean, value: boolean, checked: true, class: "form-control boolean-input"%>
             <% else %>
-              <%= f.check_box boolean, value: boolean, class: "form-control"%>
+              <%= f.check_box boolean, value: boolean, class: "form-control boolean-input"%>
             <% end %>
-            <%= f.label boolean %>
+            <%= f.label boolean, class: "boolean-label" %>
           </div>
         <% end %>
         <div class="find">

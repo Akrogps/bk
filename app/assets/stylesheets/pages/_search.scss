@@ -30,6 +30,7 @@
   .search-dropdown {
     padding: 5px;
     background-color: transparent;
+
     .form-group {
       padding-left: 20px;
       padding-right: 20px;
@@ -44,7 +45,7 @@
 
   .search-attribute {
     justify-content: space-between;
-    margin: 10px 5px;
+    margin: 10px 5px 14px 5px;
     display: flex;
     flex-direction: rows;
     flex-wrap: wrap;
@@ -52,15 +53,20 @@
     color: $gray;
 
     .form-group {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-right: 14px;
       background-color: transparent;
       border-color: $gray;
       border: solid 1px;
+      border-radius: 3px;
+
+      &:hover {
+        box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      }
 
       label {
         margin-left: 15px;
         font-family: $headers-font;
+        cursor: pointer;
       }
     }
   }
@@ -87,10 +93,18 @@
       font-family: $headers-font;
       border: none;
       height: 44px;
+      color: $gray;
     }
   }
 }
 
+.form-select1 {
+  color: $blue;
+}
+
+.form-select2 {
+  border: 2px solid $blue !important;
+}
 
 .select-box {
   select {
@@ -165,21 +179,15 @@
 
 #checkboxes1 {
   label {
-    display: block;
-
-    &:hover {
-      box-shadow: 0 0 1px rgb(150, 150, 150);
-    }
+    margin-bottom: 5px;
+    cursor: pointer;
   }
 }
 
 #checkboxes2 {
   label {
-    display: block;
-
-    &:hover {
-      box-shadow: 0 0 1px rgb(150, 150, 150);
-    }
+    margin-bottom: 5px;
+    cursor: pointer;
   }
 }
 
@@ -196,13 +204,14 @@
   flex-wrap: wrap;
 
   .field-selected {
-    border: 1px solid $blue;
+    border: 1px solid $gray;
     padding-left: 10px;
     padding-right: 10px;
     font-family: $headers-font;
     margin: 5px;
+    margin-top: 10px;
     border-radius: 5px;
-    color: $blue;
+    color: $gray;
   }
 }
 
@@ -222,7 +231,7 @@
   text-align: left;
   width: 100px;
   color: $blue;
-  z-index: 100;
+  z-index: 2;
   font-family: $headers-font;
   font-size: 16px;
 }
