@@ -25,13 +25,9 @@
         <div class="imgs">
           <%= cl_image_tag(@place.images.where(main: false)[0].photo, crop: :fit) %>
         </div>
-        <div class="newsletter-show">
-          <%= render 'shared/newsletter' %>
-        </div>
         <div class="imgs">
           <%= cl_image_tag(@place.images.where(main: false)[1].photo, crop: :fit) %>
         </div>
-
       </div>
       <div class="flex-sidebar-place col-4">
         <div class="flex-info-place">
@@ -78,3 +74,4 @@
     </div>
   </div>
 </div>
+

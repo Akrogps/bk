@@ -15,8 +15,7 @@
       </div>
     </div>
   <% end %>
-</div>
-<div class="basket">
+  <div class="basket">
   <div class="basket-box">
     <p>You have <%= pluralize(@number_of_items, "book") %> in your basket</p>
     <% if !@order.nil? %>
@@ -26,3 +25,5 @@
     <% end %>
   </div>
 </div>
+</div>
+

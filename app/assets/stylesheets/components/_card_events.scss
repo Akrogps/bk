@@ -35,7 +35,7 @@
 
   .card-event-infos {
     color: black;
-    padding-top: 20px;
+    padding-top: 10px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -46,14 +46,15 @@
   .card-resto-subtitle {
     text-align: center;
     font-weight: bolder;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
 }
 
-.card-event > img {
+.card-event img {
   height: 200px;
   width: 100%;
   object-fit: cover;
+  padding-top: 20px;
 }
 
 .card-grid-events {
