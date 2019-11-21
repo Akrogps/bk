@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show]
   resources :books, only: [:index, :show]
   resources :orders, only: [:show, :destroy] do
+    collection do
+      get :success
+    end
     resources :payments, only: :new
   end
   resources :order_lines, only: [:create, :update, :destroy]
