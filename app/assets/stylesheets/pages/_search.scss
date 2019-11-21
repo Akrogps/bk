@@ -72,12 +72,12 @@
     flex-wrap: wrap;
   }
 
-.find {
-  appearance: none;
-  font-family: $headers-font;
-  border: none;
-  height: auto;
-}
+  .find {
+    appearance: none;
+    font-family: $headers-font;
+    border: none;
+    height: auto;
+  }
 
   .location-searchbar {
     margin: 5px;
@@ -97,7 +97,7 @@
   border: 1px solid $gray;
   background-color: transparent;
   border-radius: none;
-  &:hover{
+  &:hover {
     background-color: $green-foot;
     color: white;
   }
@@ -124,7 +124,6 @@
   appearance: none;
   border-radius: none !important;
   font-weight: lighter;
-
 }
 
 .search-tags {
@@ -199,32 +198,6 @@
   text-align: center;
 }
 
- // Toggle button map
-.map-text-color {
-  color: $gray !important;
-}
-
-.show-map {
-  position: absolute;
-  top: 85px;
-  right: 15px;
-  display: flex;
-  text-align: left;
-  width: 100px;
-  color: $green-foot;
-  z-index: 100;
-}
-
-.label {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.label-text {
-  margin-left: 8px;
-}
-
 #fields-selected {
   display: flex;
   flex-direction: rows;
@@ -244,4 +217,61 @@
 .form-control {
   color: $green-foot;
   border-color: $green-foot;
+}
+
+ // Toggle button map
+
+.map-text-color {
+  color: $gray !important;
+}
+
+.show-map {
+  position: absolute;
+  top: 85px;
+  right: 15px;
+  display: flex;
+  text-align: left;
+  width: 100px;
+  color: $green-foot;
+  z-index: 100;
+  font-weight: bold;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#label-text1, #label-text2 {
+  margin-left: 8px;
+}
+
+// Toggle button open now
+
+.show-open-now {
+  position: absolute;
+  top: 85px;
+  right: 410px;
+  display: flex;
+  text-align: left;
+  width: 140px;
+  color: $gray;
+  z-index: 100;
+  font-weight: bold;
+}
+
+.not-open-opacity {
+  opacity: 0.4;
+
+.not-open-text-color {
+  color: $green-foot !important;
+}
+
+#toggle2 {
+  background: $gray;
+}
+
+#active-bg2 {
+  background: $green-foot;
 }

@@ -31,8 +31,6 @@ As a food lover who’d worked in the hospitality business since she could remem
     address: "36 Rue Defacqz, 1050 Bruxelles",
     phone_number: "02 751 00 38",
     website: "http://www.komobowl.be/",
-    opening_hours: "From Monday to Friday, from 10am to 3pm and from 6pm to 10pm<br/>
-Saturday from 11am to 3pm",
     price_indication: "Poke bowls: 11€ – 14€<br/>
 Smoothie bowls: 8.50€",
     booking_link: "http://www.komobowl.be/contact.html",
@@ -51,10 +49,6 @@ Inside, the old floor tiles from the previous restaurant have been kept, the wal
     address: "25 Place Fernand Cocq, 1050 Bruxelles",
     phone_number: "02 851 31 80",
     website: "https://cafetulipant.be/",
-    opening_hours: "From Monday to Wednesday, from 11am to 1am<br/>
-Thursday and Friday, from 11am to 2am<br/>
-Saturday from 10am to 2am<br/>
-Sunday from 10am to 11pm",
     price_indication: "Daily special: 12€",
     booking_link: "https://cafetulipant.be/contact/",
     deliveroo_link: "",
@@ -76,8 +70,6 @@ Truth is, even though it’s delicious, Luka’s spirit is about much more than 
     address: "260 Chaussée d’Ixelles, 1050 Bruxelles",
     phone_number: "02 646 75 47",
     website: "https://www.facebook.com/restoluka/",
-    opening_hours: "Tuesday and Wednesday from 12am to 2:30pm<br/>
-From Thursday to Saturday from 12am to 2:30pm and from 7pm to 9:30pm",
     booking_link: "https://lukabruxelles.be/en/reservation",
     deliveroo_link: "https://deliveroo.be/en/menu/brussels/flagey/luka",
     brunch: false,
@@ -95,8 +87,6 @@ At the counter, that’s where you’ll order before being served in the dining 
     address: "8 Avenue Auguste Rodin, 1050 Bruxelles",
     phone_number: "02 203 00 14",
     website: "http://comptoir-rodin.be/",
-    opening_hours: "From Tuesday to Friday, from 8:30am to 3:30pm<br/>
-Saturday and Sunday, from 10:30am to 4pm",
     booking_link: "http://comptoir-rodin.be/en/contact/",
     deliveroo_link: "",
     brunch: true,
@@ -114,9 +104,6 @@ After being transformed into a bank, a mutual, and a bunch of other things, the 
 From the Parvis, Café Flora is hard to miss: its bright yellow terrace shines from early morning until nightfall.",
     address: "16A Sint-Gillisvoorplein, 1060 Bruxelles",
     website: "https://www.facebook.com/cafeflora1060/",
-    opening_hours: "From Sunday to Wednesday, from 8:30am to 11pm<br/>
-Thursday from 8:30am till midnight<br/>
-Friday and Saturday from 8:30am till 2am",
     price_indication: "Evening snacks: 6.50€ – 15€<br/>
 Cocktails: 7€ - 10€",
     booking_link: "https://www.facebook.com/cafeflora1060/",
@@ -135,8 +122,6 @@ On the menu side, we ended up being quite disappointed with the veggies, which a
     address: "1 Rue Saint-Bernard, 1060 Bruxelles",
     phone_number: "02 347 79 46",
     website: "https://www.tero-restaurant.com/",
-    opening_hours: "From Tuesday to Friday, from 10am to 2pm<br/>
-From Tuesday to Saturday, from 7pm to 10pm",
     booking_link: "https://www.tero-restaurant.com/contact",
     deliveroo_link: "https://deliveroo.be/en/menu/brussels/saint-gilles/tero-bruxelles#",
     brunch: false,
@@ -152,8 +137,6 @@ We meet friends for a hearty, seasonal and delicious lunch, prepared by the chef
     address: "60 Rue des Minimes, 1000 Bruxelles",
     phone_number: "02 355 37 11",
     website: "http://cafedesminimes.be/",
-    opening_hours: "From Tuesday to Sunday, from noon to 1am<br/>
-Friday and Saturday until 2am" ,
     price_indication: "Lunch: 10€ - 18€" ,
     booking_link: "https://cafedesminimes.com/contact/",
     deliveroo_link: "https://deliveroo.be/en/menu/brussels/sablon/cafe-des-minimes",
@@ -171,9 +154,6 @@ Symbolic references from the area have been included everywhere, from the colour
     address: "27 Rue de Tamines, 1060 Bruxelles",
     phone_number: "02 771 91 08",
     website: "http://fernand-obb.be/",
-    opening_hours: "Monday from 6pm to 10pm<br/>
-From Tuesday to Friday, from 11:30am to 3pm and from 6pm to 10pm<br/>
-Saturday from 11:30am to 10pm",
     price_indication: "Shrimp croquette: 7.50€",
     booking_link: "http://fernand-obb.be/",
     deliveroo_link: "",
@@ -191,7 +171,6 @@ Inside, it's small and cosy, the tables are close and the atmosphere welcoming. 
     address: "6 Rue Lesbroussart, 1050 Bruxelles",
     phone_number: "04 76 75 42 86",
     website: "https://restaurantlameute.business.site/",
-    opening_hours: "From Tuesday to Saturday, from noon to 2pm and from 7pm to 10pm",
     price_indication: "Menu: 20€" ,
     booking_link: "https://restaurantlameute.business.site/",
     deliveroo_link: "",
@@ -210,8 +189,6 @@ Nuovo Rosso is a place we love, and recommend with closed eyes. It's not the pla
     address: "Rue Bosquet 62, 1060 Bruxelles",
     phone_number: "02 538 89 28",
     website: "https://www.facebook.com/nuovorosso/",
-    opening_hours: "From Monday to Friday, from noon to 2pm and from 7pm to 10:30pm<br/>
-Saturday from 7pm to 10:30pm",
     booking_link: "https://www.facebook.com/nuovorosso/",
     deliveroo_link: "",
     brunch: false,
@@ -245,8 +222,6 @@ Saturday from 7pm to 10:30pm",
     address: "208 Rue Antoine Dansaert, 1000 Bruxelles",
     phone_number: "02 355 53 73",
     website: "https://www.facebook.com/barducanal/",
-    opening_hours: "From Tuesday to Saturday, from 12pm to midnight<br/>
-Sunday from 3pm to 10pm",
     price_indication: "Smoked salmon tartar with herring eggs: 10€",
     booking_link: "https://www.facebook.com/barducanal/",
     deliveroo_link: "",
@@ -264,7 +239,6 @@ Sunday from 3pm to 10pm",
     address: "8 Place de la Liberté, 1000 Bruxelles",
     phone_number: "02 356 14 05",
     website: "https://www.caberdouche.com/",
-    opening_hours: "Everyday from 9am to midnight",
     price_indication: "Lunch special: 13 - 15€",
     booking_link: "https://www.caberdouche.com/contact/",
     deliveroo_link: "",
@@ -281,8 +255,6 @@ Sunday from 3pm to 10pm",
     address: "40 Quai des Charbonnages, 1080 Bruxelles",
     phone_number: "02 410 06 84",
     website: "http://lepharedukanaal.com/",
-    opening_hours: "From Monday to Friday, from 9am to 8pm<br/>
-Saturday from 11am to 6pm",
     price_indication: "Lunch: 15€",
     booking_link: "http://lepharedukanaal.com/contact-us/",
     deliveroo_link: "",
@@ -299,7 +271,6 @@ Saturday from 11am to 6pm",
     address: "28 Rue du Berger, 1050 Bruxelles",
     phone_number: "04 77 26 14 87",
     website: "http://vini-divini.eu/",
-    opening_hours: "From Monday to Saturday, from 7pm to 10:15pm",
     price_indication: "Brunch in the hotel le berger: 35€",
     booking_link: "http://vini-divini.eu/",
     deliveroo_link: "https://deliveroo.be/en/menu/brussels/saint-boniface/vini-divini#",
@@ -316,8 +287,6 @@ In the shelves and in the boxes by the window, you’ll find organic veggies and
 We already really love this Petit Mercado who opened just a few days ago, its strong and super promising vision, beautiful space and and extremely welcoming team.",
     address: "82 Rue de l'Hôtel des Monnaies, 1060 Bruxelles",
     website: "https://www.facebook.com/lepetitmercadobxl/",
-    opening_hours: "From Tuesday to Saturday, from 10am to 9:30pm<br/>
-Sunday from 10am to 6pm",
     price_indication: "Lunch: 6€ – 13€<br/>
 To share with drinks: 3€ – 10€<br/>
 Wine by the glass: 4€ – 7€",
@@ -336,7 +305,6 @@ When Thibault and Olivier first got into wines, over 12 years ago, only very few
 But their offer doesn’t stop there. When opening the Fabiola six years ago now, they also brought back the Gin and Tonics trend from Spain, when it had only just started, as well as the concept of tapas. Today, they still have a cool selection of gins of offer, and their tapas range has grown a lot too. Other than white pudding, there is also pan con tomate, burrata, serrano ham, grilled camembert cheese served with honey and chorizo – clearly the hit of the house -, and about a dozen more. Wines are mostly Spanish, with a few from France, a few in direct trade, and a nice selection of natural and organic wines, growing every year. We love taking a seat on the little terrace outside to catch the last rays of sun, sipping on a glass of Vividor, a red wine we discovered here and love (27€ the bottle), watching the people go by.",
     address: "52 Rue Lesbroussart, 1050 Bruxelles",
     website: "https://www.facebook.com/LEFABIOLA/",
-    opening_hours: "From Monday to Saturday, from 5:30pm to midnight",
     price_indication: "Wine by the glass: 4.5€ – 7€<br/>
 Tapas: 3€ – 25€",
     booking_link: "https://www.facebook.com/LEFABIOLA/",
@@ -354,8 +322,6 @@ Since then, they’ve been producing their own red, white, rosé and natural spa
     address: "167A Chaussée de Wavre, 1050 Bruxelles",
     phone_number: "02 512 98 30",
     website: "http://www.titulus.be/",
-    opening_hours: "Monday from 5pm to 10pm<br/>
-From Tuesday to Saturday, from 12am to 10pm",
     price_indication: "Wine by the glass: 4€ - 9€<br/>
 To eat: 3.50€ – 17€",
     booking_link: "https://www.titulus.be/",
@@ -373,8 +339,6 @@ We fell in love for this eclectic and cosmopolitan customer base, changing as th
     address: "42 Rue Sainte-Catherine, 1000 Bruxelles",
     phone_number: "02 511 75 11",
     website: "http://www.monk.be/",
-    opening_hours: "From Monday to Saturday, from 12pm to 3pm and from 6pm to 11pm<br/>
-Sunday from 6pm to 11pm",
     price_indication: "Beers: 2.20€ – 5.50€<br/>
 Mixed platter: 12€",
     booking_link: "http://www.monk.be/en",
@@ -392,8 +356,6 @@ On the menu, a short list of cocktails: 7 signature cocktails, 7 classics (from 
     address: "2 Rue Josse Impens, 1030 Bruxelles",
     phone_number: "02 307 37 31",
     website: "https://www.ethylo.be/",
-    opening_hours: "From Tuesday to Thursday, from 6pm to 1am<br/>
-From Friday to Saturday, from 6pm to 2am",
     price_indication: "Cocktails: 8€ – 13.50€",
     booking_link: "https://www.ethylo.be/",
     deliveroo_link: "",
@@ -411,8 +373,6 @@ We catch a glimpse of the pizzaiolo working the dough before having a seat outsi
     address: "119 Rue Américaine, 1050 Bruxelles",
     phone_number: "04 70 34 15 68",
     website: "https://albacio.business.site/",
-    opening_hours: "From Tuesday to Saturday, from 12pm to 1:30pm and from 7pm to 10:30pm<br/>
-Sunday from 7pm to 10:30pm",
     price_indication: "Pizza: 8€ - 19€",
     booking_link: "https://albacio.business.site/#details",
     deliveroo_link: "",
@@ -430,8 +390,6 @@ Small plates was the start. Then, came the music. Laid-back during the day, and 
     address: "110 Rue de Tenbosch, 1050 Bruxelles",
     phone_number: "02 544 15 55",
     website: "http://oldboyrestaurant.be/",
-    opening_hours: "Monday from 7pm to 10:30pm<br/>
-From Tuesday to Saturday, from 12pm to 2:30pm and from 7pm to 10:30pm",
     price_indication: "Small plates: 6€ – 14€",
     booking_link: "",
     deliveroo_link: "",
@@ -449,8 +407,6 @@ Before opening as a restaurant, St Kilda was initially the headquarters of their
     address: "44 Avenue Coghen, 1180 Bruxelles",
     phone_number: "02 319 92 82",
     website: "https://stkildabxl.be/",
-    opening_hours: "From Tuesday to Friday, from 4pm to 10pm<br/>
-Sunday from 7pm to 11pm",
     price_indication: "Tasting menu: 40€",
     booking_link: "https://stkildabxl.be/reservation/",
     deliveroo_link: "",
@@ -468,9 +424,6 @@ Inside, the decoration is rather minimal – maybe even too minimal -, to stay c
     address: "80 Chaussée de Charleroi, 1060 Bruxelles",
     phone_number: "02 454 54 51",
     website: "https://www.martine-restaurant.be/",
-    opening_hours: "Tuesday from 11:30 to 2:30pm<br/>
-From Wednesday to Friday, from 11:30am to 2pm and from 7pm to 10pm<br/>
-Brunch on Saturday and Sunday from 10:30pm to 4pm",
     price_indication: "Mains: 11€ – 17€<br/>
 Brunch: 20€",
     booking_link: "https://www.martine-restaurant.be/reservations",
@@ -490,9 +443,6 @@ A year later, Brut restaurant is finally ready to open, two streets behind the F
     address: "49 Rue Antoine Labarre, 1050 Bruxelles",
     phone_number: "02 342 09 75",
     website: "https://brutfood.be/",
-    opening_hours: "From Monday to Thursday from 10am to 7pm<br/>
-Friday from 10am to 11pm<br/>
-Sunday from 10am to 4pm",
     price_indication: "2 courses lunch: 23€<br/>
 5 courses tasting menu on Friday: 48€<br/>
 Brunch on Sunday: 25€",
@@ -512,8 +462,6 @@ The name is a reference to the culture of both countries, using the first syllab
     address: "11 Rue Joseph Stevens, 1000 Bruxelles",
     phone_number: "02 538 88 88",
     website: "http://www.beli.be/",
-    opening_hours: "From Tuesday to Saturday for lunch<br/>
-From Thursday to Saturday for dinner",
     price_indication: "Mezze: 4€ – 12€",
     booking_link: "http://www.restaurant-beli.com/info",
     deliveroo_link: "",
@@ -556,6 +504,29 @@ places_photo_url_list = [
 
 # Create places and their images
 create_objects_with_images(place_attributes, Place, places_photo_url_list)
+
+# Create opening hours
+Place.all.each do |place|
+  (1..7).to_a.each do |week_day|
+    if week_day == 4
+      random_number = (1..4).to_a.sample
+      if random_number == 1
+        next
+      end
+    end
+
+    start_hour = ("09".."13").to_a.sample
+    end_hour = ("14".."23").to_a.sample
+    opening_hours_attributes = {
+      place_id: place.id,
+      day_of_week: week_day,
+      start_time: Time.parse("#{start_hour}:00"),
+      end_time: Time.parse("#{end_hour}:00")
+    }
+
+    OpeningHour.create(opening_hours_attributes)
+  end
+end
 
 # Create categories and tags
 Category::CATEGORIES.each { |category| Category.create(name: category) }

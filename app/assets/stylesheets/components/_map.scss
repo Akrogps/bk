@@ -52,7 +52,6 @@
 .mapboxgl-marker svg {
   g {
     fill: $green-foot;
-    background-color: $blue;
   }
 }
 
@@ -64,8 +63,11 @@
   height: 24px;
   width: 48px;
   border-radius: 15px;
-  background:  $green-foot;
   overflow: hidden;
+}
+
+#toggle1 {
+  background: $green-foot;
 }
 
 .toggle-inner {
@@ -85,9 +87,12 @@
   left: 0;
   height: 100%;
   width: 200%;
-  background: $gray;
   transform: translate3d(-100%, 0, 0);
   transition: transform 0.05s linear 0.17s;
+}
+
+#active-bg1 {
+  background: $gray;
 }
 
 .toggle-state {

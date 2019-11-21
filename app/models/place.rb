@@ -10,6 +10,7 @@ class Place < ApplicationRecord
   has_many :places_tags, dependent: :destroy
   has_many :categories, through: :categories_places
   has_many :tags, through: :places_tags
+  has_many :opening_hours, dependent: :destroy
 
   validates :title, presence: true
   validates :subtitle, presence: true

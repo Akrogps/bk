@@ -42,6 +42,8 @@ class PlacesController < ApplicationController
 
     @places = @places_list.reject { |place| place.latitude.nil? }.sort_by { |place| place.created_at }.reverse
 
+    check_if_open_now
+
     @markers = @places.map do |place|
       {
         lat: place.latitude,
@@ -52,6 +54,17 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @opening_hours = @place.opening_hours if @place.opening_hours
+
+    @week_days = {
+      1 => "Monday",
+      2 => "Tuesday",
+      3 => "Wednesday",
+      4 => "Thursday",
+      5 => "Friday",
+      6 => "Saturday",
+      7 => "Sunday"
+    }
   end
 
   private
@@ -105,5 +118,29 @@ class PlacesController < ApplicationController
     @params_hash["terrace"] = params[:query]["terrace"]
     @params_hash["monday_night"] = params[:query]["monday_night"]
     @params_hash["sunday_night"] = params[:query]["sunday_night"]
+  end
+
+  def check_if_open_now
+    @open_now_hash = {}
+    @current_day = Date.today.wday
+    @current_hour = Time.now.strftime("%H").to_i
+    @current_minute = Time.now.strftime("%M").to_i / 60.0
+    @current_time = @current_hour + @current_minute
+
+    @places.each do |place|
+      if place.opening_hours.where(day_of_week: @current_day)[0]
+        opening_info = place.opening_hours.where(day_of_week: @current_day)[0]
+        start_hour = opening_info.start_time.strftime("%H").to_i
+        end_hour = opening_info.end_time.strftime("%H").to_i
+        day_opening_hours = (start_hour..end_hour)
+        if day_opening_hours.include?(@current_time)
+          @open_now_hash[place] = true
+        else
+          @open_now_hash[place] = false
+        end
+      else
+        @open_now_hash[place] = false
+      end
+    end
   end
 end
