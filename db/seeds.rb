@@ -509,7 +509,7 @@ create_objects_with_images(place_attributes, Place, places_photo_url_list)
 # Create opening hours
 Place.all.each do |place|
   (1..7).to_a.each do |week_day|
-    if week_day == 4
+    if week_day == 5
       random_number = (1..4).to_a.sample
       if random_number == 1
         next

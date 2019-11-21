@@ -16,5 +16,5 @@ initShowCheckboxes("checkboxes2", "select-box2");
 initShowSelectedFields(".elements-selected1", 11);
 initShowSelectedFields(".elements-selected2", 17);
 initHideMap();
-initShowOpenNow();
 initHideInputCheckboxes();
+initShowOpenNow();
