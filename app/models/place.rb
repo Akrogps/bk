@@ -7,7 +7,7 @@ class Place < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   has_many :categories_places, dependent: :destroy
-  has_many :places_tags, dependent: :delete_all
+  has_many :places_tags, dependent: :destroy
   has_many :categories, through: :categories_places
   has_many :tags, through: :places_tags
   has_many :opening_hours, dependent: :destroy

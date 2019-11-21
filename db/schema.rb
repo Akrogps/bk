@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_133326) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories_places", id: false, force: :cascade do |t|
+  create_table "categories_places", force: :cascade do |t|
     t.bigint "place_id", null: false
     t.bigint "category_id", null: false
     t.index ["category_id", "place_id"], name: "index_categories_places_on_category_id_and_place_id"
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_133326) do
     t.float "longitude"
   end
 
-  create_table "places_tags", id: false, force: :cascade do |t|
+  create_table "places_tags", force: :cascade do |t|
     t.bigint "place_id", null: false
     t.bigint "tag_id", null: false
     t.index ["place_id", "tag_id"], name: "index_places_tags_on_place_id_and_tag_id"
