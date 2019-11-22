@@ -1,35 +1,40 @@
 <div class="banner">
-  <div class="search-form form-inline">
-    <%= form_for(:query, url: places_path, method: :get) do |f| %>
-      <div class="checkboxes-container align-items-center">
-        <div class="search-dropdown">
-          <%= f.fields_for :tags do |ff| %>
-            <div class="multiselect">
-              <div class="select-box" id="select-box1">
-                <select>
-                  <option>All places</option>
-                </select>
-                <div class="over-select"></div>
-              </div>
-            </div>
-            <div id="checkboxes1">
-              <% Tag::TAGS.each do |tag| %>
-                <div class="form-group tag-home">
-                  <%= ff.check_box tag, value: tag, class: "form-control tag-home-input" %>
-                  <div class="d-flex tag-home-label"><strong>+</strong><%= ff.label tag %></div>
+  <div class="title-banner">
+    <h1>Find out...</h1>
+    <div class="search-bar-home">
+      <div class="search-form form-inline">
+        <%= form_for(:query, url: places_path, method: :get) do |f| %>
+          <div class="checkboxes-container align-items-center">
+            <div class="search-dropdown">
+              <%= f.fields_for :tags do |ff| %>
+                <div class="multiselect">
+                  <div class="select-box" id="select-box1">
+                    <select>
+                      <option>Places</option>
+                    </select>
+                    <div class="over-select"></div>
+                  </div>
+                </div>
+                <div id="checkboxes1">
+                  <% Tag::TAGS.each do |tag| %>
+                    <div class="form-group tag-home">
+                      <%= ff.check_box tag, value: tag, class: "form-control tag-home-input" %>
+                      <div class="d-flex tag-home-label"><strong>+</strong><%= ff.label tag %></div>
+                    </div>
+                  <% end %>
                 </div>
               <% end %>
             </div>
-          <% end %>
-        </div>
-        <div class="location-searchbar">
-          <%= f.text_field "address", placeholder: "Close to...", id: "location-searchbar" %>
-        </div>
-        <div class="find">
-          <%= f.submit "Go", value: "Go", class: "form-control go-button-home" %>
-        </div>
+            <div class="location-searchbar">
+              <%= f.text_field "address", placeholder: "Close to...", id: "location-searchbar" %>
+            </div>
+            <div class="find">
+              <%= f.submit "Find", value: "Find", class: "form-control go-button-home" %>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
 <div class="container">

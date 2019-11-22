@@ -78,15 +78,27 @@
 }
 
 // Banner & search bar
+.title-banner {
+  text-align: left;
+  h1 {
+    padding-left: 10px;
+    color: white;
+  }
+}
 
 .banner {
   height: 60vh;
-  background-image: -webkit-linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), image-url("background-home-tero.jpg");
+  background-image: -webkit-linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), image-url("background-home-ixelles.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.search-bar-home {
+  display: flex;
 }
 
 .custom-select, input {
