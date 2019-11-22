@@ -14,9 +14,9 @@
             </div>
             <div id="checkboxes1">
               <% Tag::TAGS.each do |tag| %>
-                <div class="form-group">
-                  <%= ff.check_box tag, value: tag, class: "form-control" %>
-                  <%= ff.label tag %>
+                <div class="form-group tag-home">
+                  <%= ff.check_box tag, value: tag, class: "form-control tag-home-input" %>
+                  <div class="d-flex tag-home-label"><strong>+</strong><%= ff.label tag %></div>
                 </div>
               <% end %>
             </div>

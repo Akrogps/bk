@@ -12,7 +12,7 @@
                 <div class="over-select"></div>
               </div>
             </div>
-            <div id="checkboxes1">
+            <div class="dropdown-over2" id="checkboxes1">
               <% Tag::TAGS.each do |tag| %>
                 <div class="form-group">
                   <% if @params_hash && @params_hash[tag] == "1" %>
@@ -20,7 +20,7 @@
                   <% else %>
                     <%= ff.check_box tag, value: tag, class: "form-control elements-selected1" %>
                   <% end %>
-                  <span><strong>+</strong></span><span><%= ff.label tag %></span>
+                  <div class="d-flex"><strong>+</strong><%= ff.label tag %></div>
                 </div>
               <% end %>
             </div>
@@ -36,7 +36,7 @@
                 <div class="over-select"></div>
               </div>
             </div>
-            <div id="checkboxes2">
+            <div class="dropdown-over2" id="checkboxes2">
               <% Category::CATEGORIES.each do |category| %>
                 <div class="form-group">
                   <% if @params_hash && @params_hash[category] == "1" %>
@@ -44,7 +44,7 @@
                   <% else %>
                     <%= ff.check_box category, value: category, class: "form-control elements-selected2" %>
                   <% end %>
-                  <span><strong>+</strong></span><span><%= ff.label category %></span>
+                  <div class="d-flex"><strong>+</strong><%= ff.label category %></div>
                 </div>
               <% end %>
             </div>
@@ -79,17 +79,6 @@
   </div>
   <div class="switch">
     <%= render 'shared/open_now'%>
-    <div class="show-map">
-      <label class="label">
-        <div class="toggle" id="toggle1">
-          <input class="toggle-state" type="checkbox" name="check" value="check" id="show-map-box"/>
-          <div class="toggle-inner">
-            <div class="indicator"></div>
-          </div>
-          <div class="active-bg" id="active-bg1"></div>
-        </div>
-      </label>
-    <div id="label-text1">Map</div>
-    </div>
+    <%= render 'shared/show_map'%>
   </div>
 </div>

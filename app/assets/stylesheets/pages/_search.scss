@@ -173,26 +173,27 @@
   z-index: 100;
 }
 
-#checkboxes1, #checkboxes2  {
+#checkboxes1, #checkboxes2 {
   display: none;
-}
+  width: 200px;
+  padding-bottom: 6px;
+  background-color: white;
+  border-radius: 3px;
 
-#checkboxes1 {
   label {
-    margin-bottom: 5px;
     cursor: pointer;
+    padding-bottom: 8px;
   }
 }
 
-#checkboxes2 {
-  label {
-    margin-bottom: 5px;
-    cursor: pointer;
-  }
+.dropdown-over2 {
+  position: absolute;
+  z-index: 100;
 }
 
 .search-results {
   text-align: center;
+
   h6 {
     padding-top: 30px;
   }
@@ -209,7 +210,7 @@
     padding-right: 10px;
     font-family: $headers-font;
     margin: 5px;
-    margin-top: 10px;
+    margin-top: 8px;
     border-radius: 5px;
     color: $gray;
   }
@@ -255,7 +256,7 @@
   width: 150px;
   height: 30px;
   color: $gray;
-  z-index: 100;
+  z-index: 2;
   font-family: $headers-font;
   font-size: 16px;
 }
