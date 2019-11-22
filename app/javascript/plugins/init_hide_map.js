@@ -3,6 +3,7 @@ const initHideMap = () => {
   const map = document.getElementById('map');
   const leftStyleContainer = document.querySelector('.search-cards');
   const mapText = document.getElementById('label-text1');
+  const textOverMap = document.getElementById('map-over');
 
   if (!checkbox) {
     return
@@ -12,6 +13,7 @@ const initHideMap = () => {
     map.classList.toggle("map-toggle");
     leftStyleContainer.classList.toggle("col-lg-12");
     mapText.classList.toggle("map-text-color");
+    textOverMap.classList.toggle("map-toggle");
   });
 };
 

@@ -45,7 +45,7 @@
 
   .search-attribute {
     justify-content: space-between;
-    margin: 10px 5px 14px 5px;
+    margin: 8px 5px 14px 5px;
     display: flex;
     flex-direction: rows;
     flex-wrap: wrap;
@@ -54,10 +54,10 @@
 
     .form-group {
       padding-right: 14px;
-      background-color: transparent;
-      border-color: $gray;
-      border: solid 1px;
+      background-color: white;
       border-radius: 3px;
+      font-weight: bold;
+      color: #525252;
 
       &:hover {
         box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -107,15 +107,19 @@
 }
 
 .select-box {
+  position: relative;
+
   select {
     border: none;
-    color: $gray;
+    color: #525252;
     border-radius: none !important;
     appearance: none;
     background-color: white;
     font-family: $headers-font;
     padding: 10px;
     background-image: "../../images/arrow_search.png";
+    width: 100%;
+    font-weight: bold;
   }
 
   option {
@@ -149,15 +153,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-.select-box {
-  position: relative;
-}
-
-.select-box select {
-  width: 100%;
-  font-weight: bold;
 }
 
 .over-select {
@@ -210,8 +205,7 @@
     padding-left: 10px;
     padding-right: 10px;
     font-family: $headers-font;
-    margin: 5px;
-    margin-top: 8px;
+    margin: 2px 5px 0 5px;
     border-radius: 5px;
     color: $gray;
   }
@@ -220,6 +214,10 @@
 .form-control {
   color: $blue;
   border-color: $blue;
+}
+
+.boolean {
+  width: 150px;
 }
 
  // Toggle button map
@@ -246,6 +244,7 @@
 
 #label-text1, #label-text2 {
   margin: 0 8px;
+  width: 70px;
 }
 
 // Toggle button open now

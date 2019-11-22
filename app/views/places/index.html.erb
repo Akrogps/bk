@@ -6,62 +6,58 @@
     <div class="search-results ">
       <% if @places.length > 0 %>
         <h6>We have found <%= pluralize(@places.length, "place") %> corresponding to your search</h6>
+      <% else %>
+        <h6>We didn't find any result corresponding to your search</h6>
       <% end %>
-  </div>
+    </div>
     <!-- Places cards -->
     <div class="card-grid-search justify-content-center">
-      <% if @places.empty? %>
-        <div class="card-resto text-center" id="no-results">
-          <h3>No results</h3>
-        </div>
-      <% else %>
-        <% @places.each do |place| %>
-          <% if @open_now_hash[place] %>
-            <div class="card-resto" style="grid-template-columns: repeat(auto-fill, 400px);">
-              <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "card-resto" %>
-              <div class="card-resto-infos" style="text-decoration: none;">
-                <h2><%= link_to place.title, place_path(place), class: "text-dark" %></h2>
-              </div>
-              <div class="card-resto-subtitle">
-                <p><%= place.subtitle %></p>
-              </div>
-              <div class="card-resto-content">
-                <p><%= truncate(place.address.gsub(",", "<br/>").html_safe, :length => 120) %></p>
-                <% place.tags.each_with_index do |tag, index| %>
-                  <% if index == place.tags.count - 1 %>
-                    <span><%= tag.name %></span>
-                  <% else %>
-                    <span><%= tag.name %>,</span>
-                  <% end %>
+      <% @places.each do |place| %>
+        <% if @open_now_hash[place] %>
+          <div class="card-resto" style="grid-template-columns: repeat(auto-fill, 400px);">
+            <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "card-resto" %>
+            <div class="card-resto-infos" style="text-decoration: none;">
+              <h2><%= link_to place.title, place_path(place), class: "text-dark" %></h2>
+            </div>
+            <div class="card-resto-subtitle">
+              <p><%= place.subtitle %></p>
+            </div>
+            <div class="card-resto-content">
+              <p><%= truncate(place.address.gsub(",", "<br/>").html_safe, :length => 120) %></p>
+              <% place.tags.each_with_index do |tag, index| %>
+                <% if index == place.tags.count - 1 %>
+                  <span><%= tag.name %></span>
+                <% else %>
+                  <span><%= tag.name %>,</span>
                 <% end %>
-              </div>
-              <% if @closed_soon_hash[place] %>
-                <div class="text-center" id="closing-soon">
-                  <p>Closing soon...</p>
-                </div>
               <% end %>
             </div>
-          <% else %>
-            <div class="card-resto not-open-now" style="grid-template-columns: repeat(auto-fill, 400px);">
-              <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "card-resto" %>
-              <div class="card-resto-infos" style="text-decoration: none;">
-                <h2><%= link_to place.title, place_path(place), class: "text-dark" %></h2>
+            <% if @closed_soon_hash[place] %>
+              <div class="text-center" id="closing-soon">
+                <p>Closing soon...</p>
               </div>
-              <div class="card-resto-subtitle">
-                <p><%= place.subtitle %></p>
-              </div>
-              <div class="card-resto-content">
-                <p><%= truncate(place.address.gsub(",", "<br/>").html_safe, :length => 120) %></p>
-                <% place.tags.each_with_index do |tag, index| %>
-                  <% if index == place.tags.count - 1 %>
-                    <span><%= tag.name %></span>
-                  <% else %>
-                    <span><%= tag.name %>,</span>
-                  <% end %>
-                <% end %>
-              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="card-resto not-open-now" style="grid-template-columns: repeat(auto-fill, 400px);">
+            <%= link_to cl_image_tag(place.images.where(main: true).first.photo, crop: :fit), place_path(place), class: "card-resto" %>
+            <div class="card-resto-infos" style="text-decoration: none;">
+              <h2><%= link_to place.title, place_path(place), class: "text-dark" %></h2>
             </div>
-          <% end %>
+            <div class="card-resto-subtitle">
+              <p><%= place.subtitle %></p>
+            </div>
+            <div class="card-resto-content">
+              <p><%= truncate(place.address.gsub(",", "<br/>").html_safe, :length => 120) %></p>
+              <% place.tags.each_with_index do |tag, index| %>
+                <% if index == place.tags.count - 1 %>
+                  <span><%= tag.name %></span>
+                <% else %>
+                  <span><%= tag.name %>,</span>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         <% end %>
       <% end %>
     </div>
