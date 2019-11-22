@@ -553,8 +553,8 @@ end
   opening_hours_attributes = {
     place_id: martine[0].id,
     day_of_week: week_day,
-    start_time: Time.parse("15:00"),
-    end_time: Time.parse("20:00")
+    start_time: Time.parse("14:00"),
+    end_time: Time.parse("19:00")
   }
 
   OpeningHour.create(opening_hours_attributes)
@@ -565,8 +565,8 @@ end
   opening_hours_attributes = {
     place_id: meute[0].id,
     day_of_week: week_day,
-    start_time: Time.parse("16:00"),
-    end_time: Time.parse("21:00")
+    start_time: Time.parse("15:00"),
+    end_time: Time.parse("20:00")
   }
 
   OpeningHour.create(opening_hours_attributes)
