@@ -1,10 +1,8 @@
 <div class="places" style="background-color: white;">
-  <div class="page-setup">
-    <div class="book-img">
+  <div class="page-setup row">
+    <div class="book-img col-8">
       <%= cl_image_tag(@book.images.where(main: true).first.photo, crop: :fit) %>
-    </div>
-    <div class="flex-title text-center col-12">
-      <div class="justify-content-between">
+        <div class="justify-content-between">
         <!-- <div class="col-2"></div> -->
         <div class="title">
           <h4><strong><%=@book.title%></strong></h4>
@@ -12,13 +10,13 @@
         <!-- <div class="col-2"></div> -->
       </div>
     </div>
-    <div class="row content-info">
+    <div class="content-info col-4">
       <% if @book.description %>
-        <div class="flex-content col-8" style="background-color: transparent;">
+        <div class="flex-content" style="background-color: transparent;">
             <p><%=@book.description.html_safe%></p>
         </div>
       <% end %>
-      <div class="flex-sidebar-place col-4">
+      <div class="flex-sidebar-place">
         <div class="flex-info-place">
           <div class="info">
             <p id="info"><%=@book.unit_price%>€</p>

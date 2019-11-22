@@ -1,16 +1,19 @@
 .books-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 320px);
-  grid-gap: 24px;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 2fr;
   margin-top: 90px;
   margin-bottom: 50px;
-  margin-left: 50px;
+  align-self: center;
+  justify-self: center;
 }
 
 .card-book {
   background-color: white;
   width: 250px;
   padding-top: 30px;
+  align-self: right;
+  justify-self: right;
   img {
     height: 100%;
     width: 100%;
@@ -38,3 +41,9 @@
     width: 40%;
   }
 }
+
+.basket {
+  align-self: center;
+  justify-self: center;
+}
+
