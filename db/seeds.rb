@@ -522,8 +522,8 @@ filtered_places.each do |place|
       end
     end
 
-    start_hour = ("09".."13").to_a.sample
-    end_hour = ("18".."23").to_a.sample
+    start_hour = ("09".."12").to_a.sample
+    end_hour = ("13".."22").to_a.sample
     opening_hours_attributes = {
       place_id: place.id,
       day_of_week: week_day,
@@ -542,7 +542,7 @@ end
     place_id: tero[0].id,
     day_of_week: week_day,
     start_time: Time.parse("17:00"),
-    end_time: Time.parse("23:00")
+    end_time: Time.parse("22:00")
   }
 
   OpeningHour.create(opening_hours_attributes)
@@ -554,7 +554,7 @@ end
     place_id: martine[0].id,
     day_of_week: week_day,
     start_time: Time.parse("14:00"),
-    end_time: Time.parse("19:00")
+    end_time: Time.parse("18:00")
   }
 
   OpeningHour.create(opening_hours_attributes)
@@ -566,7 +566,7 @@ end
     place_id: meute[0].id,
     day_of_week: week_day,
     start_time: Time.parse("15:00"),
-    end_time: Time.parse("20:00")
+    end_time: Time.parse("19:00")
   }
 
   OpeningHour.create(opening_hours_attributes)
