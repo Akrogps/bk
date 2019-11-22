@@ -173,15 +173,22 @@
   z-index: 100;
 }
 
-#checkboxes1, #checkboxes2  {
+#checkboxes1, #checkboxes2 {
+  display: none;
+  width: 200px;
   padding-bottom: 6px;
   background-color: white;
-  display: none;
+  border-radius: 3px;
 
   label {
     cursor: pointer;
     padding-bottom: 8px;
   }
+}
+
+.dropdown-over2 {
+  position: absolute;
+  z-index: 100;
 }
 
 .search-results {
@@ -249,7 +256,7 @@
   width: 150px;
   height: 30px;
   color: $gray;
-  z-index: 100;
+  z-index: 2;
   font-family: $headers-font;
   font-size: 16px;
 }
