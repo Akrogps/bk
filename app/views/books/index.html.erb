@@ -17,7 +17,11 @@
   <% end %>
   <div class="basket">
   <div class="basket-box">
-    <p>You have <%= pluralize(@number_of_items, "book") %> in your basket</p>
+    <% if @number_of_items == 0 %>
+      <p>Your basket is empty</p>
+    <% else %>
+      <p>You have <%= pluralize(@number_of_items, "book") %> in your basket</p>
+    <% end %>
     <% if !@order.nil? %>
       <% if @order.order_lines.count != 0%>
       <%= link_to "Go to checkout", order_path(@order), id: "booking-btn" %>
