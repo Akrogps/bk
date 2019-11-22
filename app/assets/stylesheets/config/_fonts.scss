@@ -1,6 +1,7 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:600&display=swap');
 
 @font-face {
   font-family: 'NeutraText-DemiAlt';
@@ -14,6 +15,6 @@
 }
 // Define fonts for body and headers
 $body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "NeutraText-DemiAlt", "sans-serif";
+$headers-font: "Quicksand", "sans-serif";
 $my-font: "Bebas Neue";
 //
