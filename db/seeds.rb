@@ -495,7 +495,7 @@ places_photo_url_list = [
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576469/Brussels%20Kitchen/Titulus/titulus_main_nrot4f.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576469/Brussels%20Kitchen/Titulus/titulus_1_dkkv4i.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576469/Brussels%20Kitchen/Titulus/titulus_2_xlbkub.jpg"],
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576456/Brussels%20Kitchen/Monk/monk_main_thod9s.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576456/Brussels%20Kitchen/Monk/monk1_xtna9v.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576457/Brussels%20Kitchen/Monk/monk2_usvowl.jpg"],
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576386/Brussels%20Kitchen/Ethylo/ethylo_main_pihy7m.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576386/Brussels%20Kitchen/Ethylo/ethylo1_ngwys4.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1573576386/Brussels%20Kitchen/Ethylo/ethylo2_wlddaf.jpg"],
-  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245722/Brussels%20Kitchen/Al_bacio/al_bacio_main_zxx53j.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245722/Brussels%20Kitchen/Al_bacio/al_bacio_1_bdvsyd.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245721/Brussels%20Kitchen/Al_bacio/al_bacio_2_yq4qhr.jpg"],
+  ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245721/Brussels%20Kitchen/Al_bacio/al_bacio_2_yq4qhr.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245722/Brussels%20Kitchen/Al_bacio/al_bacio_1_bdvsyd.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245722/Brussels%20Kitchen/Al_bacio/al_bacio_main_zxx53j.jpg"],
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245772/Brussels%20Kitchen/Old_boy/old_boy_main_l0vjq9.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245772/Brussels%20Kitchen/Old_boy/old_boy_1_frje8v.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245772/Brussels%20Kitchen/Old_boy/old_boy_2_qrlkb8.jpg"],
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245809/Brussels%20Kitchen/St_kilda/st_kilda_main_oylnff.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245809/Brussels%20Kitchen/St_kilda/st_kilda_1_h4jml8.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245809/Brussels%20Kitchen/St_kilda/st_kilda_2_jahtdx.jpg"],
   ["https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245845/Brussels%20Kitchen/Martine/martine_main_metf9j.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245845/Brussels%20Kitchen/Martine/martine_1_vasee6.jpg", "https://res.cloudinary.com/dft6gfv0c/image/upload/v1574245845/Brussels%20Kitchen/Martine/martine_2_iogsmh.jpg"],
@@ -506,8 +506,14 @@ places_photo_url_list = [
 # Create places and their images
 create_objects_with_images(place_attributes, Place, places_photo_url_list)
 
-# Create opening hours
-Place.all.each do |place|
+# Filter for pitch
+filtered_places = Place.all.reject { |place| place.title == "Tero" || place.title == "Martine" || place.title == "La Meute" }
+tero = Place.where(title: "Tero")
+martine = Place.where(title: "Martine")
+meute = Place.where(title: "La Meute")
+
+# Create opening hours for filtered places
+filtered_places.each do |place|
   (1..7).to_a.each do |week_day|
     if week_day == 5
       random_number = (1..4).to_a.sample
@@ -517,7 +523,7 @@ Place.all.each do |place|
     end
 
     start_hour = ("09".."13").to_a.sample
-    end_hour = ("14".."23").to_a.sample
+    end_hour = ("18".."23").to_a.sample
     opening_hours_attributes = {
       place_id: place.id,
       day_of_week: week_day,
@@ -529,12 +535,49 @@ Place.all.each do |place|
   end
 end
 
+# Create opening hours for unfiltered places
+# Tero
+(1..7).to_a.each do |week_day|
+  opening_hours_attributes = {
+    place_id: tero[0].id,
+    day_of_week: week_day,
+    start_time: Time.parse("17:00"),
+    end_time: Time.parse("23:00")
+  }
+
+  OpeningHour.create(opening_hours_attributes)
+end
+
+# Martine
+(1..7).to_a.each do |week_day|
+  opening_hours_attributes = {
+    place_id: martine[0].id,
+    day_of_week: week_day,
+    start_time: Time.parse("15:00"),
+    end_time: Time.parse("20:00")
+  }
+
+  OpeningHour.create(opening_hours_attributes)
+end
+
+# La Meute
+(1..7).to_a.each do |week_day|
+  opening_hours_attributes = {
+    place_id: meute[0].id,
+    day_of_week: week_day,
+    start_time: Time.parse("16:00"),
+    end_time: Time.parse("21:00")
+  }
+
+  OpeningHour.create(opening_hours_attributes)
+end
+
 # Create categories and tags
 Category::CATEGORIES.each { |category| Category.create(name: category) }
 Tag::TAGS.each { |tag| Tag.create(name: tag) }
 
-# Assign categories and tags to places
-Place.all.each do |place|
+# Assign categories and tags to filtered places
+filtered_places.each do |place|
   random1 = [1, 2].sample
   random2 = [1, 2, 3].sample
 
@@ -552,6 +595,21 @@ Place.all.each do |place|
     end
   end
 end
+
+# Assign categories and tags to unfiltered places
+# Tero
+PlacesTag.create(place_id: tero[0].id, tag_id: 1)
+CategoriesPlace.create(category_id: 2, place_id: tero[0].id)
+CategoriesPlace.create(category_id: 3, place_id: tero[0].id)
+
+# Martine
+PlacesTag.create(place_id: martine[0].id, tag_id: 1)
+CategoriesPlace.create(category_id: 2, place_id: martine[0].id)
+CategoriesPlace.create(category_id: 3, place_id: martine[0].id)
+
+# La Meute
+PlacesTag.create(place_id: meute[0].id, tag_id: 1)
+CategoriesPlace.create(category_id: 2, place_id: meute[0].id)
 
 # All events attributes
 event_attributes = [
