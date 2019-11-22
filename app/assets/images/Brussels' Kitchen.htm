@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://brusselskitchen.herokuapp.com/ -->
+<html class="gr__brusselskitchen_herokuapp_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.algolia-places {
+  width: 100%;
+}
+
+.ap-input, .ap-hint {
+  width: 100%;
+  padding-right: 35px;
+  padding-left: 16px;
+  line-height: 40px;
+  height: 40px;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  outline: none;
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.ap-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.ap-input::-ms-clear {
+  display: none;
+}
+
+.ap-input:hover ~ .ap-input-icon svg,
+.ap-input:focus ~ .ap-input-icon svg,
+.ap-input-icon:hover svg {
+  fill: #aaaaaa;
+}
+
+.ap-dropdown-menu {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  margin-top: 3px;
+  overflow: hidden;
+}
+
+.ap-suggestion {
+  cursor: pointer;
+  height: 46px;
+  line-height: 46px;
+  padding-left: 18px;
+  overflow: hidden;
+}
+
+.ap-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+.ap-address {
+  font-size: smaller;
+  margin-left: 12px;
+  color: #aaaaaa;
+}
+
+.ap-suggestion-icon {
+  margin-right: 10px;
+  width: 14px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.ap-suggestion-icon svg {
+  -webkit-transform: scale(0.9) translateY(2px);
+          transform: scale(0.9) translateY(2px);
+  fill: #cfcfcf;
+}
+
+.ap-input-icon {
+  border: 0;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 16px;
+  outline: none;
+}
+
+.ap-input-icon.ap-icon-pin {
+  cursor: pointer;
+}
+
+.ap-input-icon svg {
+  fill: #cfcfcf;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.ap-cursor {
+  background: #efefef;
+}
+
+.ap-cursor .ap-suggestion-icon svg {
+  -webkit-transform: scale(1) translateY(2px);
+          transform: scale(1) translateY(2px);
+  fill: #aaaaaa;
+}
+
+.ap-footer {
+  opacity: .8;
+  text-align: right;
+  padding: .5em 1em .5em 0;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.ap-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ap-footer a svg {
+  vertical-align: middle;
+}
+
+.ap-footer:hover {
+  opacity: 1;
+}
+</style>
+    <link href="https://brusselskitchen.herokuapp.com/assets/favicon-0673f2d083d134b2a862d416f674efc3eabeebde66c6ed130a67968b703c897c.png" rel="shortcut icon" type="image/x-icon">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:url" content="https://brusselskitchen.herokuapp.com/">
+    <meta property="og:type" content="app">
+    <meta property="og:title" content="Quality restaurants at a grasp">
+    <meta property="og:description" content="Tired of spending hours looking for the right restaurant?">
+    <meta property="og:image" content="https://brusselskitchen.herokuapp.com/assets/background-home-tulipant-615ee57facb66fa8b3585f5502e5308c80964d7810a842b7b2bc29e2e2540f0f.jpg">
+    <title>Brussels' Kitchen</title>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="cD5JMciWVK+JSO1Y8av/2RPi3pPQutl+F0B5aUQ7aehUnpMkDRNk1xVVthJ4qnasaSjlddu6GNNB/Ywj4TOFIg==">
+    <meta name="action-cable-url" content="/cable">
+    <link rel="stylesheet" media="screen" href="./Brussels&#39; Kitchen_files/all.css">
+    <link rel="stylesheet" media="all" href="./Brussels&#39; Kitchen_files/application-5b83ab54608e60065b6c0b66f544a082cef53a8e54676f5395e30999be2b1f11.css">
+    <link rel="stylesheet" media="all" href="./Brussels&#39; Kitchen_files/application-f7e1f5c1.css">
+  </head>
+  <body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+    
+    <nav class="navbar-expand-lg fixed-top">
+  <div class="custom-navbar">
+    <div class="col-4">
+      <div class="search-navbar">
+        <a href="https://brusselskitchen.herokuapp.com/places"><i class="fas fa-search" id="search-link"></i></a>
+      </div>
+    </div>
+    <div class="col-4">
+      <div id="navbar-title">
+        <a href="https://brusselskitchen.herokuapp.com/">Brussels' Kitchen</a>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between col-4">
+      <div class="navbar-element">
+        All restaurants
+      </div>
+      <div class="navbar-element">
+        <a href="https://brusselskitchen.herokuapp.com/events">Events</a>
+      </div>
+      <div class="navbar-element">
+        <a href="https://brusselskitchen.herokuapp.com/books">Books</a>
+      </div>
+      <div class="d-flex justify-content-around">
+        <div class="navbar-element_FR">
+          <a href="https://brusselskitchen.herokuapp.com/">FR</a>
+        </div>
+        <div class="navbar-element_EN">
+          <a href="https://brusselskitchen.herokuapp.com/">EN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <p class="notice"></p>
+    <p class="alert"></p>
+    <div class="set_navbar">
+      <div class="banner">
+  <div class="title-banner">
+    <h1>Find out...</h1>
+    <div class="search-bar-home">
+      <div class="search-form form-inline">
+        <form action="https://brusselskitchen.herokuapp.com/places" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+          <div class="checkboxes-container align-items-center">
+            <div class="search-dropdown">
+              
+                <div class="multiselect">
+                  <div class="select-box" id="select-box1">
+                    <select>
+                      <option>Places ▾</option>
+                    </select>
+                    <div class="over-select"></div>
+                  </div>
+                </div>
+                <div class="dropdown-over2" id="checkboxes1">
+                    <div class="form-group tag-home">
+                      <input name="query[tags][Restaurant]" type="hidden" value="0"><input value="1" class="form-control tag-home-input" type="checkbox" name="query[tags][Restaurant]" id="query_tags_Restaurant" style="display: none;">
+                      <div class="d-flex tag-home-label"><strong>+</strong><label for="query_tags_Restaurant">Restaurant</label></div>
+                    </div>
+                    <div class="form-group tag-home">
+                      <input name="query[tags][Néo-cantine]" type="hidden" value="0"><input value="1" class="form-control tag-home-input" type="checkbox" name="query[tags][Néo-cantine]" id="query_tags_Néo-cantine" style="display: none;">
+                      <div class="d-flex tag-home-label"><strong>+</strong><label for="query_tags_Néo-cantine">Néo-cantine</label></div>
+                    </div>
+                    <div class="form-group tag-home">
+                      <input name="query[tags][Bar]" type="hidden" value="0"><input value="1" class="form-control tag-home-input" type="checkbox" name="query[tags][Bar]" id="query_tags_Bar" style="display: none;">
+                      <div class="d-flex tag-home-label"><strong>+</strong><label for="query_tags_Bar">Bar</label></div>
+                    </div>
+                    <div class="form-group tag-home">
+                      <input name="query[tags][Café]" type="hidden" value="0"><input value="1" class="form-control tag-home-input" type="checkbox" name="query[tags][Café]" id="query_tags_Café" style="display: none;">
+                      <div class="d-flex tag-home-label"><strong>+</strong><label for="query_tags_Café">Café</label></div>
+                    </div>
+                    <div class="form-group tag-home">
+                      <input name="query[tags][Wine Bar]" type="hidden" value="0"><input value="1" class="form-control tag-home-input" type="checkbox" name="query[tags][Wine Bar]" id="query_tags_Wine Bar" style="display: none;">
+                      <div class="d-flex tag-home-label"><strong>+</strong><label for="query_tags_Wine Bar">Wine bar</label></div>
+                    </div>
+                </div>
+            </div>
+            <div class="location-searchbar">
+              <span class="algolia-places" style="position: relative; display: inline-block; direction: ltr;"><input placeholder="Close to..." id="location-searchbar" type="text" name="query[address]" class="ap-input" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="both" aria-expanded="false" aria-owns="algolia-places-listbox-0" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Quicksand, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 700; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="ap-dropdown-menu" role="listbox" id="algolia-places-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="ap-dataset-places"></div></span><button type="button" aria-label="clear" class="ap-input-icon ap-icon-clear" style="display: none;"><svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M.566 1.698L0 1.13 1.132 0l.565.566L6 4.868 10.302.566 10.868 0 12 1.132l-.566.565L7.132 6l4.302 4.3.566.568L10.868 12l-.565-.566L6 7.132l-4.3 4.302L1.13 12 0 10.868l.566-.565L4.868 6 .566 1.698z"></path></svg>
+</button><button type="button" aria-label="focus" class="ap-input-icon ap-icon-pin"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 20"><path d="M7 0C3.13 0 0 3.13 0 7c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5C5.62 9.5 4.5 8.38 4.5 7S5.62 4.5 7 4.5 9.5 5.62 9.5 7 8.38 9.5 7 9.5z"></path></svg>
+</button></span>
+            </div>
+            <div class="find">
+              <input type="submit" name="commit" value="Find" class="form-control go-button-home" data-disable-with="Find">
+            </div>
+          </div>
+</form>      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="recent neutral-text">
+    <h3>Recent locations</h3>
+  </div>
+  <div class="card-grid justify-content-center">
+      <div class="card-resto">
+        <a class="card-resto" href="https://brusselskitchen.herokuapp.com/places/26"><img src="./Brussels&#39; Kitchen_files/ot0ndd1hhbul095tkizo.jpg"></a>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><a class="text-dark" href="https://brusselskitchen.herokuapp.com/places/26">Beli</a></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p>lebanese cuisine</p>
+        </div>
+        <div class="card-resto-content">
+          <p>11 Rue Joseph Stevens<br> 1000 Bruxelles</p>
+              <span>Wine Bar</span>
+        </div>
+      </div>
+      <div class="card-resto">
+        <a class="card-resto" href="https://brusselskitchen.herokuapp.com/places/25"><img src="./Brussels&#39; Kitchen_files/szdnveihfs9fkhcrxnjy.jpg"></a>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><a class="text-dark" href="https://brusselskitchen.herokuapp.com/places/25">Brut</a></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p>fine organic food</p>
+        </div>
+        <div class="card-resto-content">
+          <p>49 Rue Antoine Labarre<br> 1050 Bruxelles</p>
+              <span>Restaurant</span>
+        </div>
+      </div>
+      <div class="card-resto">
+        <a class="card-resto" href="https://brusselskitchen.herokuapp.com/places/24"><img src="./Brussels&#39; Kitchen_files/ou0ifxihvksvg055jjlc.jpg"></a>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><a class="text-dark" href="https://brusselskitchen.herokuapp.com/places/24">Martine</a></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p>lunch and brunch</p>
+        </div>
+        <div class="card-resto-content">
+          <p>80 Chaussée de Charleroi<br> 1060 Bruxelles</p>
+              <span>Restaurant,</span>
+              <span>Néo-cantine</span>
+        </div>
+      </div>
+      <div class="card-resto">
+        <a class="card-resto" href="https://brusselskitchen.herokuapp.com/places/23"><img src="./Brussels&#39; Kitchen_files/n3kc8btqbzyqd7uufiq1.jpg"></a>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><a class="text-dark" href="https://brusselskitchen.herokuapp.com/places/23">St Kilda</a></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p>sharing tasting menu</p>
+        </div>
+        <div class="card-resto-content">
+          <p>44 Avenue Coghen<br> 1180 Bruxelles</p>
+              <span>Restaurant,</span>
+              <span>Bar,</span>
+              <span>Wine Bar</span>
+        </div>
+      </div>
+      <div class="card-resto">
+        <a class="card-resto" href="https://brusselskitchen.herokuapp.com/places/22"><img src="./Brussels&#39; Kitchen_files/fy1kf5c1pyybmhzwcaa0.jpg"></a>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><a class="text-dark" href="https://brusselskitchen.herokuapp.com/places/22">Old Boy</a></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p>bistrot asiatique</p>
+        </div>
+        <div class="card-resto-content">
+          <p>110 Rue de Tenbosch<br> 1050 Bruxelles</p>
+              <span>Restaurant,</span>
+              <span>Néo-cantine</span>
+        </div>
+      </div>
+      <div class="card-resto">
+        <a class="card-resto" href="https://brusselskitchen.herokuapp.com/places/21"><img src="./Brussels&#39; Kitchen_files/um9fgvwg9r5jgylm6yig.jpg"></a>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><a class="text-dark" href="https://brusselskitchen.herokuapp.com/places/21">Al Bacio</a></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p>pizzeria</p>
+        </div>
+        <div class="card-resto-content">
+          <p>119 Rue Américaine<br> 1050 Bruxelles</p>
+              <span>Néo-cantine,</span>
+              <span>Bar</span>
+        </div>
+      </div>
+      <div class="card-resto">
+        <a class="card-resto" href="https://brusselskitchen.herokuapp.com/places/20"><img src="./Brussels&#39; Kitchen_files/lxg7iqjstmvweq3l9odg.jpg"></a>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><a class="text-dark" href="https://brusselskitchen.herokuapp.com/places/20">Ethylo</a></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p>cocktail bar</p>
+        </div>
+        <div class="card-resto-content">
+          <p>2 Rue Josse Impens<br> 1030 Bruxelles</p>
+              <span>Wine Bar</span>
+        </div>
+      </div>
+      <div class="card-resto">
+        <a class="card-resto" href="https://brusselskitchen.herokuapp.com/places/19"><img src="./Brussels&#39; Kitchen_files/i6alft0bs0whnld00y6m.jpg"></a>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><a class="text-dark" href="https://brusselskitchen.herokuapp.com/places/19">Monk</a></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p>authentic belgian bar</p>
+        </div>
+        <div class="card-resto-content">
+          <p>42 Rue Sainte-Catherine<br> 1000 Bruxelles</p>
+              <span>Bar</span>
+        </div>
+      </div>
+      <div class="card-resto">
+        <a class="card-resto" href="https://brusselskitchen.herokuapp.com/places/18"><img src="./Brussels&#39; Kitchen_files/keyervphr0ufvnwlqmmx.jpg"></a>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><a class="text-dark" href="https://brusselskitchen.herokuapp.com/places/18">Titulus</a></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p>wine bar &amp; wine shop</p>
+        </div>
+        <div class="card-resto-content">
+          <p>167A Chaussée de Wavre<br> 1050 Bruxelles</p>
+              <span>Café</span>
+        </div>
+      </div>
+      <div class="card-resto">
+        <a class="card-resto" href="https://brusselskitchen.herokuapp.com/places/17"><img src="./Brussels&#39; Kitchen_files/p1wel1jm4i97mu9w9fvz.jpg"></a>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><a class="text-dark" href="https://brusselskitchen.herokuapp.com/places/17">Le Fabiola</a></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p>wine bar</p>
+        </div>
+        <div class="card-resto-content">
+          <p>52 Rue Lesbroussart<br> 1050 Bruxelles</p>
+              <span>Néo-cantine,</span>
+              <span>Café</span>
+        </div>
+      </div>
+      <div class="card-resto">
+        <a class="card-resto" href="https://brusselskitchen.herokuapp.com/places/16"><img src="./Brussels&#39; Kitchen_files/gmjdmnm5ur443ip5m0ia.jpg"></a>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><a class="text-dark" href="https://brusselskitchen.herokuapp.com/places/16">Petit Mercado</a></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p>grocery store, wine bar, lunch spot</p>
+        </div>
+        <div class="card-resto-content">
+          <p>82 Rue de l'Hôtel des Monnaies<br> 1060 Bruxelles</p>
+              <span>Néo-cantine,</span>
+              <span>Café,</span>
+              <span>Wine Bar</span>
+        </div>
+      </div>
+      <div class="card-resto">
+        <a class="card-resto" href="https://brusselskitchen.herokuapp.com/places/15"><img src="./Brussels&#39; Kitchen_files/bvaqtlegmtbtfsjhfekj.jpg"></a>
+        <div class="card-resto-infos" style="text-decoration: none;">
+          <h2><a class="text-dark" href="https://brusselskitchen.herokuapp.com/places/15">Vini Divini</a></h2>
+        </div>
+        <div class="card-resto-subtitle">
+          <p>italian enoteca</p>
+        </div>
+        <div class="card-resto-content">
+          <p>28 Rue du Berger<br> 1050 Bruxelles</p>
+              <span>Restaurant,</span>
+              <span>Café</span>
+        </div>
+      </div>
+  </div>
+  <div class="button mb-5">
+    <h5><a href="https://brusselskitchen.herokuapp.com/places">See more</a></h5>
+  </div>
+</div>
+<div class="brunch-club">
+  <h3>Le Brunch Club</h3>
+  <div>
+    <a class="brunch-club-img" href="https://brusselskitchen.herokuapp.com/events/10"><img src="./Brussels&#39; Kitchen_files/brunchclub_home-25115f5319f36594c085277aa8f157a9aabbc7fae26b00cda420d418967c8fcf.jpg"></a>
+  </div>
+  <div class="button">
+    <h5><a href="https://brusselskitchen.herokuapp.com/events/10">More info</a></h5>
+  </div>
+</div>
+<div class="newsletter">
+  <h4>Subscribe to our newsletter</h4>
+  <div class="email"></div>
+  <div class="go">
+    <h4>go</h4>
+  </div>
+</div>
+
+<div class="events">
+  <h3>Brussels' Kitchen's Events</h3>
+  <div class="flex-events">
+      <div>
+        <a href="https://brusselskitchen.herokuapp.com/events/10">Le Brunch Club</a>
+        <a href="https://brusselskitchen.herokuapp.com/events/10"><img src="./Brussels&#39; Kitchen_files/ssayyprsfzo4ub14asug.jpg"></a>
+      </div>
+      <div>
+        <a href="https://brusselskitchen.herokuapp.com/events/9">Viens Chez Moi</a>
+        <a href="https://brusselskitchen.herokuapp.com/events/9"><img src="./Brussels&#39; Kitchen_files/e7euexphnd1rbny0jgoc.jpg"></a>
+      </div>
+  </div>
+  <div class="button">
+    <h5><a href="https://brusselskitchen.herokuapp.com/events">See all</a></h5>
+  </div>
+  <div class="events">
+    <h3>New hotspots to eat out with style</h3>
+    <div>
+      <a class="flex-books" href="https://brusselskitchen.herokuapp.com/books"><img src="./Brussels&#39; Kitchen_files/books-b1478e01e2daae8f7eb6ef51cea2a3dedf7babbd1572643f8dd6b617a2d67341.jpg"></a>
+    </div>
+  <div class="button">
+    <h5><a href="https://brusselskitchen.herokuapp.com/books">Discover our books</a></h5>
+  </div>
+</div>
+
+    </div>
+    <script>
+      let expanded1 = false;
+      let expanded2 = false;
+    </script>
+    <script src="./Brussels&#39; Kitchen_files/application-82f5e8e0832c34ffd94b5534118f61026d8f85e0955c9885895d68493d762527.js"></script>
+    <script src="./Brussels&#39; Kitchen_files/application-fdce10f963ad129e3266.js"></script>
+    <div class="flex-footer" style="background-color: transparent;">
+  <footer>
+    <div class="flex-content py-3">
+      <div class="flex-description">
+        BRUSSELS' KITCHEN
+        <p class="mb-0">Belgian blog for food hotspots. Restaurants, wine bars, tea rooms, markets, organic eateries, etc in Brussels. Georgeous places for the eyes, amazing food for the taste, and new experiences just for pleasure. Culinary events &amp; experiences. Charming hotels and rooms in Brussels.</p>
+      </div>
+    </div>
+    <div class="flex-bluebox py-5" style="font-family: &#39;Open Sans&#39;, sans-serif;">
+      <div class="flex-center">
+        <div class="flex-footer-group-address col-4">
+          <ul class="footer-list" style="list-style: none;">
+            <li><a href="https://brusselskitchen.herokuapp.com/">All Adresses</a></li>
+            <li><a href="https://brusselskitchen.herokuapp.com/">Restaurants</a></li>
+            <li><a href="https://brusselskitchen.herokuapp.com/">Bars</a></li>
+            <li><a href="https://brusselskitchen.herokuapp.com/">Cantines</a></li>
+            <li><a href="https://brusselskitchen.herokuapp.com/">Cafés</a></li>
+            <li><a href="https://brusselskitchen.herokuapp.com/">Brunchs</a></li>
+          </ul>
+        </div>
+        <div class="flex-footer-group-bookings col-4">
+          <ul class="footer-list" style="list-style: none;">
+            <li><a href="https://brusselskitchen.herokuapp.com/events">All events</a></li>
+            <li><a href="https://brusselskitchen.herokuapp.com/">Le Brunch Club</a></li>
+            <li><a href="https://brusselskitchen.herokuapp.com/">Eatcolor 2013</a></li>
+            <li><a href="https://brusselskitchen.herokuapp.com/">Eatcolor 2017</a></li>
+          </ul>
+        </div>
+        <div class="flex-footer-group-social col-2">
+          <ul class="footer-social" style="list-style: none;">
+            <li><a href="https://www.facebook.com/pages/Brussels-Kitchen"><i class="fab fa-facebook-square"></i></a></li>
+            <li><a href="http://twitter.com/BrusselsKitchen"><i class="fab fa-twitter-square"></i></a></li>
+            <li><a href="https://www.instagram.com/brusselskitchen/"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex-rights">
+      <h5><light>© 2019 BIM. All rights reserved.</light></h5>
+      </div>
+    </div>
+  </footer>
+</div>
+
+  
+
+</div></body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>
