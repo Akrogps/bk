@@ -42,6 +42,7 @@ class PlacesController < ApplicationController
 
     @places = @places_list.reject { |place| place.latitude.nil? }.sort_by { |place| place.created_at }.reverse
 
+    set_current_time
     check_if_open_now
     check_if_closed_soon
 
@@ -121,12 +122,15 @@ class PlacesController < ApplicationController
     @params_hash["sunday_night"] = params[:query]["sunday_night"]
   end
 
-  def check_if_open_now
-    @open_now_hash = {}
+  def set_current_time
     @current_day = Date.today.wday
     @current_hour = Time.now.strftime("%H").to_i
     @current_minute = Time.now.strftime("%M").to_i / 60.0
     @current_time = @current_hour + @current_minute
+  end
+
+  def check_if_open_now
+    @open_now_hash = {}
 
     @places.each do |place|
       if place.opening_hours.where(day_of_week: @current_day)[0]
